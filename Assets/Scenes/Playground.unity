@@ -2739,7 +2739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  destroyRange: 4
+  destroyRange: 0.1
 --- !u!1001 &1396543967
 PrefabInstance:
   m_ObjectHideFlags: 0
