@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3213326812797912626}
   - component: {fileID: 8531390150962325745}
   - component: {fileID: 8118083008570351117}
+  - component: {fileID: 5692034712279254787}
   m_Layer: 0
   m_Name: CubePrefab
-  m_TagString: Untagged
+  m_TagString: DestroyableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +136,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5692034712279254787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122465855542521798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f88f627252abc245b50e22da2fc5333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDestructionEffect: 1
+  destructionEffectPrefab: {fileID: 0}
+  effectDuration: 1
 --- !u!1 &8595912011965371563
 GameObject:
   m_ObjectHideFlags: 0
