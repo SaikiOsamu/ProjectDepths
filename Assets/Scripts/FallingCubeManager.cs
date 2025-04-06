@@ -5,8 +5,8 @@ public class FallingCube : MonoBehaviour
 
     public GameObject FallingObject;
 
-    float initial_X = -0.6870681f;
-    float initial_Y = 9.5f;
+    float initial_X = -0.6370673f;
+    float initial_Y = 6.5f;
     public float spawnRate;
     float spawnTimer;
 
@@ -24,7 +24,7 @@ public class FallingCube : MonoBehaviour
         {
             GameObject falling = GameObject.Instantiate(FallingObject, transform);
             int i = Random.Range(0, 8);
-            falling.transform.localPosition = new Vector2(initial_X + i, initial_Y);
+            falling.transform.localPosition = new Vector3(initial_X + i, initial_Y, 0);
             spawnTimer = 0;
         }
     }

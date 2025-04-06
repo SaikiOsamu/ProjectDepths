@@ -421,21 +421,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7e88f8ff8e8af8ff8470f9ff46a8fdff0cfbffffa6ae0000
+      m_ExpandedIDs: 961efeffb837feff6c39feff2a93ffffce97ffffde97ffff0e98ffff0cfbffffa8ae0000c0ae0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Ceiling
-        m_OriginalName: Ceiling
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 44672
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -1039,9 +1039,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -145.90733, y: -4.459231, z: -2.280823}
+    m_Target: {x: -0.5675095, y: 0.43209946, z: -1.9215174}
     speed: 2
-    m_Value: {x: -138.4667, y: -4.878028, z: -2.180871}
+    m_Value: {x: -0.5675095, y: 0.43209946, z: -1.9215174}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1091,9 +1091,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 232.11266
+    m_Target: 10.74151
     speed: 2
-    m_Value: 222.11737
+    m_Value: 10.74151
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1174,7 +1174,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefab
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1184,16 +1184,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefab
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\User\Desktop\Spring2025\LDGJ\ProjectDepths
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f8b00000
-    m_LastClickedID: 45304
-    m_ExpandedIDs: 000000001caf000000ca9a3b
+    m_SelectedIDs: 1eb10000
+    m_LastClickedID: 45342
+    m_ExpandedIDs: 0000000048af000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1222,7 +1222,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001caf0000
+    m_ExpandedIDs: 0000000048af0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1254,18 +1254,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300007eb00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Prefab
+      m_OriginalName: Prefab
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 45342
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 10}

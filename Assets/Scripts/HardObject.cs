@@ -14,6 +14,7 @@ public class HardObject : MonoBehaviour
 
     public void Update()
     {
+        moveSpeed = GameManager.instance.moveSpeed;
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
         if (transform.position.y > 11f)
             Destroy(gameObject);
