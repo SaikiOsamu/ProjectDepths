@@ -13,13 +13,13 @@ public class DestroyableObject : MonoBehaviour
 
     public void Start()
     {
-        moveSpeed = GameManager.instance.objMoveSpeed;
+        moveSpeed = GameManager.instance.moveSpeed;
     }
 
     public void Update()
     {
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        if (transform.position.y > 12f)
+        if (transform.position.y > 11f)
             Destroy(gameObject);
     }
 
