@@ -26,10 +26,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         // Handle movement input
         HandleMovement();
+    }
+
+    void Update()
+    {
 
         // Handle destroy input
         HandleDestroyInput();
@@ -50,8 +54,8 @@ public class PlayerController : MonoBehaviour
             horizontalInput = 1f;
         }
 
-        // Move the player horizontally
-        Vector2 movement = new Vector2(horizontalInput * moveSpeed, 0f);
+        // Apply movement using velocity (not linearVelocity)
+        Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y); // Preserve the vertical velocity
         rb.linearVelocity = movement;
     }
 

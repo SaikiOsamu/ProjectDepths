@@ -9,6 +9,21 @@ public class DestroyableObject : MonoBehaviour
     [SerializeField] private GameObject destructionEffectPrefab;
     [SerializeField] private float effectDuration = 1f;
 
+    float moveSpeed;
+
+    public void Start()
+    {
+        moveSpeed = GameManager.instance.objMoveSpeed;
+    }
+
+    public void Update()
+    {
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+        if (transform.position.y > 12f)
+            Destroy(gameObject);
+    }
+
+
     void OnDestroy()
     {
         // Only create the destruction effect if the game is running
