@@ -19,10 +19,22 @@ public class PlayerController : MonoBehaviour
 
         // If there's no Rigidbody2D attached, add one
         if (rb == null)
-        {
+        {   
             rb = gameObject.AddComponent<Rigidbody2D>();
             rb.gravityScale = 0f; // Disable gravity for top-down movement
             rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent rotation
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ceiling")){
+            Debug.Log("Player Dead, game over.");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
     }
 

@@ -63,11 +63,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ScrollingBackground.cs" />
     <Compile Include="Assets\Scripts\CubeManager.cs" />
+    <Compile Include="Assets\Scripts\BottomLine.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\HardObject.cs" />
     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\FallingCubeManager.cs" />
     <Compile Include="Assets\Scripts\CreditsController.cs" />
   </ItemGroup>
   <ItemGroup>
