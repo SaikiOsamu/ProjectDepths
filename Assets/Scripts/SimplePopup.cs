@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class SimplePopup : MonoBehaviour
 {
@@ -9,7 +10,16 @@ public class SimplePopup : MonoBehaviour
     [SerializeField] private RectTransform popupRect;
     [SerializeField] private float animationDuration = 0.3f;
 
+    [Header("Popup Behavior")]
+    [SerializeField] private bool canBeDragged = true;
+    [SerializeField] private float autoCloseTime = 0f; // Set to 0 to disable auto-close
+
+    // Event that fires when the popup is closed
+    public event Action OnPopupClosed;
+
     private CanvasGroup canvasGroup;
+    private bool isDragging = false;
+    private Vector2 dragOffset;
 
     void Awake()
     {
@@ -53,6 +63,18 @@ public class SimplePopup : MonoBehaviour
         // Ensure we end at exactly the target values
         popupRect.localScale = Vector3.one;
         canvasGroup.alpha = 1f;
+
+        // If auto-close is enabled, start the timer
+        if (autoCloseTime > 0)
+        {
+            StartCoroutine(AutoCloseRoutine());
+        }
+    }
+
+    private IEnumerator AutoCloseRoutine()
+    {
+        yield return new WaitForSeconds(autoCloseTime);
+        ClosePopup();
     }
 
     // Close the popup with an animation
@@ -81,8 +103,32 @@ public class SimplePopup : MonoBehaviour
             yield return null;
         }
 
+        // Invoke the closed event before destroying the object
+        OnPopupClosed?.Invoke();
+
         // Destroy the popup when animation is complete
         Destroy(gameObject);
+    }
+
+    // Dragging functionality
+    public void OnBeginDrag()
+    {
+        if (!canBeDragged) return;
+
+        isDragging = true;
+        dragOffset = popupRect.anchoredPosition - (Vector2)Input.mousePosition;
+    }
+
+    public void OnDrag()
+    {
+        if (!isDragging) return;
+
+        popupRect.anchoredPosition = (Vector2)Input.mousePosition + dragOffset;
+    }
+
+    public void OnEndDrag()
+    {
+        isDragging = false;
     }
 
     void OnDestroy()

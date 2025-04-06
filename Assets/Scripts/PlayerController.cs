@@ -10,20 +10,31 @@ public class PlayerController : MonoBehaviour
     [Header("Destroy Range")]
     [SerializeField] private float destroyRange = 1f;
 
+    [Header("Animation")]
+    private Animator animator;
+
+    // Animation parameter names
+    private const string HORIZONTAL_MOVEMENT = "HorizontalMovement";
+    private const string IS_MOVING = "IsMoving";
+
     private Rigidbody2D rb;
+
+    // Variables to track key press timing
+    private float lastAKeyPressTime = 0f;
+    private float lastDKeyPressTime = 0f;
 
     void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject
         rb = GetComponent<Rigidbody2D>();
 
-        // If there's no Rigidbody2D attached, add one
-        if (rb == null)
-        {
-            rb = gameObject.AddComponent<Rigidbody2D>();
-            rb.gravityScale = 0f; // Disable gravity for top-down movement
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent rotation
-        }
+        // Always ensure rotation is frozen
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        // Check for existing collider and replace if necessary
+        Collider2D existingCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -35,24 +46,58 @@ public class PlayerController : MonoBehaviour
         HandleDestroyInput();
     }
 
+
+
     void HandleMovement()
     {
         float horizontalInput = 0f;
 
-        // Check for A key (left)
-        if (Input.GetKey(KeyCode.A))
+        // Check key states and update press times
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            horizontalInput = -1f;
+            lastAKeyPressTime = Time.time;
         }
-        // Check for D key (right)
-        else if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            horizontalInput = 1f;
+            lastDKeyPressTime = Time.time;
+        }
+
+        // Determine direction based on most recently pressed key that is still held
+        bool isAHeld = Input.GetKey(KeyCode.A);
+        bool isDHeld = Input.GetKey(KeyCode.D);
+
+        if (isAHeld && isDHeld)
+        {
+            // Both keys are pressed, use the one pressed more recently
+            if (lastDKeyPressTime > lastAKeyPressTime)
+            {
+                horizontalInput = 1f; // Move right
+            }
+            else
+            {
+                horizontalInput = -1f; // Move left
+            }
+        }
+        else if (isAHeld)
+        {
+            horizontalInput = -1f; // Move left
+        }
+        else if (isDHeld)
+        {
+            horizontalInput = 1f; // Move right
         }
 
         // Move the player horizontally
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, 0f);
         rb.linearVelocity = movement;
+
+        // Update animation parameters
+        if (animator != null)
+        {
+            animator.SetFloat(HORIZONTAL_MOVEMENT, horizontalInput);
+            animator.SetBool(IS_MOVING, horizontalInput != 0);
+        }
     }
 
     void HandleDestroyInput()
