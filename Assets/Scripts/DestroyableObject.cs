@@ -13,7 +13,7 @@ public class DestroyableObject : MonoBehaviour
 
     public void Start()
     {
-        moveSpeed = GameManager.instance.objMoveSpeed;
+       // moveSpeed = GameManager.instance.objMoveSpeed;
     }
 
     public void Update()
