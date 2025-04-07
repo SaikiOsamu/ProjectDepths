@@ -15,8 +15,22 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
 
+    // Sound
+    [SerializeField] string hoverOverSound = "ButtonHover";
+    [SerializeField] string clickButtonSound = "ButtonClick";
+
+    AudioManager audioManager;
+
     private void Start()
     {
+        
+        // audio instance
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
         // Ensure the pause menu is hidden at start
         if (pauseMenuPanel != null)
         {
@@ -33,6 +47,12 @@ public class PauseManager : MonoBehaviour
         {
             mainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
+    }
+
+    // Play sound when mouse hovering UI 
+    public void OnMouseOver()
+    {
+        audioManager.PlaySound(hoverOverSound);
     }
 
     private void Update()
@@ -73,6 +93,10 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+
+        // Play Click sound
+        audioManager.PlaySound(clickButtonSound);
+
         // Set the time scale back to 1 to resume normal time flow
         Time.timeScale = 1f;
         isPaused = false;
@@ -88,6 +112,10 @@ public class PauseManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+
+        // Play Click sound
+        audioManager.PlaySound(clickButtonSound);
+
         // Make sure to reset time scale before changing scenes
         Time.timeScale = 1f;
         isPaused = false;
