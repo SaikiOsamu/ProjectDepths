@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     // Modify your OnTriggerEnter2D method
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ceiling") && !isDead)
+        if ((collision.CompareTag("Ceiling") || collision.CompareTag("Falling")) && !isDead)
         {
             TriggerDeath();
         }
@@ -91,6 +91,10 @@ public class PlayerController : MonoBehaviour
             // Freeze everything except the player's animation
             // Set timescale to 0 to freeze all other objects
             Time.timeScale = 0f;
+
+            // ADDED: Freeze the cursor by hiding and locking it
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
             // Play death animation
             if (animator != null)
@@ -116,12 +120,21 @@ public class PlayerController : MonoBehaviour
         // since Time.timeScale is set to 0
         yield return new WaitForSecondsRealtime(deathAnimationDuration);
 
+        // ADDED: Unfreeze the cursor after animation completes
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         // Show the game over panel
         ShowGameOver();
     }
 
     private void ShowGameOver()
     {
+        // ADDED: Additional safety check to ensure cursor is unfrozen
+        // when the game over screen is shown
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         // Show game over panel
         if (gameOverManager != null)
         {
@@ -131,7 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("GameOverManager reference is missing!");
         }
-    }
+    }a
 
     void HandleAttackInput()
     {

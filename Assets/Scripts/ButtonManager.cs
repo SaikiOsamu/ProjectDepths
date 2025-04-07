@@ -12,14 +12,26 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI SecondDigit;
     [SerializeField] TextMeshProUGUI ThirdDigit;
 
+    [SerializeField] private float codeTimeLimit = 5f; // Time limit in seconds to input the code
+
     private string targetCode = "";
     private string playerInput = "";
+    private int currentDigitPosition = 0; // Track which digit we're currently inputting
+    private Coroutine timeoutCoroutine; // Reference to track the timeout coroutine
+    private Coroutine randomTriggerCoroutine; // Reference to track the random trigger coroutine
+    private bool isCodeActive = false; // Flag to indicate if a code is currently active
+    private bool isProcessingResult = false; // Flag to prevent input during result animation
+
+    // Colors for feedback
+    private Color correctColor = Color.green;
+    private Color incorrectColor = Color.red;
+    private Color defaultColor = Color.white;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LoadText.text = "LOADING...";
-        LoadText.color = Color.white;
+        LoadText.color = defaultColor;
         FirstDigit.text = SecondDigit.text = ThirdDigit.text = "";
 
         for (int i = 0; i < buttons.Length; i++)
@@ -28,106 +40,249 @@ public class ButtonManager : MonoBehaviour
             buttons[i].onClick.AddListener(() => OnDigitPressed(digit));
         }
 
-        StartCoroutine(RandomTrigger());
+        // Start the random trigger coroutine
+        randomTriggerCoroutine = StartCoroutine(RandomTrigger());
     }
 
     IEnumerator RandomTrigger()
     {
         while (true)
         {
-            float waitTime = Random.Range(5f, 10f);
-            yield return new WaitForSeconds(waitTime);
-            StartCoroutine(TriggerPasswordEvent());
+            if (!isCodeActive && !isProcessingResult) // Only generate a new code if no code is active and not processing
+            {
+                float waitTime = Random.Range(5f, 10f);
+                yield return new WaitForSeconds(waitTime);
+
+                // Double check before triggering a new code
+                if (!isCodeActive && !isProcessingResult)
+                {
+                    StartCoroutine(TriggerPasswordEvent());
+                }
+            }
+            else
+            {
+                // If a code is active or result is processing, just check again shortly
+                yield return new WaitForSeconds(0.5f);
+            }
         }
     }
+
     IEnumerator TriggerPasswordEvent()
     {
+        // Set the flag to indicate a code is active
+        isCodeActive = true;
+        isProcessingResult = false;
+
         playerInput = "";
         targetCode = "";
-        FirstDigit.color = SecondDigit.color = ThirdDigit.color = Color.white;
+        currentDigitPosition = 0; // Reset digit position
+        FirstDigit.color = SecondDigit.color = ThirdDigit.color = defaultColor;
 
         for (int i = 0; i < 3; i++)
         {
             int digit = Random.Range(0, 10);
             targetCode += digit.ToString();
-            
+
             if (i == 0) FirstDigit.text = digit.ToString();
             else if (i == 1) SecondDigit.text = digit.ToString();
             else ThirdDigit.text = digit.ToString();
         }
 
         LoadText.text = "";
+
+        // Start the timeout countdown
+        if (timeoutCoroutine != null)
+        {
+            StopCoroutine(timeoutCoroutine);
+        }
+        timeoutCoroutine = StartCoroutine(CodeTimeout());
+
         yield break;
+    }
+
+    // Coroutine for timing out if player doesn't complete the code
+    IEnumerator CodeTimeout()
+    {
+        yield return new WaitForSeconds(codeTimeLimit);
+
+        // Only expire if code entry hasn't been completed or failed yet
+        if (isCodeActive && !isProcessingResult && targetCode != "" && currentDigitPosition < 3)
+        {
+            // Immediately mark as processing result to prevent further input
+            isProcessingResult = true;
+            isCodeActive = false;
+
+            StartCoroutine(ExpiredInput());
+        }
     }
 
     void OnDigitPressed(int digit)
     {
-        if (targetCode == "") return;
+        // Prevent input if: code not active, processing result, or no target code
+        if (targetCode == "" || !isCodeActive || isProcessingResult)
+            return;
 
-        playerInput += digit.ToString();
+        // Get the expected digit at the current position
+        char expectedDigit = targetCode[currentDigitPosition];
+        bool isCorrect = (digit.ToString() == expectedDigit.ToString());
 
-        if (playerInput.Length == 3)
+        if (isCorrect)
         {
-            if (playerInput == targetCode)
+            // Update the color of the current digit text to green
+            if (currentDigitPosition == 0)
+                FirstDigit.color = correctColor;
+            else if (currentDigitPosition == 1)
+                SecondDigit.color = correctColor;
+            else if (currentDigitPosition == 2)
+                ThirdDigit.color = correctColor;
+
+            // Add the digit to player input
+            playerInput += digit.ToString();
+
+            // Move to the next digit
+            currentDigitPosition++;
+
+            // Check if the complete code has been entered correctly
+            if (currentDigitPosition == 3)
             {
+                // Set flags to prevent further input
+                isProcessingResult = true;
+                isCodeActive = false;
+
+                // Stop the timeout coroutine since we completed the code
+                if (timeoutCoroutine != null)
+                {
+                    StopCoroutine(timeoutCoroutine);
+                    timeoutCoroutine = null;
+                }
+
                 StartCoroutine(CorrectInput());
             }
-            else
+        }
+        else
+        {
+            // Handle wrong input at the current digit position
+            playerInput += digit.ToString(); // Still record what they pressed
+
+            // Set flags to prevent further input
+            isProcessingResult = true;
+            isCodeActive = false;
+
+            // Update the color of the current digit text to red
+            if (currentDigitPosition == 0)
+                FirstDigit.color = incorrectColor;
+            else if (currentDigitPosition == 1)
+                SecondDigit.color = incorrectColor;
+            else if (currentDigitPosition == 2)
+                ThirdDigit.color = incorrectColor;
+
+            // Stop the timeout coroutine since we failed
+            if (timeoutCoroutine != null)
             {
-                StartCoroutine(WrongInput());
+                StopCoroutine(timeoutCoroutine);
+                timeoutCoroutine = null;
             }
+
+            // Trigger wrong input sequence
+            StartCoroutine(WrongInput());
         }
     }
 
     IEnumerator CorrectInput()
     {
         GameManager.instance.GainScore(100);
-        Color green = Color.green;
 
         for (int i = 0; i < 4; i++)
         {
-            FirstDigit.color = SecondDigit.color = ThirdDigit.color = green;
+            FirstDigit.color = SecondDigit.color = ThirdDigit.color = correctColor;
             yield return new WaitForSeconds(0.2f);
             FirstDigit.color = SecondDigit.color = ThirdDigit.color = Color.clear;
             yield return new WaitForSeconds(0.2f);
         }
-        LoadText.color = green;
+
+        LoadText.color = correctColor;
         LoadText.text = "CORRECT!";
         yield return new WaitForSeconds(2f);
-        LoadText.color = Color.white;
-        LoadText.text = "LOADING...";
-        FirstDigit.text = SecondDigit.text = ThirdDigit.text = "";
-        targetCode = "";
-        playerInput = "";
-        yield return null;
+        ResetCodeState();
     }
 
     IEnumerator WrongInput()
     {
         GameManager.instance.GainScore(-50);
         GameManager.instance.Punish();
-        Color red = Color.red;
 
         for (int i = 0; i < 4; i++)
         {
-            FirstDigit.color = SecondDigit.color = ThirdDigit.color = red;
+            FirstDigit.color = SecondDigit.color = ThirdDigit.color = incorrectColor;
             yield return new WaitForSeconds(0.2f);
             FirstDigit.color = SecondDigit.color = ThirdDigit.color = Color.clear;
             yield return new WaitForSeconds(0.2f);
         }
-        LoadText.color = red;
+
+        LoadText.color = incorrectColor;
         LoadText.text = "FAIL";
         yield return new WaitForSeconds(2f);
-        FirstDigit.text = SecondDigit.text = ThirdDigit.text = "";
-        LoadText.color = Color.white;
+        ResetCodeState();
+    }
+
+    IEnumerator ExpiredInput()
+    {
+        GameManager.instance.GainScore(-50); // Same penalty as wrong input
+        GameManager.instance.Punish();
+
+        for (int i = 0; i < 4; i++)
+        {
+            FirstDigit.color = SecondDigit.color = ThirdDigit.color = incorrectColor;
+            yield return new WaitForSeconds(0.2f);
+            FirstDigit.color = SecondDigit.color = ThirdDigit.color = Color.clear;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        LoadText.color = incorrectColor;
+        LoadText.text = "EXPIRED"; // Different message for timeout
+        yield return new WaitForSeconds(2f);
+        ResetCodeState();
+    }
+
+    // Helper method to reset all code-related state
+    private void ResetCodeState()
+    {
+        LoadText.color = defaultColor;
         LoadText.text = "LOADING...";
+        FirstDigit.text = SecondDigit.text = ThirdDigit.text = "";
         targetCode = "";
         playerInput = "";
+        currentDigitPosition = 0;
+
+        // Ensure timeout coroutine is stopped
+        if (timeoutCoroutine != null)
+        {
+            StopCoroutine(timeoutCoroutine);
+            timeoutCoroutine = null;
+        }
+
+        // Reset the code active flag, allowing new codes to be generated
+        isCodeActive = false;
+        isProcessingResult = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void OnDestroy()
+    {
+        // Clean up any active coroutines when this object is destroyed
+        if (timeoutCoroutine != null)
+        {
+            StopCoroutine(timeoutCoroutine);
+        }
+
+        if (randomTriggerCoroutine != null)
+        {
+            StopCoroutine(randomTriggerCoroutine);
+        }
     }
 }
