@@ -497,12 +497,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10f8864ab677fe44abf4c8054d0ddf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: MainScene
+  gameSceneName: Playground
   creditsSceneName: Credits
   fadeTime: 1
   useTransitionEffect: 1
-  hoverOverSound: ButtonHover
-  clickButtonSound: ButtonClick
 --- !u!4 &503949599
 Transform:
   m_ObjectHideFlags: 0

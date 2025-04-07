@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     [Header("Scene Names")]
-    [SerializeField] private string gameSceneName = "MainScene"; // Name of your gameplay scene
+    [SerializeField] private string gameSceneName = "Playground"; // Name of your gameplay scene
     [SerializeField] private string creditsSceneName = "Credits"; // Name of your credits scene (if you have one)
 
     [Header("Animation Settings (Optional)")]
