@@ -44,6 +44,20 @@ public class PlayerController : MonoBehaviour
         HandleDestroyInput();
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ceiling"))
+        {
+            Debug.Log("Player Dead, game over.");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+    }
+
     void HandleMovement()
     {
         float horizontalInput = 0f;
@@ -84,9 +98,10 @@ public class PlayerController : MonoBehaviour
             horizontalInput = 1f; // Move right
         }
 
-        // Move the player horizontally
-        Vector2 movement = new Vector2(horizontalInput * moveSpeed, 0f);
-        rb.linearVelocity = movement;
+        // Only change the x component of velocity, preserve vertical velocity
+        Vector2 newVelocity = rb.linearVelocity;
+        newVelocity.x = horizontalInput * moveSpeed;
+        rb.linearVelocity = newVelocity;
 
         // Update animation parameters
         if (animator != null)
