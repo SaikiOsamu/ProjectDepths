@@ -31,10 +31,8 @@ public class PlayerController : MonoBehaviour
         // Always ensure rotation is frozen
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        // Check for existing collider and replace if necessary
-        Collider2D existingCollider = GetComponent<Collider2D>();
+        // Get animator component
         animator = GetComponent<Animator>();
-
     }
 
     void Update()
@@ -45,8 +43,6 @@ public class PlayerController : MonoBehaviour
         // Handle destroy input
         HandleDestroyInput();
     }
-
-
 
     void HandleMovement()
     {
@@ -122,53 +118,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // This is a completely different approach that doesn't use raycasts
-    void FindAndDestroyNearestInDirection(Vector2 direction)
-    {
-        // Find all colliders in the scene
-        Collider2D[] allColliders = FindObjectsOfType<Collider2D>();
-
-        // Variables to track closest valid object
-        GameObject closestObject = null;
-        float closestDistance = float.MaxValue;
-
-        foreach (Collider2D collider in allColliders)
-        {
-            // Skip our own collider
-            if (collider.gameObject == gameObject)
-                continue;
-
-            // Skip objects that don't have the DestroyableObject tag
-            if (!collider.CompareTag("DestroyableObject"))
-                continue;
-
-            // Calculate direction to the object
-            Vector2 toObject = collider.transform.position - transform.position;
-
-            // Dot product tells us if the object is in the general direction we want
-            float dot = Vector2.Dot(direction.normalized, toObject.normalized);
-
-            // If dot > 0.7, object is within about 45 degrees of our direction
-            if (dot > 0.7f)
-            {
-                // Check if this is closer than any object we've found so far
-                float distance = toObject.magnitude;
-                if (distance < closestDistance && distance < destroyRange)
-                {
-                    closestObject = collider.gameObject;
-                    closestDistance = distance;
-                }
-            }
-        }
-
-        // If we found a valid object, destroy it
-        if (closestObject != null)
-        {
-            Debug.Log("Found and destroying nearest object in direction " + direction + ": " + closestObject.name);
-            Destroy(closestObject);
-        }
-    }
-
     void DestroyObjectInDirection(Vector2 direction)
     {
         // Get the renderer to find the exact size of the player sprite
@@ -220,8 +169,17 @@ public class PlayerController : MonoBehaviour
             // Check if the hit object has the "DestroyableObject" tag
             if (hit.collider.CompareTag("DestroyableObject"))
             {
-                // Destroy the hit object
-                Destroy(hit.collider.gameObject);
+                // Get the DestroyableObject component and trigger destruction
+                DestroyableObject destroyable = hit.collider.GetComponent<DestroyableObject>();
+                if (destroyable != null)
+                {
+                    destroyable.TriggerDestruction();
+                }
+                else
+                {
+                    // Fallback to direct destruction if the object doesn't have our component
+                    Destroy(hit.collider.gameObject);
+                }
                 Debug.Log("Destroyed object: " + hit.collider.gameObject.name);
                 return; // Added return here to ensure no further destroy methods are called
             }
@@ -244,10 +202,81 @@ public class PlayerController : MonoBehaviour
 
                 if (sphereHit.collider.CompareTag("DestroyableObject"))
                 {
-                    Destroy(sphereHit.collider.gameObject);
+                    // Get the DestroyableObject component and trigger destruction
+                    DestroyableObject destroyable = sphereHit.collider.GetComponent<DestroyableObject>();
+                    if (destroyable != null)
+                    {
+                        destroyable.TriggerDestruction();
+                    }
+                    else
+                    {
+                        // Fallback to direct destruction if the object doesn't have our component
+                        Destroy(sphereHit.collider.gameObject);
+                    }
                     Debug.Log("Destroyed object using CircleCast: " + sphereHit.collider.gameObject.name);
                     return; // Added return here to ensure no further destroy methods are called
                 }
+            }
+        }
+
+        // If we got here, try the backup method
+        FindAndDestroyNearestInDirection(direction);
+    }
+
+    // This is a completely different approach that doesn't use raycasts
+    void FindAndDestroyNearestInDirection(Vector2 direction)
+    {
+        // Find all colliders in the scene
+        Collider2D[] allColliders = FindObjectsOfType<Collider2D>();
+
+        // Variables to track closest valid object
+        GameObject closestObject = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (Collider2D collider in allColliders)
+        {
+            // Skip our own collider
+            if (collider.gameObject == gameObject)
+                continue;
+
+            // Skip objects that don't have the DestroyableObject tag
+            if (!collider.CompareTag("DestroyableObject"))
+                continue;
+
+            // Calculate direction to the object
+            Vector2 toObject = collider.transform.position - transform.position;
+
+            // Dot product tells us if the object is in the general direction we want
+            float dot = Vector2.Dot(direction.normalized, toObject.normalized);
+
+            // If dot > 0.7, object is within about 45 degrees of our direction
+            if (dot > 0.7f)
+            {
+                // Check if this is closer than any object we've found so far
+                float distance = toObject.magnitude;
+                if (distance < closestDistance && distance < destroyRange)
+                {
+                    closestObject = collider.gameObject;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        // If we found a valid object, destroy it
+        if (closestObject != null)
+        {
+            Debug.Log("Found and destroying nearest object in direction " + direction + ": " + closestObject.name);
+
+            // Get the DestroyableObject component and trigger destruction
+            DestroyableObject destroyable = closestObject.GetComponent<DestroyableObject>();
+            if (destroyable != null)
+            {
+                destroyable.TriggerDestruction();
+            }
+            else
+            {
+                // Fallback to direct destruction if the object doesn't have our component
+                Destroy(closestObject);
             }
         }
     }

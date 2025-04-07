@@ -292,8 +292,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -415, y: -237.49997}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -440, y: -264.58328}
+  m_SizeDelta: {x: 1940, y: 1058.3334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2323676978386351209
 CanvasRenderer:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.38069597, g: 0.5566038, b: 0.54514986, a: 0.28235295}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -435,3 +435,5 @@ MonoBehaviour:
   closeButton: {fileID: 5154152158353178521}
   popupRect: {fileID: 3246753836960980420}
   animationDuration: 0.3
+  canBeDragged: 1
+  autoCloseTime: 0

@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3213326812797912626}
   - component: {fileID: 8531390150962325745}
-  - component: {fileID: 5692034712279254787}
-  - component: {fileID: 1842952062964770331}
-  - component: {fileID: 6240823711226660744}
-  m_Layer: 6
-  m_Name: CubePrefab
-  m_TagString: DestroyableObject
+  - component: {fileID: 4181867513226165377}
+  - component: {fileID: 9138224836262496852}
+  - component: {fileID: 2655185515368343346}
+  - component: {fileID: 2053500506062646357}
+  m_Layer: 7
+  m_Name: RuinPrefab
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6122465855542521798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 1740111440594733178, guid: c5bdab3dcda6af144a0b1128cf1c0bef, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7117188518894925327, guid: 2c2efaa1947f30d48b599c38968b2212, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5692034712279254787
+--- !u!114 &4181867513226165377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,19 +100,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6122465855542521798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f88f627252abc245b50e22da2fc5333, type: 3}
+  m_Script: {fileID: 11500000, guid: 15e99dd99957bd14f91d3dd21f907e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDestructionEffect: 1
-  destructionEffectPrefab: {fileID: 0}
-  effectDuration: 1
-  ruinPrefab: {fileID: 6122465855542521798, guid: 6f7f18494714d79409a7a49313bc5815, type: 3}
-  ruinDuration: 3
-  animator: {fileID: 6240823711226660744}
-  destroyTriggerName: Destroy
-  animationTime: 0.3
-  particleSystemPrefab: {fileID: 1479447876078210969, guid: a955793563ce7dd4489a1a5e7b48a7cb, type: 3}
---- !u!61 &1842952062964770331
+  spriteRenderer: {fileID: 8531390150962325745}
+  fadeDuration: 0.5
+  playerLayerName: Player
+  ruinLayerName: Ruins
+--- !u!61 &9138224836262496852
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +123,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -149,15 +145,42 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
+    oldSize: {x: 0.46, y: 0.1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 0.46, y: 0.1}
   m_EdgeRadius: 0
---- !u!95 &6240823711226660744
+--- !u!50 &2655185515368343346
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122465855542521798}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 3
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!95 &2053500506062646357
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -167,7 +190,7 @@ Animator:
   m_GameObject: {fileID: 6122465855542521798}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c57e147964c2b344fb75c612bdefdf34, type: 2}
+  m_Controller: {fileID: 9100000, guid: f61ad71cfec4d5248b9908d7317a1882, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1a6147d8a0e02344aaf9e82eed6c3b70
+guid: 21266a3641f5a2143a7db308f2ee1474
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7246481752953828881
-    second: CubeAttacked_0
+      213: -4192926315408987724
+    second: LeftDevice_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CubeAttacked_0
+      name: LeftDevice_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 212
+        height: 356
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 116b924c2cca09460800000000000000
-      internalID: 7246481752953828881
+      spriteID: 4b9e8a03bbbbfc5c0800000000000000
+      internalID: -4192926315408987724
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      CubeAttacked_0: 7246481752953828881
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
