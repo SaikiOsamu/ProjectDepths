@@ -59,3 +59,24 @@ MonoBehaviour:
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
+  - name: SwordAttack
+    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: FistAttack
+    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0

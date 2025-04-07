@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour
             sounds[i].SetSource (_go.AddComponent<AudioSource>());
             
         }
-        // PlaySound("BGM_MainMenu");
+        PlaySound("BGM_MainMenu");
     }
 
     public void PlaySound(string _name)

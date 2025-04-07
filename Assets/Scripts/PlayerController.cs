@@ -30,6 +30,15 @@ public class PlayerController : MonoBehaviour
     private const string DIE_TRIGGER = "Die";
 
     private bool isSlaming = false;
+
+    // SFX variables
+    public string swordAttackSound = "SwordAttack";
+    public string fistAttackSound = "FistAttack";
+
+    // SFX Caching
+    AudioManager audioManager;
+
+
     void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject
@@ -40,6 +49,13 @@ public class PlayerController : MonoBehaviour
 
         // Get animator component
         animator = GetComponent<Animator>();
+
+        // Audio instance
+        audioManager = AudioManager.instance;
+        if(audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
     }
 
     void Update()
@@ -135,18 +151,30 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttackingRight = true;
+
+            // Play sword attack sound
+            audioManager.PlaySound(swordAttackSound);
+
             animator.SetBool("AttackRight", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             isAttackingLeft = true;
+
+            // Play sword attack sound
+            audioManager.PlaySound(swordAttackSound);
+
             animator.SetBool("AttackLeft", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
+
+            // Play fist attack sound
+            audioManager.PlaySound(fistAttackSound);
+
             animator.SetBool("Slam", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here for slam too
         }
