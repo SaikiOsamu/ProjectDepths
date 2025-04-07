@@ -64,8 +64,7 @@ public class CubeManager : MonoBehaviour
             }
 
             rowY = initialRowY - j * rowHeight;
-            SpawnRow(rowY);
-            //SpawnNextRow(rowY, currentGapColumn, direction);
+            SpawnNextRow(rowY, currentGapColumn, direction);
         }
         return rowY;
     }
@@ -106,7 +105,7 @@ public class CubeManager : MonoBehaviour
             }
             else
             {
-                if (Random.value < 0.5f)
+                if (Random.value < 0.2f)
                 {
                     cube = Instantiate(UnbreakableObject, transform);
                 }
