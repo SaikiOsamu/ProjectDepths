@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Anim_Character_LeftAttack-2_0: 7789580196454099683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
