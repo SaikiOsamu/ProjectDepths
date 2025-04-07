@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("GameOverManager reference is missing!");
         }
-    }a
+    }
 
     void HandleAttackInput()
     {
