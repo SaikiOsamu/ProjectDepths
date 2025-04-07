@@ -1,57 +1,57 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Unity Projects\\ProjectDepths\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\bottomline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bottomline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\simplepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\spring2025\\ldgj\\projectdepths\\assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\fallingcubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\bottomline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bottomline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\simplepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\fallingcubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fallingcubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\HardObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\HardObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\HardObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\fallingobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\fallingobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fallingobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\ScrollingBackground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\ScrollingBackground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\ScrollingBackground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,50 +70,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AudioManager.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\Audio\\AudioManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\Audio\\AudioManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Audio\\AudioManager.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\Audio\\AudioManager.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\Audio\\AudioManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Audio\\AudioManager.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwEUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T04:17:46.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T04:17:46.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PauseManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\PauseManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PauseManager.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\PauseManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PauseManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T03:16:02.64Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PauseManager.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\PauseManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PauseManager.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\PauseManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PauseManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGgAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T03:16:02.64Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "MainMenuController.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenuController.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
               "RelativeToolTip": "Assets\\Scripts\\MainMenuController.cs",
               "ViewState": "AQIAADgAAAAAAAAAAAAmwEoAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T02:25:49.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T02:25:49.047Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "FallingObject.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\FallingObject.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\FallingObject.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FallingObject.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\FallingObject.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\FallingObject.cs",
               "RelativeToolTip": "Assets\\Scripts\\FallingObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -121,24 +118,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "BottomLine.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\BottomLine.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\BottomLine.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BottomLine.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\BottomLine.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\BottomLine.cs",
               "RelativeToolTip": "Assets\\Scripts\\BottomLine.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABZAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T12:33:09.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T12:33:09.01Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "FallingCubeManager.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\FallingCubeManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\FallingCubeManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FallingCubeManager.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\FallingCubeManager.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\FallingCubeManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\FallingCubeManager.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -148,9 +144,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "CubeManager.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\CubeManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\CubeManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CubeManager.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\CubeManager.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\CubeManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\CubeManager.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAxwA0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -160,9 +156,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "HardObject.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\HardObject.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\HardObject.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HardObject.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\HardObject.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\HardObject.cs",
               "RelativeToolTip": "Assets\\Scripts\\HardObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -172,9 +168,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "ScrollingBackground.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\ScrollingBackground.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\ScrollingBackground.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ScrollingBackground.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\ScrollingBackground.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\ScrollingBackground.cs",
               "RelativeToolTip": "Assets\\Scripts\\ScrollingBackground.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -182,36 +178,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "GameManager.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T01:22:48.969Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAmwDUAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T10:21:58.399Z",
+              "WhenOpened": "2025-04-06T01:22:48.969Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAmwDUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T10:21:58.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "SimplePopup.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\SimplePopup.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\SimplePopup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SimplePopup.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\SimplePopup.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\SimplePopup.cs",
               "RelativeToolTip": "Assets\\Scripts\\SimplePopup.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -219,15 +215,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "DestroyableObject.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\DestroyableObject.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\DestroyableObject.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DestroyableObject.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\DestroyableObject.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\DestroyableObject.cs",
               "RelativeToolTip": "Assets\\Scripts\\DestroyableObject.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCAAAAAJAAAA",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAUwCwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T10:24:02.26Z"
+              "WhenOpened": "2025-04-05T10:24:02.26Z",
+              "EditorCaption": ""
             }
           ]
         }

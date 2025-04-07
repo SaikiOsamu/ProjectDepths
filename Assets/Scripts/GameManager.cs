@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.Rendering.DebugUI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
-    [SerializeField] private Text scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private int score; 
 
     public int current_score;
