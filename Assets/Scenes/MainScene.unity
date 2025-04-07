@@ -2319,6 +2319,7 @@ MonoBehaviour:
   pauseKey: 27
   hoverOverSound: ButtonHover
   clickButtonSound: ButtonClick
+  pauseMenuBGM: BGM_PauseMenu
 --- !u!4 &591729283
 Transform:
   m_ObjectHideFlags: 0
@@ -2754,6 +2755,7 @@ MonoBehaviour:
   moveSpeed: 0.3
   maximumCeilingSpeed: 1
   extraSpeed: 0.8
+  playSceneBGM: BGM_PlayScene
 --- !u!4 &668321185
 Transform:
   m_ObjectHideFlags: 0
@@ -3488,6 +3490,7 @@ GameObject:
   - component: {fileID: 742280436}
   - component: {fileID: 742280435}
   - component: {fileID: 742280434}
+  - component: {fileID: 742280437}
   m_Layer: 5
   m_Name: RestartBtn
   m_TagString: Untagged
@@ -3597,6 +3600,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742280432}
   m_CullTransparentMesh: 1
+--- !u!114 &742280437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742280432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2079157098}
+          m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &769739814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4707,6 +4739,14 @@ PrefabInstance:
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[4].name
       value: BGM_MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6165833213474511625, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: m_Name
@@ -5952,6 +5992,7 @@ GameObject:
   - component: {fileID: 1437301866}
   - component: {fileID: 1437301865}
   - component: {fileID: 1437301864}
+  - component: {fileID: 1437301867}
   m_Layer: 5
   m_Name: MainMenuBtn
   m_TagString: Untagged
@@ -6061,6 +6102,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437301862}
   m_CullTransparentMesh: 1
+--- !u!114 &1437301867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437301862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2079157098}
+          m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1444377597
 GameObject:
   m_ObjectHideFlags: 0
