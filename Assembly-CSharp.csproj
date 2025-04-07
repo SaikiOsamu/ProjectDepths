@@ -61,10 +61,27 @@
     <Analyzer Include="D:\Unity Engine\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
+=======
+    <Compile Include="Assets\Scripts\ScrollingBackground.cs" />
+    <Compile Include="Assets\Scripts\RuinPrefab.cs" />
+    <Compile Include="Assets\Scripts\CubeManager.cs" />
+    <Compile Include="Assets\Scripts\BottomLine.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SimplePopup.cs" />
+    <Compile Include="Assets\Scripts\HardObject.cs" />
+    <Compile Include="Assets\Scripts\DestroyableObject.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\FallingObject.cs" />
+    <Compile Include="Assets\Scripts\FallingCubeManager.cs" />
+    <Compile Include="Assets\Scripts\SimplePopupSpawner.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets\Scripts\CreditsController.cs" />
   </ItemGroup>
   <ItemGroup>

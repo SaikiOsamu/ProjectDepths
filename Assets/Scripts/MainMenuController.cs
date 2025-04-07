@@ -13,10 +13,28 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private float fadeTime = 1.0f;
     [SerializeField] private bool useTransitionEffect = false;
 
+    // Sound
+    [SerializeField] string hoverOverSound = "ButtonHover";
+    [SerializeField] string clickButtonSound = "ButtonClick";
+
+    AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+    }
+
     // Called when the Start Game button is clicked
     public void StartGame()
     {
         Debug.Log("Starting game...");
+
+        // Play Click sound
+        audioManager.PlaySound(clickButtonSound);
 
         if (useTransitionEffect)
         {
@@ -34,6 +52,9 @@ public class MainMenuController : MonoBehaviour
     public void ShowCredits()
     {
         Debug.Log("Showing credits...");
+
+        // Play Click sound
+        audioManager.PlaySound(clickButtonSound);
 
         // Check if you have a separate credits scene
         if (!string.IsNullOrEmpty(creditsSceneName))
@@ -53,6 +74,9 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Quitting game...");
 
+        // Play Click sound
+        audioManager.PlaySound(clickButtonSound);
+
         // In the editor, this will stop play mode
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -60,6 +84,12 @@ public class MainMenuController : MonoBehaviour
             // In a build, this will quit the application
             Application.Quit();
 #endif
+    }
+
+    // Play sound when mouse hovering UI 
+    public void OnMouseOver()
+    {
+        audioManager.PlaySound(hoverOverSound);
     }
 
     // Coroutine for scene transition with delay

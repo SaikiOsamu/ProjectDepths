@@ -316,6 +316,7 @@ MonoBehaviour:
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
+    loop: 0
 --- !u!1 &919234670
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +596,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ca5eded398dcee468002eb39d94c1e6, type: 3}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: BGM_MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6165833213474511625, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: m_Name
       value: AudioManager
