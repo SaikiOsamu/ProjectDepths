@@ -10,12 +10,16 @@ public class PlayerController : MonoBehaviour
     [Header("Destroy Range")]
     [SerializeField] private float destroyRange = 1f;
 
+    [Header("Game Over References")]
+    [SerializeField] private GameOverManager gameOverManager;
+
     [Header("Animation")]
     private Animator animator;
 
     // Animation parameter names
     private const string HORIZONTAL_MOVEMENT = "HorizontalMovement";
     private const string IS_MOVING = "IsMoving";
+    private const string DIE_TRIGGER = "Die";
 
     private Rigidbody2D rb;
 
@@ -25,11 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttackingRight = false;
     private bool isAttackingLeft = false;
-
     private bool isDead = false;
-    private const string DIE_TRIGGER = "Die";
-
     private bool isSlaming = false;
+
     void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject
@@ -40,10 +42,22 @@ public class PlayerController : MonoBehaviour
 
         // Get animator component
         animator = GetComponent<Animator>();
+
+        // Find game over manager if not assigned
+        if (gameOverManager == null)
+        {
+            gameOverManager = FindObjectOfType<GameOverManager>();
+            if (gameOverManager == null)
+            {
+                Debug.LogError("No GameOverManager found in the scene!");
+            }
+        }
     }
 
     void Update()
     {
+        if (isDead) return;
+
         // Handle movement input
         HandleMovement();
 
@@ -54,57 +68,14 @@ public class PlayerController : MonoBehaviour
         HandleDestroyInput();
     }
 
-
     // Modify your OnTriggerEnter2D method
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ceiling") && !isDead)
         {
-            isDead = true;
-
-            // Freeze time for everything else
-            Time.timeScale = 0f;
-
-            // Play death animation
-            if (animator != null)
-            {
-                // Make sure player animation still runs despite frozen time
-                animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-                animator.SetTrigger(DIE_TRIGGER);
-                StartCoroutine(DelayedGameOver());
-            }
-            else
-            {
-                EndGame();
-            }
+            TriggerDeath();
         }
     }
-
-    private IEnumerator DelayedGameOver()
-    {
-        // Disable player movement during death animation
-        enabled = false;
-
-        // Wait for animation to complete using unscaled time
-        yield return new WaitForSecondsRealtime(1.5f); // Use real time instead of scaled time
-
-        // Reset time scale before ending the game
-        Time.timeScale = 1f;
-
-        // End the game
-        EndGame();
-    }
-
-    private void EndGame()
-    {
-        Debug.Log("Player Dead, game over.");
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-    Application.Quit();
-#endif
-    }
-
 
     public void TriggerDeath()
     {
@@ -112,19 +83,29 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
 
-            // Freeze time for everything else
-            Time.timeScale = 0f;
+            // Disable player movement
+            rb.linearVelocity = Vector2.zero;
+            rb.isKinematic = true;
 
+            // Play death animation
             if (animator != null)
             {
                 // Make sure player animation still runs despite frozen time
                 animator.updateMode = AnimatorUpdateMode.UnscaledTime;
                 animator.SetTrigger(DIE_TRIGGER);
-                StartCoroutine(DelayedGameOver());
+            }
+
+            // Show game over panel
+            if (gameOverManager != null)
+            {
+                gameOverManager.ShowGameOver();
             }
             else
             {
-                EndGame();
+                Debug.LogError("GameOverManager reference is missing!");
+
+                // Fallback behavior - just freeze the game
+                Time.timeScale = 0f;
             }
         }
     }
@@ -150,12 +131,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Slam", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here for slam too
         }
-
-        // Remove this block since we're starting the coroutine immediately after setting each animation
-        // if (isAttackingRight || isAttackingLeft)
-        // {
-        //     StartCoroutine(ResetAttackParameters());
-        // }
     }
 
     IEnumerator ResetAttackParameters()
