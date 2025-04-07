@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool isDead = false;
     private const string DIE_TRIGGER = "Die";
 
+    private bool isSlaming = false;
     void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject
@@ -135,18 +136,26 @@ public class PlayerController : MonoBehaviour
         {
             isAttackingRight = true;
             animator.SetBool("AttackRight", true);
+            StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             isAttackingLeft = true;
             animator.SetBool("AttackLeft", true);
+            StartCoroutine(ResetAttackParameters()); // Start coroutine here
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isSlaming = true;
+            animator.SetBool("Slam", true);
+            StartCoroutine(ResetAttackParameters()); // Start coroutine here for slam too
         }
 
-        // Reset attack parameters after delay
-        if (isAttackingRight || isAttackingLeft)
-        {
-            StartCoroutine(ResetAttackParameters());
-        }
+        // Remove this block since we're starting the coroutine immediately after setting each animation
+        // if (isAttackingRight || isAttackingLeft)
+        // {
+        //     StartCoroutine(ResetAttackParameters());
+        // }
     }
 
     IEnumerator ResetAttackParameters()
@@ -164,6 +173,11 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("AttackLeft", false);
             isAttackingLeft = false;
+        }
+        if (isSlaming)
+        {
+            animator.SetBool("Slam", false);
+            isSlaming = false;
         }
     }
 
