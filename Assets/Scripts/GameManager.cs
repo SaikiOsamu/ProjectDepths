@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private float timer = 0f;
+    public float timer = 0f;
 
     public static GameManager instance;
     [SerializeField] GameObject Ceiling;
