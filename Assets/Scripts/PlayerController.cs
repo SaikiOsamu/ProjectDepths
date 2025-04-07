@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour
     private float lastAKeyPressTime = 0f;
     private float lastDKeyPressTime = 0f;
 
+    private bool isAttackingRight = false;
+    private bool isAttackingLeft = false;
+
+    private bool isDead = false;
+    private const string DIE_TRIGGER = "Die";
+
     void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject
@@ -40,21 +46,124 @@ public class PlayerController : MonoBehaviour
         // Handle movement input
         HandleMovement();
 
+        // Handle attack input
+        HandleAttackInput();
+
         // Handle destroy input
         HandleDestroyInput();
     }
 
 
+    // Modify your OnTriggerEnter2D method
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ceiling"))
+        if (collision.CompareTag("Ceiling") && !isDead)
         {
-            Debug.Log("Player Dead, game over.");
+            isDead = true;
+
+            // Freeze time for everything else
+            Time.timeScale = 0f;
+
+            // Play death animation
+            if (animator != null)
+            {
+                // Make sure player animation still runs despite frozen time
+                animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+                animator.SetTrigger(DIE_TRIGGER);
+                StartCoroutine(DelayedGameOver());
+            }
+            else
+            {
+                EndGame();
+            }
+        }
+    }
+
+    private IEnumerator DelayedGameOver()
+    {
+        // Disable player movement during death animation
+        enabled = false;
+
+        // Wait for animation to complete using unscaled time
+        yield return new WaitForSecondsRealtime(1.5f); // Use real time instead of scaled time
+
+        // Reset time scale before ending the game
+        Time.timeScale = 1f;
+
+        // End the game
+        EndGame();
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("Player Dead, game over.");
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+    Application.Quit();
 #endif
+    }
+
+
+    public void TriggerDeath()
+    {
+        if (!isDead)
+        {
+            isDead = true;
+
+            // Freeze time for everything else
+            Time.timeScale = 0f;
+
+            if (animator != null)
+            {
+                // Make sure player animation still runs despite frozen time
+                animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+                animator.SetTrigger(DIE_TRIGGER);
+                StartCoroutine(DelayedGameOver());
+            }
+            else
+            {
+                EndGame();
+            }
+        }
+    }
+
+    void HandleAttackInput()
+    {
+        // For example, using E key for right attack and Q key for left attack
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isAttackingRight = true;
+            animator.SetBool("AttackRight", true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            isAttackingLeft = true;
+            animator.SetBool("AttackLeft", true);
+        }
+
+        // Reset attack parameters after delay
+        if (isAttackingRight || isAttackingLeft)
+        {
+            StartCoroutine(ResetAttackParameters());
+        }
+    }
+
+    IEnumerator ResetAttackParameters()
+    {
+        // Wait briefly to allow the animation trigger to be detected
+        yield return new WaitForSeconds(0.1f);
+
+        if (isAttackingRight)
+        {
+            animator.SetBool("AttackRight", false);
+            isAttackingRight = false;
+        }
+
+        if (isAttackingLeft)
+        {
+            animator.SetBool("AttackLeft", false);
+            isAttackingLeft = false;
         }
     }
 
