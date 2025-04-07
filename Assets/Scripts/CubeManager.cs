@@ -120,6 +120,11 @@ public class CubeManager : MonoBehaviour
         return candidates[Random.Range(0, candidates.Length)];
     }
 
+    public float GetPlayerPosition()
+    {
+        return current_Player_Position;
+    }
+
     // Update is called once per frame
     void Update()
     {
