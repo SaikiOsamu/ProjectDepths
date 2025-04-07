@@ -22,11 +22,9 @@ public class DestroyableObject : MonoBehaviour
     [SerializeField] private GameObject particleSystemPrefab; // Reference to your DestroyCubeParticleSystem
 
     private bool isDestroying = false;
-    float moveSpeed;
 
     private void Awake()
     {
-        moveSpeed = GameManager.instance.moveSpeed;
         if (animator == null)
         {
             animator = GetComponent<Animator>();
@@ -35,10 +33,7 @@ public class DestroyableObject : MonoBehaviour
 
     public void Update()
     {
-        moveSpeed = GameManager.instance.moveSpeed;
-        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        if (transform.position.y > 11f)
-            Destroy(gameObject);
+
     }
 
     // Public method to trigger destruction process
