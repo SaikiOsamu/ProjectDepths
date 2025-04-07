@@ -6,7 +6,7 @@ public class CubeManager : MonoBehaviour
 {
     public GameObject BreakableObject;
     public GameObject UnbreakableObject;
-    public float spawnRate;
+    float spawnRate;
     float spawnTimer;
 
     public int columns = 8;
@@ -47,6 +47,7 @@ public class CubeManager : MonoBehaviour
             float rowY = initialRowY - j * rowHeight;
             SpawnRow(rowY);
             //SpawnNextRow(rowY, currentGapColumn, direction);
+            
         }
     }
 
@@ -101,6 +102,7 @@ public class CubeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnRate = GameManager.instance.moveSpeed;
         spawnTimer += Time.deltaTime;
         if (spawnTimer > 1 / spawnRate)
         {

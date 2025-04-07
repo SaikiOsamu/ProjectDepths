@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\FallingObject.cs" />
     <Compile Include="Assets\Scripts\FallingCubeManager.cs" />
     <Compile Include="Assets\Scripts\CreditsController.cs" />
   </ItemGroup>
