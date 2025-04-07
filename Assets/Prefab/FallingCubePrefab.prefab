@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5973129039908905658}
   - component: {fileID: 4178924681941598859}
   - component: {fileID: 1055181087575269383}
-  - component: {fileID: 3750043184636336817}
+  - component: {fileID: 3381213678464145053}
   m_Layer: 0
   m_Name: FallingCubePrefab
   m_TagString: Ceiling
@@ -223,7 +223,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3750043184636336817
+--- !u!114 &3381213678464145053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,8 +232,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5314711136757721151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ff5a4d0bc4b5d42a4060a4c28c9c0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a6e01cd5cab91941941b14efac5e9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepTime: 1
-  stepSize: 1
