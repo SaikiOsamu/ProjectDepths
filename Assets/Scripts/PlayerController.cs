@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float lastAKeyPressTime = 0f;
     private float lastDKeyPressTime = 0f;
 
+
     void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject

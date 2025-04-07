@@ -44,6 +44,7 @@ public class DestroyableObject : MonoBehaviour
     // Public method to trigger destruction process
     public void TriggerDestruction()
     {
+        GameManager.instance.GainScore();
         if (!isDestroying)
         {
             isDestroying = true;
