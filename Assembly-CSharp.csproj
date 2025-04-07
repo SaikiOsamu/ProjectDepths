@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\SimplePopup.cs" />
     <Compile Include="Assets\Scripts\HardObject.cs" />
     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\FallingObject.cs" />

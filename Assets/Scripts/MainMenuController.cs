@@ -13,7 +13,28 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private float fadeTime = 1.0f;
     [SerializeField] private bool useTransitionEffect = false;
 
+    [SerializeField]
+    string hoverOverSound = "ButtonHover";
+
+    AudioManager audioManager;
     // Called when the Start Game button is clicked
+
+
+    void Start()
+    {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+    }
+
+    public void OnMouseOver()
+    {
+        audioManager.PlaySound(hoverOverSound);
+    }
+
+
     public void StartGame()
     {
         Debug.Log("Starting game...");
