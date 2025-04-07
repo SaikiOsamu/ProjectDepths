@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Anim_Character_SlamAttack-5_0: -5583103910592362356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
