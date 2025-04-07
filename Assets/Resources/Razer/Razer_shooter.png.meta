@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Razer_shooter_0: 7340221658230110624
+      Razer_shooter_1: -5255680418659580377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
