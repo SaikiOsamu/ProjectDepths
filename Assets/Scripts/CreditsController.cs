@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class CreditsController : MonoBehaviour
 {
@@ -34,7 +35,16 @@ public class CreditsController : MonoBehaviour
         // Play Click sound
         audioManager.PlaySound(clickButtonSound);
 
-        SceneManager.LoadScene(mainMenuSceneName);
+        StartCoroutine(LoadSceneWithDelay(mainMenuSceneName));
+    }
+
+    private IEnumerator LoadSceneWithDelay(string sceneName)
+    {
+        // Wait a small amount of time for the click sound to play
+        yield return new WaitForSecondsRealtime(0.8f);
+
+        // Load the scene
+        SceneManager.LoadScene(sceneName);
     }
 
 }

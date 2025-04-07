@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PauseManager : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class PauseManager : MonoBehaviour
     // Sound
     [SerializeField] string hoverOverSound = "ButtonHover";
     [SerializeField] string clickButtonSound = "ButtonClick";
+    [SerializeField] string pauseMenuBGM = "BGM_PauseMenu";
 
-    AudioManager audioManager;
+     AudioManager audioManager;
 
     private void Start()
     {
@@ -61,6 +63,7 @@ public class PauseManager : MonoBehaviour
         if (Input.GetKeyDown(pauseKey))
         {
             TogglePause();
+            
         }
     }
 
@@ -86,6 +89,11 @@ public class PauseManager : MonoBehaviour
         if (pauseMenuPanel != null)
         {
             pauseMenuPanel.SetActive(true);
+
+
+            // Audio manager
+            audioManager.PlaySound(pauseMenuBGM);
+            audioManager.StopSound("BGM_PlayScene");
         }
 
         Debug.Log("Game paused");
@@ -96,6 +104,7 @@ public class PauseManager : MonoBehaviour
 
         // Play Click sound
         audioManager.PlaySound(clickButtonSound);
+        audioManager.StopSound(pauseMenuBGM);
 
         // Set the time scale back to 1 to resume normal time flow
         Time.timeScale = 1f;
@@ -105,6 +114,9 @@ public class PauseManager : MonoBehaviour
         if (pauseMenuPanel != null)
         {
             pauseMenuPanel.SetActive(false);
+
+            // Audio manager
+            audioManager.PlaySound("BGM_PlayScene");
         }
 
         Debug.Log("Game resumed");
@@ -121,8 +133,17 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
 
         // Load the main menu scene
-        SceneManager.LoadScene(mainMenuSceneName);
+        StartCoroutine(LoadSceneWithDelay(mainMenuSceneName));
         Debug.Log("Returning to main menu");
+    }
+
+    private IEnumerator LoadSceneWithDelay(string sceneName)
+    {
+        // Wait a small amount of time for the click sound to play
+        yield return new WaitForSecondsRealtime(0.8f);
+
+        // Load the scene
+        SceneManager.LoadScene(sceneName);
     }
 
     // This ensures time scale is reset if the script is disabled or destroyed
