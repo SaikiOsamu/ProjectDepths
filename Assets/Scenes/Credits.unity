@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 528990781}
   - component: {fileID: 528990780}
   - component: {fileID: 528990779}
+  - component: {fileID: 528990782}
   m_Layer: 5
   m_Name: QuitBTN
   m_TagString: Untagged
@@ -354,6 +355,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528990777}
   m_CullTransparentMesh: 1
+--- !u!114 &528990782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528990777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1650150628}
+          m_TargetAssemblyTypeName: CreditsController, Assembly-CSharp
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &889498472
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +463,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &966874072
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6165833213474511625, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643243809887055059, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
 --- !u!1 &1479472323
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +763,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuSceneName: MainMenu
+  hoverOverSound: ButtonHover
+  clickButtonSound: ButtonClick
 --- !u!4 &1650150629
 Transform:
   m_ObjectHideFlags: 0
@@ -836,3 +925,4 @@ SceneRoots:
   - {fileID: 309325504}
   - {fileID: 889498475}
   - {fileID: 1650150629}
+  - {fileID: 966874072}

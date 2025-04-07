@@ -28,6 +28,12 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    // Play sound when mouse hovering UI 
+    public void OnMouseOver()
+    {
+        audioManager.PlaySound(hoverOverSound);
+    }
+
     // Called when the Start Game button is clicked
     public void StartGame()
     {
@@ -47,6 +53,7 @@ public class MainMenuController : MonoBehaviour
             SceneManager.LoadScene(gameSceneName);
         }
     }
+
 
     // Called when the Credits button is clicked
     public void ShowCredits()
@@ -86,11 +93,7 @@ public class MainMenuController : MonoBehaviour
 #endif
     }
 
-    // Play sound when mouse hovering UI 
-    public void OnMouseOver()
-    {
-        audioManager.PlaySound(hoverOverSound);
-    }
+    
 
     // Coroutine for scene transition with delay
     private IEnumerator LoadSceneWithDelay(string sceneName, float delay)

@@ -72,11 +72,11 @@ public class AudioManager : MonoBehaviour
         {
             GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
             // transform sound to the playerCharacter to make it cleaner
-            //_go.transform.SetParent(this.transform);
+            _go.transform.SetParent(this.transform);
             sounds[i].SetSource (_go.AddComponent<AudioSource>());
             
         }
-        PlaySound("BGM_MainMenu");
+        // PlaySound("BGM_MainMenu");
     }
 
     public void PlaySound(string _name)
