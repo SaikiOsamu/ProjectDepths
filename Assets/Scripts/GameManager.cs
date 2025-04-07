@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float maximumCeilingSpeed;
     [SerializeField] public float extraSpeed;
 
+    // Sound
+    [SerializeField] string playSceneBGM = "BGM_PlayScene";
+
+    AudioManager audioManager;
+
     private void Awake()
     {
         current_score = 0;
@@ -27,6 +32,15 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // AudioManager instace
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+        // play music
+        audioManager.PlaySound(playSceneBGM);
+
         scoreText.text = "00000";
     }
 

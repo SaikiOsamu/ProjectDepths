@@ -79,4 +79,18 @@ MonoBehaviour:
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
-    loop: 0
+    loop: 1
+  - name: BGM_PauseMenu
+    clip: {fileID: 8300000, guid: 6fb49db9a85ffae4d8040f15b1b70166, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
+  - name: BGM_PlayScene
+    clip: {fileID: 8300000, guid: a0c0b563848b3ee4ca24a630e5378df4, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1

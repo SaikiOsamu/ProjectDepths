@@ -33,8 +33,22 @@ public class PlayerController : MonoBehaviour
     private bool isDead = false;
     private bool isSlaming = false;
 
+    // Audio Manager
+    [SerializeField] string fistAttackSound = "FistAttack";
+    [SerializeField] string swordAttackSound = "SwordAttack";
+
+    AudioManager audioManager;
+
     void Start()
     {
+        // Audio Manager
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
+
         // Get the Rigidbody2D component attached to this GameObject
         rb = GetComponent<Rigidbody2D>();
 
@@ -152,18 +166,30 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttackingRight = true;
+
+            // Play sound
+            audioManager.PlaySound(swordAttackSound);
+
             animator.SetBool("AttackRight", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             isAttackingLeft = true;
+
+            // Play sound
+            audioManager.PlaySound(swordAttackSound);
+
             animator.SetBool("AttackLeft", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
+
+            // Play sound
+            audioManager.PlaySound(fistAttackSound);
+
             animator.SetBool("Slam", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here for slam too
         }

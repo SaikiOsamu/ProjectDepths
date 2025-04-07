@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -17,9 +18,10 @@ public class GameOverManager : MonoBehaviour
     [Header("Sound Effects")]
     [SerializeField] string hoverOverSound = "ButtonHover";
     [SerializeField] string clickButtonSound = "ButtonClick";
-    [SerializeField] string gameOverSound = "GameOver";
+    [SerializeField] string gameOverSound = "BGM_PauseMenu";
 
-    private AudioManager audioManager;
+    AudioManager audioManager;
+
     private bool isGameOver = false;
 
     private void Start()
@@ -55,11 +57,13 @@ public class GameOverManager : MonoBehaviour
         if (isGameOver) return; // Prevent multiple activations
         isGameOver = true;
 
+        audioManager.PlaySound("BGM_PauseMenu");
+        audioManager.StopSound("BGM_PlayScene");
         // Play game over sound
-        if (audioManager != null)
-        {
-            audioManager.PlaySound(gameOverSound);
-        }
+        // if (audioManager != null)
+        //{
+        // audioManager.PlaySound(gameOverSound);
+        //}
 
         // Get score from GameManager
         int finalScore = GameManager.instance.current_score;
@@ -94,30 +98,19 @@ public class GameOverManager : MonoBehaviour
         Debug.Log("Game Over. Final Score: " + finalScore + ", Time Survived: " + string.Format("{0:00}:{1:00}", minutes, seconds));
     }
 
-    // Play sound when mouse hovering UI
-    public void OnMouseOver()
-    {
-        if (audioManager != null)
-        {
-            audioManager.PlaySound(hoverOverSound);
-        }
-    }
-
     // Restart the current game scene
     public void RestartGame()
     {
         // Play click sound
-        if (audioManager != null)
-        {
-            audioManager.PlaySound(clickButtonSound);
-        }
+        audioManager.PlaySound(clickButtonSound);
 
         // Reset time scale
         Time.timeScale = 1f;
         isGameOver = false;
 
-        // Reload the game scene
-        SceneManager.LoadScene(gameSceneName);
+        // Use a coroutine to add a slight delay for the sound to play
+        StartCoroutine(LoadSceneWithDelay(gameSceneName));
+
         Debug.Log("Restarting game");
     }
 
@@ -125,18 +118,32 @@ public class GameOverManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         // Play click sound
-        if (audioManager != null)
-        {
-            audioManager.PlaySound(clickButtonSound);
-        }
+        audioManager.PlaySound(clickButtonSound);
 
         // Reset time scale
         Time.timeScale = 1f;
         isGameOver = false;
 
-        // Load the main menu scene
-        SceneManager.LoadScene(mainMenuSceneName);
+        // Use a coroutine to add a slight delay for the sound to play
+        StartCoroutine(LoadSceneWithDelay(mainMenuSceneName));
+
         Debug.Log("Returning to main menu");
+    }
+
+    // Coroutine to add a small delay between sound and scene change
+    private IEnumerator LoadSceneWithDelay(string sceneName)
+    {
+        // Wait a small amount of time for the click sound to play
+        yield return new WaitForSecondsRealtime(0.8f);
+
+        // Load the scene
+        SceneManager.LoadScene(sceneName);
+    }
+
+    // Play sound when mouse hovering UI
+    public void OnMouseOver()
+    {
+        audioManager.PlaySound(hoverOverSound);
     }
 
     // This ensures time scale is reset if the script is disabled or destroyed
