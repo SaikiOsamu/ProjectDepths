@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Game Over References")]
     [SerializeField] private GameOverManager gameOverManager;
+    [SerializeField] private float deathAnimationDuration = 2.2f; // 65 frames at 30fps ≈ 2.2 seconds
 
     [Header("Animation")]
     private Animator animator;
@@ -87,26 +88,48 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             rb.isKinematic = true;
 
+            // Freeze everything except the player's animation
+            // Set timescale to 0 to freeze all other objects
+            Time.timeScale = 0f;
+
             // Play death animation
             if (animator != null)
             {
                 // Make sure player animation still runs despite frozen time
                 animator.updateMode = AnimatorUpdateMode.UnscaledTime;
                 animator.SetTrigger(DIE_TRIGGER);
-            }
 
-            // Show game over panel
-            if (gameOverManager != null)
-            {
-                gameOverManager.ShowGameOver();
+                // Wait for animation to complete before showing game over panel
+                StartCoroutine(ShowGameOverAfterAnimation());
             }
             else
             {
-                Debug.LogError("GameOverManager reference is missing!");
-
-                // Fallback behavior - just freeze the game
-                Time.timeScale = 0f;
+                // If no animator, show game over immediately
+                ShowGameOver();
             }
+        }
+    }
+
+    private IEnumerator ShowGameOverAfterAnimation()
+    {
+        // Wait for the death animation to complete using unscaled time
+        // since Time.timeScale is set to 0
+        yield return new WaitForSecondsRealtime(deathAnimationDuration);
+
+        // Show the game over panel
+        ShowGameOver();
+    }
+
+    private void ShowGameOver()
+    {
+        // Show game over panel
+        if (gameOverManager != null)
+        {
+            gameOverManager.ShowGameOver();
+        }
+        else
+        {
+            Debug.LogError("GameOverManager reference is missing!");
         }
     }
 
