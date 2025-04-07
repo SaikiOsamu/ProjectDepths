@@ -128,6 +128,14 @@ public class DestroyableObject : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ceiling"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void OnDestroy()
     {
         // Only create the destruction effect if the game is running

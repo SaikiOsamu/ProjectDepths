@@ -26,6 +26,8 @@ public class CubeManager : MonoBehaviour
     int direction = 0;
     int newGapColumn;
 
+    [SerializeField] GameObject AirWallPrefab;  // Your new air wall prefab
+
     private void Awake()
     {
         Instance = this;
@@ -70,21 +72,26 @@ public class CubeManager : MonoBehaviour
 
     void SpawnRow(float height)
     {
-        GameObject wallLeft = Instantiate(UnbreakableObject, transform);
+        // Replace wall left with air wall
+        GameObject wallLeft = Instantiate(AirWallPrefab, transform);
         wallLeft.transform.localPosition = new Vector3(startX - 1 * cellWidth, height, 0);
-        for (int i  = 0; i < columns; i++) {
+
+        for (int i = 0; i < columns; i++)
+        {
             GameObject cube = null;
             if (Random.value < 0.175f)
-                {
-                    cube = Instantiate(UnbreakableObject, transform);
-                }
+            {
+                cube = Instantiate(UnbreakableObject, transform);
+            }
             else
-                {
-                    cube = Instantiate(BreakableObject, transform);
-                }
+            {
+                cube = Instantiate(BreakableObject, transform);
+            }
             cube.transform.localPosition = new Vector3(startX + i * cellWidth, height, 0);
         }
-        GameObject wallRight = Instantiate(UnbreakableObject, transform);
+
+        // Replace wall right with air wall
+        GameObject wallRight = Instantiate(AirWallPrefab, transform);
         wallRight.transform.localPosition = new Vector3(startX + columns * cellWidth, height, 0);
     }
 
@@ -118,6 +125,11 @@ public class CubeManager : MonoBehaviour
         int right = Mathf.Clamp(currentGap + 1, 0, columns - 1);
         int[] candidates = new int[] { left,right };
         return candidates[Random.Range(0, candidates.Length)];
+    }
+
+    public float GetPlayerPosition()
+    {
+        return current_Player_Position;
     }
 
     // Update is called once per frame

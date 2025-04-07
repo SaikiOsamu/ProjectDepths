@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 2310e2b1320fdef4995ecdf86cf8cf8e
+guid: 83b9f2572da5bd5469c33ebc0e25ae33
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4338334658853869608
     second: Anim_Character_SlamAttack-9_0
-  - first:
-      213: -4517997235463747771
-    second: Anim_Character_SlamAttack-9_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,10 +116,10 @@ TextureImporter:
       name: Anim_Character_SlamAttack-9_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 10
-        width: 17
-        height: 49
+        x: 42
+        y: 4
+        width: 36
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,28 +130,6 @@ TextureImporter:
       bones: []
       spriteID: 8d7ef3efc932bc3c0800000000000000
       internalID: -4338334658853869608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Character_SlamAttack-9_1
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 59
-        width: 13
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5478cf3a379dc41c0800000000000000
-      internalID: -4517997235463747771
       vertices: []
       indices: 
       edges: []
@@ -174,7 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Anim_Character_SlamAttack-9_0: -4338334658853869608
-      Anim_Character_SlamAttack-9_1: -4517997235463747771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

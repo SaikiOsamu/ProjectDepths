@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private float timer = 0f;
+    public float timer = 0f;
 
     public static GameManager instance;
     [SerializeField] GameObject Ceiling;
@@ -47,9 +47,27 @@ public class GameManager : MonoBehaviour
         scoreText.text = current_score.ToString("D5");
     }
 
+    public void Punish()
+    {
+        float position_diff = Ceiling.transform.position.y - CubeManager.Instance.GetPlayerPosition();
+        if (position_diff < 4)
+        {
+            FallingCubeManager.Instance.punish();
+        }
+        else
+        {
+            Ceiling.transform.Translate(Vector3.down * (position_diff - 4));
+        }
+    }
+
     public void GainScore()
     {
         current_score += score;
+    }
+
+    public void GainScore(int i)
+    {
+        current_score += i;
     }
 
     public int GetScore()

@@ -10,12 +10,17 @@ public class PlayerController : MonoBehaviour
     [Header("Destroy Range")]
     [SerializeField] private float destroyRange = 1f;
 
+    [Header("Game Over References")]
+    [SerializeField] private GameOverManager gameOverManager;
+    [SerializeField] private float deathAnimationDuration = 2.2f; // 65 frames at 30fps ≈ 2.2 seconds
+
     [Header("Animation")]
     private Animator animator;
 
     // Animation parameter names
     private const string HORIZONTAL_MOVEMENT = "HorizontalMovement";
     private const string IS_MOVING = "IsMoving";
+    private const string DIE_TRIGGER = "Die";
 
     private Rigidbody2D rb;
 
@@ -25,19 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttackingRight = false;
     private bool isAttackingLeft = false;
-
     private bool isDead = false;
-    private const string DIE_TRIGGER = "Die";
-
     private bool isSlaming = false;
-
-    // SFX variables
-    public string swordAttackSound = "SwordAttack";
-    public string fistAttackSound = "FistAttack";
-
-    // SFX Caching
-    AudioManager audioManager;
-
 
     void Start()
     {
@@ -50,16 +44,21 @@ public class PlayerController : MonoBehaviour
         // Get animator component
         animator = GetComponent<Animator>();
 
-        // Audio instance
-        audioManager = AudioManager.instance;
-        if(audioManager == null)
+        // Find game over manager if not assigned
+        if (gameOverManager == null)
         {
-            Debug.LogError("No audio manager found");
+            gameOverManager = FindObjectOfType<GameOverManager>();
+            if (gameOverManager == null)
+            {
+                Debug.LogError("No GameOverManager found in the scene!");
+            }
         }
     }
 
     void Update()
     {
+        if (isDead) return;
+
         // Handle movement input
         HandleMovement();
 
@@ -70,57 +69,14 @@ public class PlayerController : MonoBehaviour
         HandleDestroyInput();
     }
 
-
     // Modify your OnTriggerEnter2D method
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ceiling") && !isDead)
+        if ((collision.CompareTag("Ceiling") || collision.CompareTag("Falling")) && !isDead)
         {
-            isDead = true;
-
-            // Freeze time for everything else
-            Time.timeScale = 0f;
-
-            // Play death animation
-            if (animator != null)
-            {
-                // Make sure player animation still runs despite frozen time
-                animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-                animator.SetTrigger(DIE_TRIGGER);
-                StartCoroutine(DelayedGameOver());
-            }
-            else
-            {
-                EndGame();
-            }
+            TriggerDeath();
         }
     }
-
-    private IEnumerator DelayedGameOver()
-    {
-        // Disable player movement during death animation
-        enabled = false;
-
-        // Wait for animation to complete using unscaled time
-        yield return new WaitForSecondsRealtime(1.5f); // Use real time instead of scaled time
-
-        // Reset time scale before ending the game
-        Time.timeScale = 1f;
-
-        // End the game
-        EndGame();
-    }
-
-    private void EndGame()
-    {
-        Debug.Log("Player Dead, game over.");
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-    Application.Quit();
-#endif
-    }
-
 
     public void TriggerDeath()
     {
@@ -128,20 +84,65 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
 
-            // Freeze time for everything else
+            // Disable player movement
+            rb.linearVelocity = Vector2.zero;
+            rb.isKinematic = true;
+
+            // Freeze everything except the player's animation
+            // Set timescale to 0 to freeze all other objects
             Time.timeScale = 0f;
 
+            // ADDED: Freeze the cursor by hiding and locking it
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            // Play death animation
             if (animator != null)
             {
                 // Make sure player animation still runs despite frozen time
                 animator.updateMode = AnimatorUpdateMode.UnscaledTime;
                 animator.SetTrigger(DIE_TRIGGER);
-                StartCoroutine(DelayedGameOver());
+
+                // Wait for animation to complete before showing game over panel
+                StartCoroutine(ShowGameOverAfterAnimation());
             }
             else
             {
-                EndGame();
+                // If no animator, show game over immediately
+                ShowGameOver();
             }
+        }
+    }
+
+    private IEnumerator ShowGameOverAfterAnimation()
+    {
+        // Wait for the death animation to complete using unscaled time
+        // since Time.timeScale is set to 0
+        yield return new WaitForSecondsRealtime(deathAnimationDuration);
+
+        // ADDED: Unfreeze the cursor after animation completes
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        // Show the game over panel
+        ShowGameOver();
+    }
+
+    private void ShowGameOver()
+    {
+        // ADDED: Additional safety check to ensure cursor is unfrozen
+        // when the game over screen is shown
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        // Show game over panel
+        if (gameOverManager != null)
+        {
+            gameOverManager.ShowGameOver();
+        }
+        else
+        {
+            Debug.LogError("GameOverManager reference is missing!");
         }
     }
 
@@ -151,39 +152,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttackingRight = true;
-
-            // Play sword attack sound
-            audioManager.PlaySound(swordAttackSound);
-
             animator.SetBool("AttackRight", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             isAttackingLeft = true;
-
-            // Play sword attack sound
-            audioManager.PlaySound(swordAttackSound);
-
             animator.SetBool("AttackLeft", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
-
-            // Play fist attack sound
-            audioManager.PlaySound(fistAttackSound);
-
             animator.SetBool("Slam", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here for slam too
         }
-
-        // Remove this block since we're starting the coroutine immediately after setting each animation
-        // if (isAttackingRight || isAttackingLeft)
-        // {
-        //     StartCoroutine(ResetAttackParameters());
-        // }
     }
 
     IEnumerator ResetAttackParameters()

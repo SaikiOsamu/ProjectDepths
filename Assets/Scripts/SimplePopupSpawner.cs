@@ -53,12 +53,12 @@ public class SimplePopupSpawner : MonoBehaviour
             float difficulty = CalculateDifficulty();
             float currentInterval = Mathf.Lerp(initialSpawnInterval, minimumSpawnInterval, difficulty);
             float timeUntilNextSpawn = nextSpawnTime - gameTimer;
-
-            Debug.Log($"Game Time: {gameTimer:F1}s | " +
+            // Difficulty curve
+            /*Debug.Log($"Game Time: {gameTimer:F1}s | " +
                      $"Difficulty: {difficulty:P0} | " +
                      $"Spawn Interval: {currentInterval:F1}s | " +
                      $"Next Spawn: {timeUntilNextSpawn:F1}s | " +
-                     $"Active Popups: {activePopupCount}/{maxSimultaneousPopups}");
+                     $"Active Popups: {activePopupCount}/{maxSimultaneousPopups}");*/
         }
     }
 

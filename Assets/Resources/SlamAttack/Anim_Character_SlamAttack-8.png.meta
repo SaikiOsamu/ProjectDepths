@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fded4d831e3e41e408212f07582ade84
+guid: 8d576c2763d6b6d42811438d990cedbc
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -116,10 +116,10 @@ TextureImporter:
       name: Anim_Character_SlamAttack-8_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 44
-        width: 76
-        height: 10
+        x: 42
+        y: 4
+        width: 36
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

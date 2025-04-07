@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79be7f2ba1a76824eaaaaa37f4ab9f96
+guid: 7322852ff84a9a74da032b8517b221da
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -11,12 +11,6 @@ TextureImporter:
   - first:
       213: 4644250293573737038
     second: Anim_Character_SlamAttack-12_2
-  - first:
-      213: -2879103086550035304
-    second: Anim_Character_SlamAttack-12_3
-  - first:
-      213: 5355452065748770753
-    second: Anim_Character_SlamAttack-12_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,10 +122,10 @@ TextureImporter:
       name: Anim_Character_SlamAttack-12_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 10
-        width: 37
-        height: 38
+        x: 11
+        y: 19
+        width: 9
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +144,10 @@ TextureImporter:
       name: Anim_Character_SlamAttack-12_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 33
-        width: 15
-        height: 22
+        x: 22
+        y: 4
+        width: 66
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +166,10 @@ TextureImporter:
       name: Anim_Character_SlamAttack-12_2
       rect:
         serializedVersion: 2
-        x: 55
-        y: 4
-        width: 45
-        height: 31
+        x: 79
+        y: 26
+        width: 23
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,50 +180,6 @@ TextureImporter:
       bones: []
       spriteID: e4a57742901b37040800000000000000
       internalID: 4644250293573737038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Character_SlamAttack-12_3
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 34
-        width: 41
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 89454763ffe5b08d0800000000000000
-      internalID: -2879103086550035304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Character_SlamAttack-12_4
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 10
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1cf56968743625a40800000000000000
-      internalID: 5355452065748770753
       vertices: []
       indices: 
       edges: []
@@ -251,8 +201,6 @@ TextureImporter:
       Anim_Character_SlamAttack-12_0: -3165494721085466669
       Anim_Character_SlamAttack-12_1: 1384190628534966364
       Anim_Character_SlamAttack-12_2: 4644250293573737038
-      Anim_Character_SlamAttack-12_3: -2879103086550035304
-      Anim_Character_SlamAttack-12_4: 5355452065748770753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
