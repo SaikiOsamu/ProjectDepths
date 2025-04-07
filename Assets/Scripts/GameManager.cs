@@ -1,19 +1,22 @@
-using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.Rendering.DebugUI;
 using TMPro;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 
+    private float timer = 0f;
+
     public static GameManager instance;
+    [SerializeField] GameObject Ceiling;
+    [SerializeField] private TextMeshProUGUI TimeValue;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private int score; 
 
     public int current_score;
 
-    public float moveSpeed;
+    [SerializeField] public float moveSpeed;
+    [SerializeField] public float maximumCeilingSpeed;
+    [SerializeField] public float extraSpeed;
 
     private void Awake()
     {
@@ -30,7 +33,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveSpeed = Mathf.MoveTowards(moveSpeed, 3f, 0.01f * Time.deltaTime);
+        Ceiling.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+        timer += Time.deltaTime;
+
+        int minutes = Mathf.FloorToInt(timer / 60f);
+        int seconds = Mathf.FloorToInt(timer % 60f);
+
+        TimeValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        moveSpeed = Mathf.MoveTowards(moveSpeed, maximumCeilingSpeed, 0.01f * Time.deltaTime);
+
+
         scoreText.text = current_score.ToString("D5");
     }
 
