@@ -73,9 +73,9 @@ MonoBehaviour:
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
-  - name: MainMenu
-    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
-    volume: 1
+  - name: BGM_MainMenu
+    clip: {fileID: 8300000, guid: 5f7d16c954e6b1c4ca6f3b3ec8805bf1, type: 3}
+    volume: 0.5
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
