@@ -302,7 +302,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -340,7 +340,7 @@ Camera:
   m_GameObject: {fileID: 50373640}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -3019,6 +3019,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677078571}
   m_CullTransparentMesh: 1
+--- !u!1 &683046405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 683046407}
+  - component: {fileID: 683046406}
+  m_Layer: 0
+  m_Name: BluePostPropsessingVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &683046406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683046405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: be039bf7f5e89de4780cd2abd64056c3, type: 2}
+--- !u!4 &683046407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683046405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0964592, y: 3.7388997, z: 3.050153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683607035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,6 +4214,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948033720}
   m_CullTransparentMesh: 1
+--- !u!1 &964478004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964478006}
+  - component: {fileID: 964478005}
+  m_Layer: 0
+  m_Name: RedPostPropsessingVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &964478005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964478004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
+--- !u!4 &964478006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964478004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0964592, y: 3.7388997, z: 3.050153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965903948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4457,6 +4555,7 @@ GameObject:
   - component: {fileID: 1049787511}
   - component: {fileID: 1049787513}
   - component: {fileID: 1049787512}
+  - component: {fileID: 1049787514}
   m_Layer: 5
   m_Name: TimeTxt
   m_TagString: Untagged
@@ -4582,6 +4681,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049787510}
   m_CullTransparentMesh: 1
+--- !u!114 &1049787514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049787510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 2.53, y: 1.93}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1062407200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5267,6 +5381,7 @@ GameObject:
   - component: {fileID: 1268035005}
   - component: {fileID: 1268035007}
   - component: {fileID: 1268035006}
+  - component: {fileID: 1268035008}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -5392,6 +5507,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268035004}
   m_CullTransparentMesh: 1
+--- !u!114 &1268035008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268035004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90a9e977d1918b46be96bd019b8ac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glitchIntensity: 0.31
+  glitchInterval: 0.19
+  colorGlitchChance: 0.57
 --- !u!1 &1291321128
 GameObject:
   m_ObjectHideFlags: 0
@@ -8275,6 +8405,7 @@ GameObject:
   - component: {fileID: 2074190271}
   - component: {fileID: 2074190273}
   - component: {fileID: 2074190272}
+  - component: {fileID: 2074190274}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8400,6 +8531,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074190270}
   m_CullTransparentMesh: 1
+--- !u!114 &2074190274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074190270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90a9e977d1918b46be96bd019b8ac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glitchIntensity: 0.01
+  glitchInterval: 0.1
+  colorGlitchChance: 0.3
 --- !u!1 &2079157097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8479,3 +8625,5 @@ SceneRoots:
   - {fileID: 1919475572}
   - {fileID: 442044083}
   - {fileID: 1444552}
+  - {fileID: 964478006}
+  - {fileID: 683046407}

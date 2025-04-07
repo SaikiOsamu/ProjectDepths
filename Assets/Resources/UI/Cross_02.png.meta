@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b461b96cbda984499284a2400462ce9
+guid: 92208ebb72c657747affaf87dc9e12c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1351432867494126440
-    second: Error_03_0
+      213: -2830575846204625542
+    second: Cross_02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Error_03_0
+      name: Cross_02_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 39
-        width: 2016
-        height: 2152
+        x: 10
+        y: 12
+        width: 498
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89c993b97febe3de0800000000000000
-      internalID: -1351432867494126440
+      spriteID: a7d2c21d346c7b8d0800000000000000
+      internalID: -2830575846204625542
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Error_03_0: -1351432867494126440
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

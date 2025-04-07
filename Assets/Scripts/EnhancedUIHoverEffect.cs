@@ -107,7 +107,7 @@ public class EnhancedUIHoverEffect : MonoBehaviour, IPointerEnterHandler, IPoint
         if (useSpringEffect)
         {
             // 弹性效果
-            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * scaleTransitionSpeed);
+            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.unscaledDeltaTime * scaleTransitionSpeed);
         }
         else
         {
@@ -120,7 +120,7 @@ public class EnhancedUIHoverEffect : MonoBehaviour, IPointerEnterHandler, IPoint
         {
             for (int i = 0; i < graphics.Length; i++)
             {
-                graphics[i].color = Color.Lerp(graphics[i].color, targetColors[i], Time.deltaTime * colorTransitionSpeed);
+                graphics[i].color = Color.Lerp(graphics[i].color, targetColors[i], Time.unscaledDeltaTime * colorTransitionSpeed);
             }
         }
     }

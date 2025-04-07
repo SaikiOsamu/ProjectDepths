@@ -111,6 +111,7 @@ MonoBehaviour:
   destroyTriggerName: Destroy
   animationTime: 0.1
   particleSystemPrefab: {fileID: 1479447876078210969, guid: a955793563ce7dd4489a1a5e7b48a7cb, type: 3}
+  particleSystemPrefab2: {fileID: 1479447876078210969, guid: 9b7b61cfda2501f47af23aea04d1662a, type: 3}
 --- !u!95 &6240823711226660744
 Animator:
   serializedVersion: 7

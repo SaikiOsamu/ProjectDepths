@@ -38,7 +38,7 @@ public class PauseManager : MonoBehaviour
         }
 
         // Set up button listeners
-        if (resumeButton != null)
+        /*if (resumeButton != null)
         {
             resumeButton.onClick.AddListener(ResumeGame);
         }
@@ -46,7 +46,7 @@ public class PauseManager : MonoBehaviour
         if (mainMenuButton != null)
         {
             mainMenuButton.onClick.AddListener(ReturnToMainMenu);
-        }
+        }*/
     }
 
     // Play sound when mouse hovering UI 
