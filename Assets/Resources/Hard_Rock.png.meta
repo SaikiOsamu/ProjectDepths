@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 12ea300a65695f944b60a3d210a9c75f
+guid: adb2fad696307104994e4cb543b38d9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -681858734628863317
-    second: Anim_Character_SlamAttack-1_0
+      213: 8601399192086590643
+    second: Hard_Rock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Anim_Character_SlamAttack-1_0
+      name: Hard_Rock_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 2
-        width: 30
-        height: 51
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba2037fe71d8986f0800000000000000
-      internalID: -681858734628863317
+      spriteID: 3b437a73efe4e5770800000000000000
+      internalID: 8601399192086590643
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Anim_Character_SlamAttack-1_0: -681858734628863317
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
