@@ -447,7 +447,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Logo_01_0: -3233276931607947927
+      Logo_01_1: 6396147020497379323
+      Logo_01_10: 7274783946199374549
+      Logo_01_11: -3194740298014345239
+      Logo_01_12: -3292196115381960736
+      Logo_01_2: 3849218987726452682
+      Logo_01_3: 1924871976365488548
+      Logo_01_4: 1294248289560199641
+      Logo_01_5: -2460101051977765403
+      Logo_01_6: 2425925562670829161
+      Logo_01_7: 674755592086166945
+      Logo_01_8: -5724128434173443719
+      Logo_01_9: 5146726438645894073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
