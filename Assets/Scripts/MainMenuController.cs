@@ -68,7 +68,7 @@ public class MainMenuController : MonoBehaviour
         // Check if you have a separate credits scene
         if (!string.IsNullOrEmpty(creditsSceneName))
         {
-            StartCoroutine(LoadSceneWithDelay(creditsSceneName, fadeTime));
+            StartCoroutine(LoadSceneWithDelay(creditsSceneName, 0.2f));
         }
         else
         {

@@ -319,19 +319,25 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Fallback to using the collider if available
-            Collider2D playerCollider = GetComponent<Collider2D>();
-            if (playerCollider != null)
+            Collider2D colliderComponent = GetComponent<Collider2D>();
+            if (colliderComponent != null)
             {
                 // Use the bounds to get a more accurate size
-                offsetDistance = Mathf.Max(playerCollider.bounds.extents.x, playerCollider.bounds.extents.y) + 0.1f;
+                offsetDistance = Mathf.Max(colliderComponent.bounds.extents.x, colliderComponent.bounds.extents.y) + 0.1f;
             }
         }
 
         // Starting position for the raycast (OUTSIDE the player's collider)
         Vector2 rayOrigin = (Vector2)transform.position + (direction * offsetDistance);
 
-        // Cast a ray in the specified direction
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, destroyRange);
+        // Get the player's collider for ignoring collisions
+        Collider2D myCollider = GetComponent<Collider2D>();
+
+        // Create a layer mask that ignores the player's layer
+        int layerMask = ~(1 << gameObject.layer);
+
+        // Cast a ray in the specified direction, ignoring the player's layer
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, destroyRange, layerMask);
 
         // Debug ray for visualization in Scene view
         Debug.DrawRay(rayOrigin, direction * destroyRange, Color.green, 2f);
@@ -343,13 +349,6 @@ public class PlayerController : MonoBehaviour
         if (hit.collider != null)
         {
             Debug.Log("Ray hit object: " + hit.collider.gameObject.name + " with tag: " + hit.collider.tag);
-
-            // Make sure we didn't hit ourselves
-            if (hit.collider.gameObject == gameObject)
-            {
-                Debug.LogError("Still hitting our own collider! Increase offset distance.");
-                return;
-            }
 
             // Check if the hit object has the "DestroyableObject" tag
             if (hit.collider.CompareTag("DestroyableObject"))
@@ -373,15 +372,16 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Ray didn't hit any object. Try increasing range or adjusting the ray origin.");
 
-            // Let's try one more approach - a sphere cast
+            // Let's try one more approach - a sphere cast with the same layer mask
             RaycastHit2D sphereHit = Physics2D.CircleCast(
                 rayOrigin, // Origin
                 0.1f,      // Radius 
                 direction, // Direction
-                destroyRange // Distance
+                destroyRange, // Distance
+                layerMask  // Same layer mask to ignore player
             );
 
-            if (sphereHit.collider != null && sphereHit.collider.gameObject != gameObject)
+            if (sphereHit.collider != null)
             {
                 Debug.Log("CircleCast hit: " + sphereHit.collider.gameObject.name);
 

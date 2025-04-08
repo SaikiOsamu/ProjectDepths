@@ -1,0 +1,1820 @@
+fileFormatVersion: 2
+guid: 4f21cbad044f96d4e9d4adb29d24d208
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3102461318576478650
+    second: Falling_Datastring_0
+  - first:
+      213: 6423067639178043385
+    second: Falling_Datastring_1
+  - first:
+      213: 8866318562551467672
+    second: Falling_Datastring_2
+  - first:
+      213: 1748370110613199003
+    second: Falling_Datastring_3
+  - first:
+      213: -8532245130239860396
+    second: Falling_Datastring_4
+  - first:
+      213: -6022389174903750386
+    second: Falling_Datastring_5
+  - first:
+      213: -6576503229207333264
+    second: Falling_Datastring_6
+  - first:
+      213: -1843189975497528598
+    second: Falling_Datastring_7
+  - first:
+      213: 1020029337887324669
+    second: Falling_Datastring_8
+  - first:
+      213: 713706382081078320
+    second: Falling_Datastring_9
+  - first:
+      213: -8973591573975774904
+    second: Falling_Datastring_10
+  - first:
+      213: -3122121871478261654
+    second: Falling_Datastring_11
+  - first:
+      213: 2744595574747839084
+    second: Falling_Datastring_12
+  - first:
+      213: -570307360092129459
+    second: Falling_Datastring_13
+  - first:
+      213: 334634919944029502
+    second: Falling_Datastring_14
+  - first:
+      213: -5429551486358010684
+    second: Falling_Datastring_15
+  - first:
+      213: -9106734123000308054
+    second: Falling_Datastring_16
+  - first:
+      213: 9006906056156552920
+    second: Falling_Datastring_17
+  - first:
+      213: -5643705210819786247
+    second: Falling_Datastring_18
+  - first:
+      213: -3454074977956919188
+    second: Falling_Datastring_19
+  - first:
+      213: -1135096342248808025
+    second: Falling_Datastring_20
+  - first:
+      213: 8329176677393249949
+    second: Falling_Datastring_21
+  - first:
+      213: -8929622345326750335
+    second: Falling_Datastring_22
+  - first:
+      213: -6301289984141437643
+    second: Falling_Datastring_23
+  - first:
+      213: 7796439748190666226
+    second: Falling_Datastring_24
+  - first:
+      213: 2627795168277950943
+    second: Falling_Datastring_25
+  - first:
+      213: 1714231064667357303
+    second: Falling_Datastring_26
+  - first:
+      213: 3323964765441091691
+    second: Falling_Datastring_27
+  - first:
+      213: -3841639583465725564
+    second: Falling_Datastring_28
+  - first:
+      213: 1651036020521841555
+    second: Falling_Datastring_29
+  - first:
+      213: 5319825272597019061
+    second: Falling_Datastring_30
+  - first:
+      213: -6085545580644594773
+    second: Falling_Datastring_31
+  - first:
+      213: -1955931661121466994
+    second: Falling_Datastring_32
+  - first:
+      213: 1055328395685795283
+    second: Falling_Datastring_33
+  - first:
+      213: -1925891640653469268
+    second: Falling_Datastring_34
+  - first:
+      213: -8949761102977344114
+    second: Falling_Datastring_35
+  - first:
+      213: 4382487327580420071
+    second: Falling_Datastring_36
+  - first:
+      213: -6319482813789681560
+    second: Falling_Datastring_37
+  - first:
+      213: -8025527050799800724
+    second: Falling_Datastring_38
+  - first:
+      213: -4225995231306835021
+    second: Falling_Datastring_39
+  - first:
+      213: -5499565451275958440
+    second: Falling_Datastring_40
+  - first:
+      213: 4010035892218362338
+    second: Falling_Datastring_41
+  - first:
+      213: -1192991450190217603
+    second: Falling_Datastring_42
+  - first:
+      213: -3063857057760426573
+    second: Falling_Datastring_43
+  - first:
+      213: -2439822389110163618
+    second: Falling_Datastring_44
+  - first:
+      213: 6383695244963212985
+    second: Falling_Datastring_45
+  - first:
+      213: -115783283323913081
+    second: Falling_Datastring_46
+  - first:
+      213: -6912001508617081499
+    second: Falling_Datastring_47
+  - first:
+      213: 4660776554039987190
+    second: Falling_Datastring_48
+  - first:
+      213: -1662260339718485298
+    second: Falling_Datastring_49
+  - first:
+      213: 3116248269015969304
+    second: Falling_Datastring_50
+  - first:
+      213: 2018989744886565378
+    second: Falling_Datastring_51
+  - first:
+      213: 8916611458467608672
+    second: Falling_Datastring_52
+  - first:
+      213: -980445188321203024
+    second: Falling_Datastring_53
+  - first:
+      213: -9081326966546763699
+    second: Falling_Datastring_54
+  - first:
+      213: 4214964983557973564
+    second: Falling_Datastring_55
+  - first:
+      213: 5242637051159346278
+    second: Falling_Datastring_56
+  - first:
+      213: -4034133918076984280
+    second: Falling_Datastring_57
+  - first:
+      213: 1253506321269426763
+    second: Falling_Datastring_58
+  - first:
+      213: 7470910223960136923
+    second: Falling_Datastring_59
+  - first:
+      213: -7001400434556763253
+    second: Falling_Datastring_60
+  - first:
+      213: 3038162957676239872
+    second: Falling_Datastring_61
+  - first:
+      213: -1988669664705483846
+    second: Falling_Datastring_62
+  - first:
+      213: -5827840545842902933
+    second: Falling_Datastring_63
+  - first:
+      213: -1812126841052937239
+    second: Falling_Datastring_64
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Falling_Datastring_0
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 384
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646ebd84ed7d1f4d0800000000000000
+      internalID: -3102461318576478650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_1
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 364
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff9389acf1532950800000000000000
+      internalID: 6423067639178043385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_2
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 385
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e0552c1cd7b0b70800000000000000
+      internalID: 8866318562551467672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_3
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 364
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9892033a55734810800000000000000
+      internalID: 1748370110613199003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_4
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 357
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4512f738240679980800000000000000
+      internalID: -8532245130239860396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_5
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 385
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0144b214fc2c6ca0800000000000000
+      internalID: -6022389174903750386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_6
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 374
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07633e628219bb4a0800000000000000
+      internalID: -6576503229207333264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_7
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 289
+        width: 8
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeaa8e0ab7cab66e0800000000000000
+      internalID: -1843189975497528598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_8
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 352
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df93049474fd72e00800000000000000
+      internalID: 1020029337887324669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_9
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 363
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0343fd15c2897e900800000000000000
+      internalID: 713706382081078320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_10
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 353
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8494cb1f106677380800000000000000
+      internalID: -8973591573975774904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_11
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 342
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a687f0913befba4d0800000000000000
+      internalID: -3122121871478261654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_12
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 331
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6a34fc3223c61620800000000000000
+      internalID: 2744595574747839084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_13
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 328
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47fae44a7cd518f0800000000000000
+      internalID: -570307360092129459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_14
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 300
+        width: 8
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3584bccfacd4a400800000000000000
+      internalID: 334634919944029502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_15
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 342
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4cfeda0bb56a4b0800000000000000
+      internalID: -5429551486358010684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_16
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 310
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae53ae80916e9180800000000000000
+      internalID: -9106734123000308054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_17
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 288
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de96826655fefc70800000000000000
+      internalID: 9006906056156552920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_18
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 317
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9c01c23088da1b0800000000000000
+      internalID: -5643705210819786247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_19
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 296
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c680057ab19a010d0800000000000000
+      internalID: -3454074977956919188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_20
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 278
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a12a6604e35f30f0800000000000000
+      internalID: -1135096342248808025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_21
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 285
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d963e77ee0e279370800000000000000
+      internalID: 8329176677393249949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_22
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 288
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1859860c9cb931480800000000000000
+      internalID: -8929622345326750335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_23
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 270
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 535d58425225d88a0800000000000000
+      internalID: -6301289984141437643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_24
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 241
+        width: 13
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdf3a7c4a4823c60800000000000000
+      internalID: 7796439748190666226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_25
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 275
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd1f1bb68cdc77420800000000000000
+      internalID: 2627795168277950943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_26
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 265
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7700078221c2ac710800000000000000
+      internalID: 1714231064667357303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_27
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 254
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68e702d758112e20800000000000000
+      internalID: 3323964765441091691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_28
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 243
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48122781721cfaac0800000000000000
+      internalID: -3841639583465725564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_29
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 236
+        width: 9
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393349a5388a9e610800000000000000
+      internalID: 1651036020521841555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_30
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 225
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b97a4856e0d3d940800000000000000
+      internalID: 5319825272597019061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_31
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 232
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab0b39798ccb8ba0800000000000000
+      internalID: -6085545580644594773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_32
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 222
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d4ae564822bd4e0800000000000000
+      internalID: -1955931661121466994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_33
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 182
+        width: 15
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d51c32a59745ae00800000000000000
+      internalID: 1055328395685795283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_34
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 169
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9a4f2b1cbd545e0800000000000000
+      internalID: -1925891640653469268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_35
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 179
+        width: 14
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d5d68d1bf0cc380800000000000000
+      internalID: -8949761102977344114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_36
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 140
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7f4194109b1dc30800000000000000
+      internalID: 4382487327580420071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_37
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 151
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86841e7ecdfac48a0800000000000000
+      internalID: -6319482813789681560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_38
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 168
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e1ac91ba99f9090800000000000000
+      internalID: -8025527050799800724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_39
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 147
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb16773abf3a55c0800000000000000
+      internalID: -4225995231306835021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_40
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 119
+        width: 6
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8578fa92c5e9da3b0800000000000000
+      internalID: -5499565451275958440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_41
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 119
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9fd3cd56286a730800000000000000
+      internalID: 4010035892218362338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_42
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 140
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e7557c894a17fe0800000000000000
+      internalID: -1192991450190217603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_43
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 126
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b5cd9d2d3efa75d0800000000000000
+      internalID: -3063857057760426573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_44
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 140
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e573b0eb672042ed0800000000000000
+      internalID: -2439822389110163618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_45
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 119
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bee166c001779850800000000000000
+      internalID: 6383695244963212985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_46
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 108
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78cbc8e97b7a46ef0800000000000000
+      internalID: -115783283323913081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_47
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 97
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d2aefcf33a310a0800000000000000
+      internalID: -6912001508617081499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_48
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 98
+        width: 6
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fbc50105976ea040800000000000000
+      internalID: 4660776554039987190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_49
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 76
+        width: 9
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca0cde27077ee8e0800000000000000
+      internalID: -1662260339718485298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_50
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 108
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81e6f924a432f3b20800000000000000
+      internalID: 3116248269015969304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_51
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 76
+        width: 6
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ace15d974e40c10800000000000000
+      internalID: 2018989744886565378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_52
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 34
+        width: 8
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068b32611ea2ebb70800000000000000
+      internalID: 8916611458467608672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_53
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 86
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bcaf5cbb42c462f0800000000000000
+      internalID: -980445188321203024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_54
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 66
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40fdc52d35a8f180800000000000000
+      internalID: -9081326966546763699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_55
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 34
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36eea912509e7a30800000000000000
+      internalID: 4214964983557973564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_56
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 0
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c77a01f9691c840800000000000000
+      internalID: 5242637051159346278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_57
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 34
+        width: 9
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 824aaa44390e308c0800000000000000
+      internalID: -4034133918076984280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_58
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 12
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a88fa9b59556110800000000000000
+      internalID: 1253506321269426763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_59
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 30
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc5aff14410ea760800000000000000
+      internalID: 7470910223960136923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_60
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 12
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b838af7566706de90800000000000000
+      internalID: -7001400434556763253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_61
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00cda06fc19b92a20800000000000000
+      internalID: 3038162957676239872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_62
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 20
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb62a3f973d664e0800000000000000
+      internalID: -1988669664705483846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_63
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b684a6996e95f1fa0800000000000000
+      internalID: -5827840545842902933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Falling_Datastring_64
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3c6173d380ad6e0800000000000000
+      internalID: -1812126841052937239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Falling_Datastring_0: -3102461318576478650
+      Falling_Datastring_1: 6423067639178043385
+      Falling_Datastring_10: -8973591573975774904
+      Falling_Datastring_11: -3122121871478261654
+      Falling_Datastring_12: 2744595574747839084
+      Falling_Datastring_13: -570307360092129459
+      Falling_Datastring_14: 334634919944029502
+      Falling_Datastring_15: -5429551486358010684
+      Falling_Datastring_16: -9106734123000308054
+      Falling_Datastring_17: 9006906056156552920
+      Falling_Datastring_18: -5643705210819786247
+      Falling_Datastring_19: -3454074977956919188
+      Falling_Datastring_2: 8866318562551467672
+      Falling_Datastring_20: -1135096342248808025
+      Falling_Datastring_21: 8329176677393249949
+      Falling_Datastring_22: -8929622345326750335
+      Falling_Datastring_23: -6301289984141437643
+      Falling_Datastring_24: 7796439748190666226
+      Falling_Datastring_25: 2627795168277950943
+      Falling_Datastring_26: 1714231064667357303
+      Falling_Datastring_27: 3323964765441091691
+      Falling_Datastring_28: -3841639583465725564
+      Falling_Datastring_29: 1651036020521841555
+      Falling_Datastring_3: 1748370110613199003
+      Falling_Datastring_30: 5319825272597019061
+      Falling_Datastring_31: -6085545580644594773
+      Falling_Datastring_32: -1955931661121466994
+      Falling_Datastring_33: 1055328395685795283
+      Falling_Datastring_34: -1925891640653469268
+      Falling_Datastring_35: -8949761102977344114
+      Falling_Datastring_36: 4382487327580420071
+      Falling_Datastring_37: -6319482813789681560
+      Falling_Datastring_38: -8025527050799800724
+      Falling_Datastring_39: -4225995231306835021
+      Falling_Datastring_4: -8532245130239860396
+      Falling_Datastring_40: -5499565451275958440
+      Falling_Datastring_41: 4010035892218362338
+      Falling_Datastring_42: -1192991450190217603
+      Falling_Datastring_43: -3063857057760426573
+      Falling_Datastring_44: -2439822389110163618
+      Falling_Datastring_45: 6383695244963212985
+      Falling_Datastring_46: -115783283323913081
+      Falling_Datastring_47: -6912001508617081499
+      Falling_Datastring_48: 4660776554039987190
+      Falling_Datastring_49: -1662260339718485298
+      Falling_Datastring_5: -6022389174903750386
+      Falling_Datastring_50: 3116248269015969304
+      Falling_Datastring_51: 2018989744886565378
+      Falling_Datastring_52: 8916611458467608672
+      Falling_Datastring_53: -980445188321203024
+      Falling_Datastring_54: -9081326966546763699
+      Falling_Datastring_55: 4214964983557973564
+      Falling_Datastring_56: 5242637051159346278
+      Falling_Datastring_57: -4034133918076984280
+      Falling_Datastring_58: 1253506321269426763
+      Falling_Datastring_59: 7470910223960136923
+      Falling_Datastring_6: -6576503229207333264
+      Falling_Datastring_60: -7001400434556763253
+      Falling_Datastring_61: 3038162957676239872
+      Falling_Datastring_62: -1988669664705483846
+      Falling_Datastring_63: -5827840545842902933
+      Falling_Datastring_64: -1812126841052937239
+      Falling_Datastring_7: -1843189975497528598
+      Falling_Datastring_8: 1020029337887324669
+      Falling_Datastring_9: 713706382081078320
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

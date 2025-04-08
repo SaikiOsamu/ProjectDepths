@@ -96,6 +96,11 @@ public class CubeManager : MonoBehaviour
 
     void SpawnNextRow(float height, int currentGapColumn, int direction)
     {
+        // Left edge - Air Wall
+        GameObject wallLeft = Instantiate(AirWallPrefab, transform);
+        wallLeft.transform.localPosition = new Vector3(startX - 1 * cellWidth, height, 0);
+
+        // Middle columns - game objects
         for (int i = 0; i < columns; i++)
         {
             GameObject cube = null;
@@ -116,6 +121,10 @@ public class CubeManager : MonoBehaviour
             }
             cube.transform.localPosition = new Vector3(startX + i * cellWidth, height, 0);
         }
+
+        // Right edge - Air Wall
+        GameObject wallRight = Instantiate(AirWallPrefab, transform);
+        wallRight.transform.localPosition = new Vector3(startX + columns * cellWidth, height, 0);
     }
 
     int GetNextGap(int currentGap)

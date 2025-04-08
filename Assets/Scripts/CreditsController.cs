@@ -41,7 +41,7 @@ public class CreditsController : MonoBehaviour
     private IEnumerator LoadSceneWithDelay(string sceneName)
     {
         // Wait a small amount of time for the click sound to play
-        yield return new WaitForSecondsRealtime(0.8f);
+        yield return new WaitForSecondsRealtime(0.2f);
 
         // Load the scene
         SceneManager.LoadScene(sceneName);
