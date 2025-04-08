@@ -20,6 +20,14 @@ public class Sound
 
     private AudioSource source;
 
+    public void Mute(bool mute)
+    {
+        if (source != null)
+        {
+            source.mute = mute;
+        }
+    }
+
     public void SetSource(AudioSource _source)
     {
         source = _source;
@@ -44,6 +52,39 @@ public class Sound
 
 public class AudioManager : MonoBehaviour
 {
+    private bool isMuted = false;
+
+    public void MuteAll()
+    {
+        isMuted = true;
+        foreach (var sound in sounds)
+        {
+            sound.Mute(true);
+        }
+    }
+
+    public void UnmuteAll()
+    {
+        isMuted = false;
+        foreach (var sound in sounds)
+        {
+            sound.Mute(false);
+        }
+    }
+
+    public void ToggleMute()
+    {
+        if (isMuted)
+        {
+            UnmuteAll();
+        }
+        else
+        {
+            MuteAll();
+        }
+    }
+
+
     public static AudioManager instance;
 
     [SerializeField]

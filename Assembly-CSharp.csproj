@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\SimplePopup.cs" />
     <Compile Include="Assets\Scripts\FallingCubeMovement.cs" />
     <Compile Include="Assets\Scripts\HardObject.cs" />
+    <Compile Include="Assets\Scripts\ButtonMuteToggle.cs" />
     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
     <Compile Include="Assets\Scripts\ButtonManager.cs" />
