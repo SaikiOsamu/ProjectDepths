@@ -82,91 +82,91 @@ MonoBehaviour:
     loop: 0
   - name: SwordAttack
     clip: {fileID: 8300000, guid: 7ea4677bdadac9040b71e083ab69d876, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: FistAttack
     clip: {fileID: 8300000, guid: 5f9d6e3fc3c8a80408193031e5bc5299, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: WalkSound
     clip: {fileID: 8300000, guid: bcdea1eeaacde4c498ede9b124778410, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1.5
     volumeRandomness: 0.15
     pitchRandomness: 0.15
     loop: 0
   - name: DeadSound
     clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: ErrorPopup
     clip: {fileID: 8300000, guid: f153759d2d1e9604bbbb2c444c253b74, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: PasswordEnter
     clip: {fileID: 8300000, guid: aeb91a696c3dd6845a9522d2325e0a00, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: PasswordCorrect
     clip: {fileID: 8300000, guid: ec1dc5a12426fec4b8327406d4aba0be, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: PasswordWrong
     clip: {fileID: 8300000, guid: e7bcd57d5e3b7e047be7f83aa6983574, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: BricksBroken
     clip: {fileID: 8300000, guid: ddae7723c6c6250448ee94bc62d02aea, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: BricksHitSaber
     clip: {fileID: 8300000, guid: 43b3c0ff5ff078b4b978f59380a040d4, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: BricksHitFist
     clip: {fileID: 8300000, guid: a31b9443980119447a828a4f3e6b1a82, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: MetalHitSaber
     clip: {fileID: 8300000, guid: 3daa40828ee56204eba3be9f0cf1302c, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: MetalHitFist
     clip: {fileID: 8300000, guid: f54ae8f1e19ef4b4387ece12b7ab64b7, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0

@@ -4857,12 +4857,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[4].name
       value: BGM_MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[18].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ad08117833851d347993f10e5a72d49f, type: 3}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[18].name
+      value: ButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[18].pitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[1].volume
@@ -4879,6 +4895,10 @@ PrefabInstance:
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[6].volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[18].volume
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6165833213474511625, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: m_Name
