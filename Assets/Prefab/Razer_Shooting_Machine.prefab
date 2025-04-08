@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7603293339562261740}
   - component: {fileID: 3564480104721598757}
   - component: {fileID: 8176665789512900959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Razer_Shooting_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3574155820195769225}
   - component: {fileID: 7106125730075859113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Razer_shooter_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8174474467546437417}
   - component: {fileID: 6191034525037446479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Razer_shooter_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 2287714995866247652}
   - component: {fileID: 3190896553260214449}
   - component: {fileID: 6714462572662804204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Razer
   m_TagString: Ceiling
   m_Icon: {fileID: 0}
