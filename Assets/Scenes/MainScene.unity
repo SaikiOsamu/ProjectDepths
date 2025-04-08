@@ -1236,6 +1236,9 @@ MonoBehaviour:
   SecondDigit: {fileID: 297312614}
   ThirdDigit: {fileID: 319269003}
   codeTimeLimit: 5
+  passwordEnterSound: PasswordEnter
+  passwordCorrectSound: PasswordCorrect
+  passwordWrongSound: PasswordWrong
 --- !u!4 &333412001
 Transform:
   m_ObjectHideFlags: 0
@@ -1621,6 +1624,7 @@ MonoBehaviour:
   spawnOnKey: 1
   spawnKey: 112
   showDebugInfo: 1
+  errorPopupSound: ErrorPopup
 --- !u!4 &416167536
 Transform:
   m_ObjectHideFlags: 0
@@ -4855,6 +4859,18 @@ PrefabInstance:
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[4].name
       value: BGM_MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[5].volume
