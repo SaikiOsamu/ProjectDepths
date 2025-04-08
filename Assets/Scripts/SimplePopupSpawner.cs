@@ -5,17 +5,17 @@ using System.Collections;
 public class SimplePopupSpawner : MonoBehaviour
 {
     [Header("Popup Settings")]
-    [SerializeField] private GameObject popupPrefab;
+    [SerializeField] private GameObject[] popupPrefabs; // Array of popup prefabs
     [SerializeField] private RectTransform rightInteractionZone;
 
     [Header("Difficulty Curve")]
-    [SerializeField] private float initialSpawnInterval = 30f; // Seconds between spawns at start (longer = easier)
+    [SerializeField] private float initialSpawnInterval = 15f; // Seconds between spawns at start (longer = easier)
     [SerializeField] private float minimumSpawnInterval = 3f; // Shortest possible spawn interval (seconds)
     [SerializeField] private float difficultyRampTime = 180f; // Time (in seconds) until maximum difficulty
     [SerializeField] private AnimationCurve difficultyCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f); // Difficulty progression curve
 
     [Header("Spawn Limits")]
-    [SerializeField] private int maxSimultaneousPopups = 3; // Maximum number of popups active at once
+    [SerializeField] private int maxSimultaneousPopups = 6; // Maximum number of popups active at once
 
     [Header("Debug")]
     [SerializeField] private bool spawnOnKey = true;
@@ -29,6 +29,14 @@ public class SimplePopupSpawner : MonoBehaviour
 
     void Start()
     {
+        // Validate popup prefabs
+        if (popupPrefabs == null || popupPrefabs.Length == 0)
+        {
+            Debug.LogError("No popup prefabs assigned! Please assign at least one popup prefab in the inspector.");
+            enabled = false;
+            return;
+        }
+
         // Set the first spawn time
         CalculateNextSpawnTime();
 
@@ -44,7 +52,7 @@ public class SimplePopupSpawner : MonoBehaviour
         // Debug key to manually spawn popups
         if (spawnOnKey && Input.GetKeyDown(spawnKey))
         {
-            SpawnPopup();
+            SpawnRandomPopup();
         }
 
         // Show debug info
@@ -53,7 +61,7 @@ public class SimplePopupSpawner : MonoBehaviour
             float difficulty = CalculateDifficulty();
             float currentInterval = Mathf.Lerp(initialSpawnInterval, minimumSpawnInterval, difficulty);
             float timeUntilNextSpawn = nextSpawnTime - gameTimer;
-            // Difficulty curve
+            // Difficulty curve debug info
             /*Debug.Log($"Game Time: {gameTimer:F1}s | " +
                      $"Difficulty: {difficulty:P0} | " +
                      $"Spawn Interval: {currentInterval:F1}s | " +
@@ -75,7 +83,7 @@ public class SimplePopupSpawner : MonoBehaviour
             // Check if we can spawn more popups
             if (activePopupCount < maxSimultaneousPopups)
             {
-                SpawnPopup();
+                SpawnRandomPopup();
             }
 
             // Calculate next spawn time
@@ -108,16 +116,20 @@ public class SimplePopupSpawner : MonoBehaviour
         return difficultyCurve.Evaluate(normalizedTime);
     }
 
-    public void SpawnPopup()
+    public void SpawnRandomPopup()
     {
-        if (popupPrefab == null || rightInteractionZone == null)
+        if (popupPrefabs == null || popupPrefabs.Length == 0 || rightInteractionZone == null)
         {
-            Debug.LogError("Popup prefab or RightInteractionZone not assigned!");
+            Debug.LogError("Popup prefabs or RightInteractionZone not assigned!");
             return;
         }
 
-        // Instantiate the popup as a child of the RightInteractionZone
-        GameObject popup = Instantiate(popupPrefab, rightInteractionZone);
+        // Select a random popup prefab from the array
+        int randomIndex = Random.Range(0, popupPrefabs.Length);
+        GameObject selectedPrefab = popupPrefabs[randomIndex];
+
+        // Instantiate the selected popup as a child of the RightInteractionZone
+        GameObject popup = Instantiate(selectedPrefab, rightInteractionZone);
 
         // Get the RectTransform of the popup
         RectTransform popupRect = popup.GetComponent<RectTransform>();
@@ -136,7 +148,7 @@ public class SimplePopupSpawner : MonoBehaviour
             float randomY = Random.Range(-maxOffsetY, maxOffsetY);
             popupRect.anchoredPosition = new Vector2(randomX, randomY);
 
-            Debug.Log($"Popup spawned at position: {popupRect.anchoredPosition}");
+            Debug.Log($"Popup spawned at position: {popupRect.anchoredPosition}, Type: {selectedPrefab.name}");
         }
 
         // Increment active popup counter

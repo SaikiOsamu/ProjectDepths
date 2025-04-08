@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\Unity Projects\\ProjectDepths\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\simplepopupspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplepopupspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\enhanceduihovereffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\enhanceduihovereffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enhanceduihovereffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\simplepopupspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplepopupspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\textmesh pro\\shaders\\tmp_sdf.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\textmesh pro\\shaders\\tmp_sdf.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,20 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainMenuController.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenuController.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MainMenuController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAowDkAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T22:45:07.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PauseManager.cs",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\PauseManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PauseManager.cs",
@@ -103,8 +90,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PauseManager.cs",
               "ViewState": "AQIAAEcAAAAAAAAAAAAIwCgAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T22:10:34.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T22:10:34.331Z"
             },
             {
               "$type": "Document",
@@ -132,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
@@ -144,15 +130,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "ButtonManager.cs",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\ButtonManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ButtonManager.cs",
               "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\ButtonManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ButtonManager.cs",
-              "ViewState": "AQIAAPsAAAAAAAAAAAAkwB8BAAABAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAgwBsAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T12:32:19.336Z"
+              "WhenOpened": "2025-04-07T12:32:19.336Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -204,7 +191,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "SimplePopupSpawner.cs",
+              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\SimplePopupSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SimplePopupSpawner.cs",
+              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\SimplePopupSpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SimplePopupSpawner.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T17:10:01.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainMenuController.cs",
+              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenuController.cs",
+              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\MainMenuController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenuController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDkAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T22:45:07.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EnhancedUIHoverEffect.cs",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\EnhancedUIHoverEffect.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnhancedUIHoverEffect.cs",
@@ -212,8 +225,7 @@
               "RelativeToolTip": "Assets\\Scripts\\EnhancedUIHoverEffect.cs",
               "ViewState": "AQIAAFMAAAAAAAAAAADwv3oAAACCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:10:36.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T17:10:36.499Z"
             },
             {
               "$type": "Document",
@@ -229,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DestroyableObject.cs",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\DestroyableObject.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DestroyableObject.cs",
@@ -237,12 +249,11 @@
               "RelativeToolTip": "Assets\\Scripts\\DestroyableObject.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAAABUAAABsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T10:24:02.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T10:24:02.26Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TMP_SDF.shader",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF.shader",
               "RelativeDocumentMoniker": "Assets\\TextMesh Pro\\Shaders\\TMP_SDF.shader",
@@ -254,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GameOverManager.cs",
               "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\GameOverManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameOverManager.cs",
@@ -263,18 +274,6 @@
               "ViewState": "AQIAAG4AAAAAAAAAAAAkwJIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T16:06:29.279Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SimplePopupSpawner.cs",
-              "DocumentMoniker": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\SimplePopupSpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SimplePopupSpawner.cs",
-              "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\SimplePopupSpawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SimplePopupSpawner.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAywDcAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:10:01.091Z"
             }
           ]
         }
