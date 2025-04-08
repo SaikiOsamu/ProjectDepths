@@ -27,9 +27,25 @@ public class ButtonManager : MonoBehaviour
     private Color incorrectColor = Color.red;
     private Color defaultColor = Color.white;
 
+    // Sound Variables
+    [SerializeField] string passwordEnterSound = "PasswordEnter";
+    [SerializeField] string passwordCorrectSound = "PasswordCorrect";
+    [SerializeField] string passwordWrongSound = "PasswordWrong";
+
+    AudioManager audioManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        // Get audio manager reference
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
+
         LoadText.text = "LOADING...";
         LoadText.color = defaultColor;
         FirstDigit.text = SecondDigit.text = ThirdDigit.text = "";
@@ -122,6 +138,8 @@ public class ButtonManager : MonoBehaviour
         if (targetCode == "" || !isCodeActive || isProcessingResult)
             return;
 
+        audioManager.PlaySound(passwordEnterSound);
+
         // Get the expected digit at the current position
         char expectedDigit = targetCode[currentDigitPosition];
         bool isCorrect = (digit.ToString() == expectedDigit.ToString());
@@ -202,6 +220,9 @@ public class ButtonManager : MonoBehaviour
 
         LoadText.color = correctColor;
         LoadText.text = "CORRECT!";
+
+        audioManager.PlaySound(passwordCorrectSound);
+
         yield return new WaitForSeconds(2f);
         ResetCodeState();
     }
@@ -221,6 +242,9 @@ public class ButtonManager : MonoBehaviour
 
         LoadText.color = incorrectColor;
         LoadText.text = "FAIL";
+
+        audioManager.PlaySound(passwordWrongSound);
+
         yield return new WaitForSeconds(2f);
         ResetCodeState();
     }

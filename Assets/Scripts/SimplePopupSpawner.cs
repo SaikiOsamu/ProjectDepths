@@ -27,8 +27,20 @@ public class SimplePopupSpawner : MonoBehaviour
     private float nextSpawnTime = 0f;
     private int activePopupCount = 0;
 
+    // Sound variables
+    [SerializeField] string errorPopupSound = "ErrorPopup";
+
+    AudioManager audioManager;
+
     void Start()
     {
+        // Get audio manager reference
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
         // Set the first spawn time
         CalculateNextSpawnTime();
 
@@ -118,6 +130,7 @@ public class SimplePopupSpawner : MonoBehaviour
 
         // Instantiate the popup as a child of the RightInteractionZone
         GameObject popup = Instantiate(popupPrefab, rightInteractionZone);
+        audioManager.PlaySound(errorPopupSound);
 
         // Get the RectTransform of the popup
         RectTransform popupRect = popup.GetComponent<RectTransform>();

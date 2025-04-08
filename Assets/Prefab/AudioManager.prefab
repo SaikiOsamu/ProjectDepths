@@ -45,6 +45,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: BGM_MainMenu
+    clip: {fileID: 8300000, guid: 5f7d16c954e6b1c4ca6f3b3ec8805bf1, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
+  - name: BGM_PauseMenu
+    clip: {fileID: 8300000, guid: 6fb49db9a85ffae4d8040f15b1b70166, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
+  - name: BGM_PlayScene
+    clip: {fileID: 8300000, guid: a0c0b563848b3ee4ca24a630e5378df4, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
   - name: ButtonHover
     clip: {fileID: 8300000, guid: 3fa4ba4379a3f884abc61b69d4e92f98, type: 3}
     volume: 1
@@ -60,37 +81,93 @@ MonoBehaviour:
     pitchRandomness: 0
     loop: 0
   - name: SwordAttack
-    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
+    clip: {fileID: 8300000, guid: 7ea4677bdadac9040b71e083ab69d876, type: 3}
     volume: 1
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: FistAttack
-    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
+    clip: {fileID: 8300000, guid: 5f9d6e3fc3c8a80408193031e5bc5299, type: 3}
     volume: 1
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
-  - name: BGM_MainMenu
-    clip: {fileID: 8300000, guid: 5f7d16c954e6b1c4ca6f3b3ec8805bf1, type: 3}
-    volume: 0.5
+  - name: WalkSound
+    clip: {fileID: 8300000, guid: bcdea1eeaacde4c498ede9b124778410, type: 3}
+    volume: 1
+    pitch: 1.5
+    volumeRandomness: 0.15
+    pitchRandomness: 0.15
+    loop: 0
+  - name: DeadSound
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
-    loop: 1
-  - name: BGM_PauseMenu
-    clip: {fileID: 8300000, guid: 6fb49db9a85ffae4d8040f15b1b70166, type: 3}
-    volume: 0.5
+    loop: 0
+  - name: ErrorPopup
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
-    loop: 1
-  - name: BGM_PlayScene
-    clip: {fileID: 8300000, guid: a0c0b563848b3ee4ca24a630e5378df4, type: 3}
-    volume: 0.5
+    loop: 0
+  - name: PasswordEnter
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
-    loop: 1
+    loop: 0
+  - name: PasswordCorrect
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: PasswordWrong
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: BricksBroken
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: BricksHitSaber
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: BricksHitFist
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: MetalHitSaber
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: MetalHitFist
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
