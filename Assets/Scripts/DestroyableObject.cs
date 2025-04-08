@@ -23,6 +23,24 @@ public class DestroyableObject : MonoBehaviour
 
     private bool isDestroying = false;
 
+    [SerializeField] string bricksHitBySaber = "BricksHitSaber";
+    [SerializeField] string bricksHitByFist = "BricksHitFist";
+    [SerializeField] string bricksBroken = "BricksBroken";
+    [SerializeField] string metalHitByFist = "MetalHitFist";
+    [SerializeField] string metalHitBySaber = "MetalHitSaber";
+
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        // Get audio manager reference
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+    }
+
     private void Awake()
     {
         if (animator == null)
@@ -43,6 +61,8 @@ public class DestroyableObject : MonoBehaviour
         if (!isDestroying)
         {
             isDestroying = true;
+
+            audioManager.PlaySound(bricksBroken);
 
             // Trigger animation if we have an animator
             if (animator != null)

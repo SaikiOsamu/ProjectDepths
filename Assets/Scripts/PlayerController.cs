@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     // Audio Manager
     [SerializeField] string fistAttackSound = "FistAttack";
     [SerializeField] string swordAttackSound = "SwordAttack";
+    [SerializeField] string playerMoveSound = "WalkSound";
+    [SerializeField] string playerDeadSound = "DeadSound";
 
     AudioManager audioManager;
 
@@ -97,6 +99,8 @@ public class PlayerController : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
+
+            audioManager.PlaySound(playerDeadSound);
 
             // Disable player movement
             rb.linearVelocity = Vector2.zero;
@@ -225,11 +229,17 @@ public class PlayerController : MonoBehaviour
         // Check key states and update press times
         if (Input.GetKeyDown(KeyCode.A))
         {
+            // Play sound
+            audioManager.PlaySound(playerMoveSound);
+
             lastAKeyPressTime = Time.time;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            // Play sound
+            audioManager.PlaySound(playerMoveSound);
+
             lastDKeyPressTime = Time.time;
         }
 
