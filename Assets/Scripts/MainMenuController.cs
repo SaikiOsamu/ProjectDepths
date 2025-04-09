@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private string creditsSceneName = "Credits"; // Name of your credits scene (if you have one)
 
     [Header("Animation Settings (Optional)")]
-    [SerializeField] private float fadeTime = 1.0f;
+    [SerializeField] private float fadeTime = 0.2f;
     [SerializeField] private bool useTransitionEffect = false;
 
     // Sound

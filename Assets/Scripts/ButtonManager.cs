@@ -219,7 +219,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = correctColor;
-        LoadText.text = "CORRECT!";
+        LoadText.text = "+100 YES!";
 
         audioManager.PlaySound(passwordCorrectSound);
 
@@ -241,7 +241,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = incorrectColor;
-        LoadText.text = "FAIL";
+        LoadText.text = "-50 CARE!";
 
         audioManager.PlaySound(passwordWrongSound);
 
@@ -263,7 +263,8 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = incorrectColor;
-        LoadText.text = "EXPIRED"; // Different message for timeout
+        LoadText.text = "-50 CARE!"; // Different message for timeout
+        audioManager.PlaySound(passwordWrongSound);
         yield return new WaitForSeconds(2f);
         ResetCodeState();
     }

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     [Header("Destroy Range")]
-    [SerializeField] private float destroyRange = 1f;
+    [SerializeField] private float destroyRange;
 
     [Header("Game Over References")]
     [SerializeField] private GameOverManager gameOverManager;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool isAttackingLeft = false;
     private bool isDead = false;
     private bool isSlaming = false;
+    private bool isAttacking = false; // New flag to track any attack state
 
     // Audio Manager
     [SerializeField] string fistAttackSound = "FistAttack";
@@ -49,7 +50,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("No audio manager found");
         }
-
 
         // Get the Rigidbody2D component attached to this GameObject
         rb = GetComponent<Rigidbody2D>();
@@ -75,14 +75,40 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;
 
-        // Handle movement input
-        HandleMovement();
+        // Only process movement if not attacking
+        if (!isAttacking)
+        {
+            // Handle movement input
+            HandleMovement();
+        }
+        else
+        {
+            // Stop movement when attacking
+            StopMovement();
+        }
 
         // Handle attack input
         HandleAttackInput();
 
-        // Handle destroy input
-        HandleDestroyInput();
+        // We'll handle destruction in the attack methods directly
+        // No need to call HandleDestroyInput() anymore since the attack
+        // methods themselves will call DestroyObjectInDirection()
+    }
+
+    // New method to stop movement
+    void StopMovement()
+    {
+        // Stop horizontal movement
+        Vector2 newVelocity = rb.linearVelocity;
+        newVelocity.x = 0;
+        rb.linearVelocity = newVelocity;
+
+        // Update animation parameters to stop walking animation
+        if (animator != null)
+        {
+            animator.SetFloat(HORIZONTAL_MOVEMENT, 0);
+            animator.SetBool(IS_MOVING, false);
+        }
     }
 
     // Modify your OnTriggerEnter2D method
@@ -166,10 +192,17 @@ public class PlayerController : MonoBehaviour
 
     void HandleAttackInput()
     {
+        // Don't allow starting new attacks if already attacking
+        if (isAttacking) return;
+
         // For example, using E key for right attack and Q key for left attack
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttackingRight = true;
+            isAttacking = true; // Set master attack flag
+
+            // Call destroy method first to ensure it happens
+            DestroyObjectInDirection(Vector2.right);
 
             // Play sound
             audioManager.PlaySound(swordAttackSound);
@@ -180,6 +213,10 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             isAttackingLeft = true;
+            isAttacking = true; // Set master attack flag
+
+            // Call destroy method first to ensure it happens
+            DestroyObjectInDirection(Vector2.left);
 
             // Play sound
             audioManager.PlaySound(swordAttackSound);
@@ -190,6 +227,10 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
+            isAttacking = true; // Set master attack flag
+
+            // Call destroy method first to ensure it happens
+            DestroyObjectInDirection(Vector2.down);
 
             // Play sound
             audioManager.PlaySound(fistAttackSound);
@@ -202,7 +243,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator ResetAttackParameters()
     {
         // Wait briefly to allow the animation trigger to be detected
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.33f);
 
         if (isAttackingRight)
         {
@@ -215,11 +256,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("AttackLeft", false);
             isAttackingLeft = false;
         }
+
         if (isSlaming)
         {
             animator.SetBool("Slam", false);
             isSlaming = false;
         }
+
+        // Reset master attack flag after all specific attack flags are reset
+        isAttacking = false;
     }
 
     void HandleMovement()
@@ -283,13 +328,16 @@ public class PlayerController : MonoBehaviour
 
     void HandleDestroyInput()
     {
+        // Process destroy inputs when attack keys are initially pressed
+        // This is integrated with the attack system, so we want these to work together
+
         // Check for Q key to destroy object on the left
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Try the primary method first
             DestroyObjectInDirection(Vector2.left);
         }
-        // Check for D key to move right, E key to destroy right
+        // Check for E key to destroy right
         else if (Input.GetKeyDown(KeyCode.E))
         {
             // Try the primary method first
@@ -308,47 +356,43 @@ public class PlayerController : MonoBehaviour
         // Get the renderer to find the exact size of the player sprite
         SpriteRenderer playerRenderer = GetComponent<SpriteRenderer>();
 
-        // Calculate a safe offset to ensure the ray starts outside the player's collider
-        float offsetDistance = 0.55f; // Default value
-
+        // Calculate offset as before
+        float offsetDistance = 0.55f;
         if (playerRenderer != null)
         {
-            // Use the sprite bounds to get a precise measurement
             offsetDistance = Mathf.Max(playerRenderer.bounds.extents.x, playerRenderer.bounds.extents.y) + 0.1f;
         }
         else
         {
-            // Fallback to using the collider if available
             Collider2D colliderComponent = GetComponent<Collider2D>();
             if (colliderComponent != null)
             {
-                // Use the bounds to get a more accurate size
                 offsetDistance = Mathf.Max(colliderComponent.bounds.extents.x, colliderComponent.bounds.extents.y) + 0.1f;
             }
         }
 
-        // Starting position for the raycast (OUTSIDE the player's collider)
+        // Starting position for the raycast
         Vector2 rayOrigin = (Vector2)transform.position + (direction * offsetDistance);
 
-        // Get the player's collider for ignoring collisions
-        Collider2D myCollider = GetComponent<Collider2D>();
+        // Create a layer mask that ignores both the player's layer AND the Ruins layer
+        int ruinsLayer = LayerMask.NameToLayer("Ruins"); // Make sure this matches your layer name
+        int playerLayer = gameObject.layer;
 
-        // Create a layer mask that ignores the player's layer
-        int layerMask = ~(1 << gameObject.layer);
+        // Create a mask that includes everything EXCEPT the player and ruins layers
+        int layerMask = ~((1 << playerLayer) | (1 << ruinsLayer));
 
-        // Cast a ray in the specified direction, ignoring the player's layer
+        // Cast the ray with the updated layer mask
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, destroyRange, layerMask);
 
-        // Debug ray for visualization in Scene view
+        // Rest of your method remains the same...
         Debug.DrawRay(rayOrigin, direction * destroyRange, Color.green, 2f);
-
-        // Log the raycast attempt for debugging
-        Debug.Log("Casting ray in direction: " + direction + " with range: " + destroyRange + " from position: " + rayOrigin);
 
         // Check if the ray hit something
         if (hit.collider != null)
         {
             Debug.Log("Ray hit object: " + hit.collider.gameObject.name + " with tag: " + hit.collider.tag);
+
+            // We don't need to check for Ruin tag anymore since the layer mask excludes them
 
             // Check if the hit object has the "DestroyableObject" tag
             if (hit.collider.CompareTag("DestroyableObject"))
@@ -361,53 +405,59 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    // Fallback to direct destruction if the object doesn't have our component
+                    // Fallback to direct destruction
                     Destroy(hit.collider.gameObject);
                 }
                 Debug.Log("Destroyed object: " + hit.collider.gameObject.name);
-                return; // Added return here to ensure no further destroy methods are called
+                return;
             }
         }
         else
         {
             Debug.Log("Ray didn't hit any object. Try increasing range or adjusting the ray origin.");
+        }
 
-            // Let's try one more approach - a sphere cast with the same layer mask
-            RaycastHit2D sphereHit = Physics2D.CircleCast(
-                rayOrigin, // Origin
-                0.1f,      // Radius 
-                direction, // Direction
-                destroyRange, // Distance
-                layerMask  // Same layer mask to ignore player
-            );
+        // Update the layer mask in the alternative methods too
+        TryAlternativeRaycast(rayOrigin, direction, layerMask);
+    }
 
-            if (sphereHit.collider != null)
+    // Updated to accept the layer mask parameter
+    void TryAlternativeRaycast(Vector2 rayOrigin, Vector2 direction, int layerMask)
+    {
+        // Use the passed in layer mask that already excludes ruins and player
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(
+            rayOrigin,     // Origin
+            0.1f,          // Radius 
+            direction,     // Direction
+            destroyRange,  // Distance
+            layerMask      // Layer mask that excludes Ruins
+        );
+
+        // Process all hits
+        foreach (RaycastHit2D hit in hits)
+        {
+            // We don't need to check for Ruin tag anymore
+            if (hit.collider.CompareTag("DestroyableObject"))
             {
-                Debug.Log("CircleCast hit: " + sphereHit.collider.gameObject.name);
-
-                if (sphereHit.collider.CompareTag("DestroyableObject"))
+                DestroyableObject destroyable = hit.collider.GetComponent<DestroyableObject>();
+                if (destroyable != null)
                 {
-                    // Get the DestroyableObject component and trigger destruction
-                    DestroyableObject destroyable = sphereHit.collider.GetComponent<DestroyableObject>();
-                    if (destroyable != null)
-                    {
-                        destroyable.TriggerDestruction();
-                    }
-                    else
-                    {
-                        // Fallback to direct destruction if the object doesn't have our component
-                        Destroy(sphereHit.collider.gameObject);
-                    }
-                    Debug.Log("Destroyed object using CircleCast: " + sphereHit.collider.gameObject.name);
-                    return; // Added return here to ensure no further destroy methods are called
+                    destroyable.TriggerDestruction();
+                    Debug.Log("Destroyed object using CircleCast: " + hit.collider.gameObject.name);
+                    return;
+                }
+                else
+                {
+                    Destroy(hit.collider.gameObject);
+                    Debug.Log("Destroyed object using CircleCast: " + hit.collider.gameObject.name);
+                    return;
                 }
             }
         }
 
-        // If we got here, try the backup method
+        // If we still haven't found anything, use the final backup method
         FindAndDestroyNearestInDirection(direction);
     }
-
     // This is a completely different approach that doesn't use raycasts
     void FindAndDestroyNearestInDirection(Vector2 direction)
     {
@@ -426,6 +476,10 @@ public class PlayerController : MonoBehaviour
 
             // Skip objects that don't have the DestroyableObject tag
             if (!collider.CompareTag("DestroyableObject"))
+                continue;
+
+            // Skip Ruin objects
+            if (collider.CompareTag("Ruin"))
                 continue;
 
             // Calculate direction to the object

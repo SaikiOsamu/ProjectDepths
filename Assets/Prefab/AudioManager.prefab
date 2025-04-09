@@ -61,7 +61,7 @@ MonoBehaviour:
     loop: 1
   - name: BGM_PlayScene
     clip: {fileID: 8300000, guid: a0c0b563848b3ee4ca24a630e5378df4, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
@@ -166,6 +166,13 @@ MonoBehaviour:
     loop: 0
   - name: MetalHitFist
     clip: {fileID: 8300000, guid: f54ae8f1e19ef4b4387ece12b7ab64b7, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: HandPopup
+    clip: {fileID: 8300000, guid: 8cb63f6c951e9a949bf193533e0d014b, type: 3}
     volume: 0.5
     pitch: 1
     volumeRandomness: 0

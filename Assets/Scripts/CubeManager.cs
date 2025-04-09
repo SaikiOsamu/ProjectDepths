@@ -78,7 +78,7 @@ public class CubeManager : MonoBehaviour
         for (int i = 0; i < columns; i++)
         {
             GameObject cube = null;
-            if (Random.value < 0.175f)
+            if (Random.value < 0.15f)
             {
                 cube = Instantiate(UnbreakableObject, transform);
             }

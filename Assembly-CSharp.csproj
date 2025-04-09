@@ -75,11 +75,13 @@
     <Compile Include="Assets\Scripts\HardObject.cs" />
     <Compile Include="Assets\Scripts\ButtonMuteToggle.cs" />
     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
+    <Compile Include="Assets\Scripts\HandUIPopup.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
     <Compile Include="Assets\Scripts\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\ChangeSceneOnTimer.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\Scripts\HandUIAnimation.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\FallingCubeManager.cs" />
     <Compile Include="Assets\Scripts\SimplePopupSpawner.cs" />

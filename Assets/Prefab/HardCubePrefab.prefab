@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3213326812797912626}
   - component: {fileID: 8531390150962325745}
-  - component: {fileID: 3331807643795800636}
   - component: {fileID: 8043707381703087507}
   m_Layer: 0
   m_Name: HardCubePrefab
@@ -89,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3331807643795800636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6122465855542521798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b58d99f5d3d6a4e9fe94a4a62f4d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8043707381703087507
 BoxCollider2D:
   m_ObjectHideFlags: 0

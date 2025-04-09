@@ -14,6 +14,12 @@ public class ButtonMuteToggle : MonoBehaviour
 
     void Start()
     {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
         sr = targetObject.GetComponent<SpriteRenderer>();
         if (muteButton != null)
         {
