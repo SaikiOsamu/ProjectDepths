@@ -229,7 +229,7 @@ public class ButtonManager : MonoBehaviour
 
     IEnumerator WrongInput()
     {
-        GameManager.instance.GainScore(-50);
+        //GameManager.instance.GainScore(-50);
         GameManager.instance.Punish();
 
         for (int i = 0; i < 4; i++)
@@ -241,7 +241,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = incorrectColor;
-        LoadText.text = "-50 CARE!";
+        LoadText.text = "DANGER!!!";
 
         audioManager.PlaySound(passwordWrongSound);
 
@@ -251,7 +251,7 @@ public class ButtonManager : MonoBehaviour
 
     IEnumerator ExpiredInput()
     {
-        GameManager.instance.GainScore(-50); // Same penalty as wrong input
+        //GameManager.instance.GainScore(-50); // Same penalty as wrong input
         GameManager.instance.Punish();
 
         for (int i = 0; i < 4; i++)
@@ -263,7 +263,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = incorrectColor;
-        LoadText.text = "-50 CARE!"; // Different message for timeout
+        LoadText.text = "DANGER!!!"; // Different message for timeout
         audioManager.PlaySound(passwordWrongSound);
         yield return new WaitForSeconds(2f);
         ResetCodeState();

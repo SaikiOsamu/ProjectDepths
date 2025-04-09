@@ -170,13 +170,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  destroyRange: 0.15
+  destroyRange: 0.12
   gameOverManager: {fileID: 0}
   deathAnimationDuration: 2.2
   fistAttackSound: FistAttack
   swordAttackSound: SwordAttack
   playerMoveSound: WalkSound
   playerDeadSound: DeadSound
+  brickHitByFist: BricksHitFist
+  brickHitBySaber: BricksHitSaber
+  metalHitByFist: MetalHitFist
+  metalHitBySaber: MetalHitSaber
 --- !u!95 &7838693769281766236
 Animator:
   serializedVersion: 7

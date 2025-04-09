@@ -52,15 +52,45 @@ public class Sound
 
     public void Stop()
     {
-        // Can further add more effects here: time fade out
-        source.Stop();
+        // Add a null check before stopping
+        if (source != null)
+        {
+            source.Stop();
+        }
+    }
+
+    // Added method to check if sound is currently playing
+    public bool IsPlaying()
+    {
+        return source != null && source.isPlaying;
+    }
+
+    // Added method to get/set volume directly
+    public float GetVolume()
+    {
+        return source != null ? source.volume : 0f;
+    }
+
+    public void SetVolume(float newVolume)
+    {
+        if (source != null)
+        {
+            source.volume = newVolume;
+        }
     }
 }
 
 public class AudioManager : MonoBehaviour
 {
     private bool isMuted = false;
-    private string currentBGM = ""; // Track current BGM
+
+    // Track currently playing BGMs
+    private string[] activeBGMs = new string[2]; // We'll only track up to 2 active BGMs
+
+    // Special BGM groups
+    private readonly string BGM_MAIN = "BGM_MainMenu";
+    private readonly string BGM_PLAY = "BGM_PlayScene";
+    private readonly string BGM_PAUSE = "BGM_PauseMenu";
 
     public static AudioManager instance;
 
@@ -79,7 +109,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this); // Uncommented this line
+            DontDestroyOnLoad(this);
         }
     }
 
@@ -91,9 +121,6 @@ public class AudioManager : MonoBehaviour
             // transform sound to the playerCharacter to make it cleaner
             _go.transform.SetParent(this.transform);
             sounds[i].SetSource(_go.AddComponent<AudioSource>());
-
-            // Optional debug log
-            // Debug.Log("Initialized sound: " + sounds[i].name + " | Loop: " + sounds[i].loop);
         }
     }
 
@@ -129,43 +156,126 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string _name)
     {
-        // Check if this is a BGM (assuming BGM names start with "BGM_")
         bool isBGM = _name.StartsWith("BGM_");
 
-        // If this is a BGM, stop the current BGM if there is one
-        if (isBGM && !string.IsNullOrEmpty(currentBGM))
+        if (isBGM)
         {
-            StopSound(currentBGM);
+            // Handle BGM special cases
+            HandleBGMPlayback(_name);
         }
+        else
+        {
+            // Regular sound effect - play normally
+            for (int i = 0; i < sounds.Length; i++)
+            {
+                if (sounds[i].name == _name)
+                {
+                    sounds[i].Play();
+                    return;
+                }
+            }
 
+            // No sound with the name
+            Debug.LogWarning("AudioManager: Sound not found: " + _name);
+        }
+    }
+
+    private void HandleBGMPlayback(string bgmName)
+    {
+        // 1. If MainMenu BGM is requested, stop any gameplay music
+        if (bgmName == BGM_MAIN)
+        {
+            StopSound(BGM_PLAY);
+            StopSound(BGM_PAUSE);
+            PlayBGM(bgmName);
+
+            // Update tracking
+            activeBGMs[0] = bgmName;
+            activeBGMs[1] = null;
+        }
+        // 2. If Play or Pause Scene BGM is requested
+        else if (bgmName == BGM_PLAY || bgmName == BGM_PAUSE)
+        {
+            // Stop main menu music if it's playing
+            StopSound(BGM_MAIN);
+
+            // Play the requested BGM without stopping the other gameplay BGM
+            PlayBGM(bgmName);
+
+            // Update tracking - find the next available slot or replace same type
+            if (bgmName == activeBGMs[0] || activeBGMs[0] == null)
+            {
+                activeBGMs[0] = bgmName;
+            }
+            else if (bgmName == activeBGMs[1] || activeBGMs[1] == null)
+            {
+                activeBGMs[1] = bgmName;
+            }
+            else
+            {
+                // Both slots are taken by different BGMs - replace the one that isn't the other gameplay BGM
+                if (activeBGMs[0] != BGM_PLAY && activeBGMs[0] != BGM_PAUSE)
+                {
+                    activeBGMs[0] = bgmName;
+                }
+                else
+                {
+                    activeBGMs[1] = bgmName;
+                }
+            }
+        }
+        // 3. Any other BGM - treat as exclusive
+        else
+        {
+            // Stop all other BGMs
+            for (int i = 0; i < activeBGMs.Length; i++)
+            {
+                if (activeBGMs[i] != null)
+                {
+                    StopSound(activeBGMs[i]);
+                    activeBGMs[i] = null;
+                }
+            }
+
+            PlayBGM(bgmName);
+            activeBGMs[0] = bgmName;
+        }
+    }
+
+    private void PlayBGM(string bgmName)
+    {
         for (int i = 0; i < sounds.Length; i++)
         {
-            if (sounds[i].name == _name)
+            if (sounds[i].name == bgmName)
             {
-                sounds[i].Play();
-
-                // If this is a BGM, remember it as the current BGM
-                if (isBGM)
+                // Only play if not already playing
+                if (!sounds[i].IsPlaying())
                 {
-                    currentBGM = _name;
+                    sounds[i].Play();
                 }
-
                 return;
             }
         }
 
-        // No sound with the name
-        Debug.LogWarning("AudioManager: Sound not found: " + _name);
+        // BGM not found
+        Debug.LogWarning("AudioManager: BGM not found: " + bgmName);
     }
 
     public void StopSound(string _name)
     {
-        // If we're stopping the current BGM, clear the currentBGM variable
-        if (_name == currentBGM)
+        // Update tracking if it's a BGM
+        if (_name != null && _name.StartsWith("BGM_"))
         {
-            currentBGM = "";
+            for (int i = 0; i < activeBGMs.Length; i++)
+            {
+                if (activeBGMs[i] == _name)
+                {
+                    activeBGMs[i] = null;
+                }
+            }
         }
 
+        // Find the sound and stop it if it exists
         for (int i = 0; i < sounds.Length; i++)
         {
             if (sounds[i].name == _name)
@@ -175,7 +285,33 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        // Optional warning for missing sounds
-        // Debug.LogWarning("AudioManager: Sound not found: " + _name);
+        // Optional: You can add debug logging if the sound wasn't found
+        Debug.LogWarning("Sound not found to stop: " + _name);
+    }
+
+    // New method to check if a sound is playing
+    public bool IsSoundPlaying(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == _name)
+            {
+                return sounds[i].IsPlaying();
+            }
+        }
+        return false;
+    }
+
+    // New method to adjust volume of a specific sound
+    public void SetSoundVolume(string _name, float volume)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == _name)
+            {
+                sounds[i].SetVolume(volume);
+                return;
+            }
+        }
     }
 }

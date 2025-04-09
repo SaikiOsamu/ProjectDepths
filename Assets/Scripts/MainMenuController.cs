@@ -27,7 +27,7 @@ public class MainMenuController : MonoBehaviour
         {
             Debug.LogError("No audio manager found");
         }
-        audioManager.PlaySound(mainMenuBGM);
+        //audioManager.PlaySound(mainMenuBGM);
     }
 
     // Play sound when mouse hovering UI 

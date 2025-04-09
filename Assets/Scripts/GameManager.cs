@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("No audio manager found");
         }
-        // play music
-        audioManager.PlaySound(playSceneBGM);
+
 
         scoreText.text = "00000";
     }

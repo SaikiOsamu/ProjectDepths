@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string swordAttackSound = "SwordAttack";
     [SerializeField] string playerMoveSound = "WalkSound";
     [SerializeField] string playerDeadSound = "DeadSound";
-    
+
     // We still need these & error window click close
     [SerializeField] string brickHitByFist = "BricksHitFist";
     [SerializeField] string brickHitBySaber = "BricksHitSaber";
@@ -93,8 +93,13 @@ public class PlayerController : MonoBehaviour
             StopMovement();
         }
 
-        // Handle attack input
-        HandleAttackInput();
+        // Only handle attack input if not currently in an attack state
+        // This prevents starting a new attack while one is already in progress
+        if (!isAttacking)
+        {
+            // Handle attack input
+            HandleAttackInput();
+        }
 
         // We'll handle destruction in the attack methods directly
         // No need to call HandleDestroyInput() anymore since the attack
@@ -409,6 +414,10 @@ public class PlayerController : MonoBehaviour
                 {
                     //audioManager.PlaySound();
                     destroyable.TriggerDestruction();
+                    if (isAttackingLeft || isAttackingRight)
+                    {
+                        audioManager.PlaySound(brickHitBySaber);
+                    }
                 }
                 else
                 {
@@ -417,6 +426,17 @@ public class PlayerController : MonoBehaviour
                 }
                 Debug.Log("Destroyed object: " + hit.collider.gameObject.name);
                 return;
+            }
+            else if (hit.collider.CompareTag("HardObject"))
+            {
+                if (isAttackingLeft || isAttackingRight)
+                {
+                    audioManager.PlaySound(metalHitBySaber);
+                }
+                else if (isSlaming)
+                {
+                    audioManager.PlaySound(metalHitByFist);
+                }
             }
         }
         else
@@ -496,7 +516,7 @@ public class PlayerController : MonoBehaviour
             float dot = Vector2.Dot(direction.normalized, toObject.normalized);
 
             // If dot > 0.7, object is within about 45 degrees of our direction
-            if (dot > 0.7f)
+            if (dot > 1f)
             {
                 // Check if this is closer than any object we've found so far
                 float distance = toObject.magnitude;

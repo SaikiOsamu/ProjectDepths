@@ -20,6 +20,11 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] string clickButtonSound = "ButtonClick";
     [SerializeField] string gameOverSound = "BGM_PauseMenu";
 
+    [Header("Audio Settings")]
+    [SerializeField] private string playSceneBGM = "BGM_PlayScene";
+    [SerializeField] private string pauseMenuBGM = "BGM_PauseMenu";
+    [SerializeField] private float audioFadeDuration = 0.15f;
+
     AudioManager audioManager;
 
     private bool isGameOver = false;
@@ -57,13 +62,8 @@ public class GameOverManager : MonoBehaviour
         if (isGameOver) return; // Prevent multiple activations
         isGameOver = true;
 
-        audioManager.PlaySound("BGM_PauseMenu");
-        audioManager.StopSound("BGM_PlayScene");
-        // Play game over sound
-        // if (audioManager != null)
-        //{
-        // audioManager.PlaySound(gameOverSound);
-        //}
+        // Use smooth audio transition instead of abrupt stop/play
+        SetAudioState(true);
 
         // Get score from GameManager
         int finalScore = GameManager.instance.current_score;
@@ -96,6 +96,70 @@ public class GameOverManager : MonoBehaviour
         Time.timeScale = 0f;
 
         Debug.Log("Game Over. Final Score: " + finalScore + ", Time Survived: " + string.Format("{0:00}:{1:00}", minutes, seconds));
+    }
+
+    private void SetAudioState(bool isGameOver)
+    {
+        if (audioManager == null) return;
+
+        // We'll use a coroutine for smooth transitions
+        StartCoroutine(TransitionAudio(isGameOver));
+    }
+
+    private IEnumerator TransitionAudio(bool isGameOver)
+    {
+        // Find audio sources by searching for all sources under the AudioManager
+        for (int i = 0; i < audioManager.transform.childCount; i++)
+        {
+            Transform child = audioManager.transform.GetChild(i);
+            string name = child.name;
+
+            if (name.Contains(playSceneBGM))
+            {
+                AudioSource source = child.GetComponent<AudioSource>();
+                if (source != null)
+                {
+                    if (isGameOver)
+                    {
+                        // Fade out play scene BGM
+                        float startVolume = source.volume;
+                        float elapsed = 0f;
+
+                        while (elapsed < audioFadeDuration)
+                        {
+                            source.volume = Mathf.Lerp(startVolume, 0f, elapsed / audioFadeDuration);
+                            elapsed += Time.unscaledDeltaTime;
+                            yield return null;
+                        }
+
+                        source.volume = 0f;
+                    }
+                }
+            }
+
+            if (name.Contains(pauseMenuBGM))
+            {
+                AudioSource source = child.GetComponent<AudioSource>();
+                if (source != null)
+                {
+                    if (isGameOver)
+                    {
+                        // Fade in pause menu BGM
+                        float startVolume = source.volume;
+                        float elapsed = 0f;
+
+                        while (elapsed < audioFadeDuration)
+                        {
+                            source.volume = Mathf.Lerp(startVolume, 1f, elapsed / audioFadeDuration);
+                            elapsed += Time.unscaledDeltaTime;
+                            yield return null;
+                        }
+
+                        source.volume = 1f; // Match inspector value
+                    }
+                }
+            }
+        }
     }
 
     // Restart the current game scene
@@ -135,6 +199,7 @@ public class GameOverManager : MonoBehaviour
     {
         // Wait a small amount of time for the click sound to play
         yield return new WaitForSecondsRealtime(0.2f);
+        audioManager.PlaySound("BGM_MainMenu");
 
         // Load the scene
         SceneManager.LoadScene(sceneName);

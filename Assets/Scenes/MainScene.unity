@@ -1726,7 +1726,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maxSimultaneousPopups: 6
-  spawnOnKey: 1
+  spawnOnKey: 0
   spawnKey: 112
   showDebugInfo: 1
   popupSounds:
@@ -2473,15 +2473,17 @@ MonoBehaviour:
   animationClipName: HandUI
   animationDuration: 1.67
   popupEase: 27
-  canvasGroup: {fileID: 0}
+  canvasGroup: {fileID: 1800838787}
   fadeIn: 1
   useScale: 1
   popupDuration: 0.3
   playAudioOnPopup: 1
   pauseKey: 27
+  playSceneBGM: BGM_PlayScene
+  pauseMenuBGM: BGM_PauseMenu
+  audioFadeDuration: 0.15
   hoverOverSound: ButtonHover
   clickButtonSound: ButtonClick
-  pauseMenuBGM: BGM_PauseMenu
   popupSoundName: UIPopup
   HandUIAnimation: {fileID: 63490499}
 --- !u!4 &591729283
@@ -4988,7 +4990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949653737919763678, guid: 070e512259551634aa7ee8b6c7a8781d, type: 3}
       propertyPath: destroyRange
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3949653737919763678, guid: 070e512259551634aa7ee8b6c7a8781d, type: 3}
       propertyPath: gameOverManager

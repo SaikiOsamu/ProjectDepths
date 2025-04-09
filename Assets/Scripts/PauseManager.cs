@@ -29,13 +29,17 @@ public class PauseManager : MonoBehaviour
     [Header("Input Settings")]
     [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
 
+    [Header("Audio Settings")]
+    [SerializeField] private string playSceneBGM = "BGM_PlayScene";
+    [SerializeField] private string pauseMenuBGM = "BGM_PauseMenu";
+    [SerializeField] private float audioFadeDuration = 0.15f;
+
     private bool isPaused = false;
 
     // Sound
     [SerializeField] string hoverOverSound = "ButtonHover";
     [SerializeField] string clickButtonSound = "ButtonClick";
-    [SerializeField] string pauseMenuBGM = "BGM_PauseMenu";
-    [SerializeField] string popupSoundName = "UIPopup";
+    [SerializeField] string popupSoundName = "HandPopup";
 
     AudioManager audioManager;
     public GameObject HandUIAnimation;
@@ -91,6 +95,112 @@ public class PauseManager : MonoBehaviour
         {
             mainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
+
+        // Play both BGMs at start
+        audioManager.PlaySound(playSceneBGM);
+        audioManager.PlaySound(pauseMenuBGM);
+
+        // Set initial audio state - playscene BGM normal, pause BGM silent
+        SetAudioState(false);
+    }
+
+    private void SetAudioState(bool isPaused)
+    {
+        if (audioManager == null) return;
+
+        // We'll use a coroutine for smooth transitions
+        StartCoroutine(TransitionAudio(isPaused));
+    }
+
+    private IEnumerator TransitionAudio(bool isPaused)
+    {
+        // Find audio sources by searching for all sources under the AudioManager
+        Sound playSceneSound = null;
+        Sound pauseMenuSound = null;
+
+        // Get all Sound components by using reflection or traversing the AudioManager structure
+        for (int i = 0; i < audioManager.transform.childCount; i++)
+        {
+            Transform child = audioManager.transform.GetChild(i);
+            string name = child.name;
+
+            if (name.Contains(playSceneBGM))
+            {
+                AudioSource source = child.GetComponent<AudioSource>();
+                if (source != null)
+                {
+                    // Here's a custom way to control the volume since we don't have direct access to Sound class
+                    if (isPaused)
+                    {
+                        // Fade out play scene BGM
+                        float startVolume = source.volume;
+                        float elapsed = 0f;
+
+                        while (elapsed < audioFadeDuration)
+                        {
+                            source.volume = Mathf.Lerp(startVolume, 0f, elapsed / audioFadeDuration);
+                            elapsed += Time.unscaledDeltaTime;
+                            yield return null;
+                        }
+
+                        source.volume = 0f;
+                    }
+                    else
+                    {
+                        // Fade in play scene BGM
+                        float startVolume = source.volume;
+                        float elapsed = 0f;
+
+                        while (elapsed < audioFadeDuration)
+                        {
+                            source.volume = Mathf.Lerp(startVolume, 1f, elapsed / audioFadeDuration);
+                            elapsed += Time.unscaledDeltaTime;
+                            yield return null;
+                        }
+
+                        source.volume = 1f; // Match inspector value
+                    }
+                }
+            }
+
+            if (name.Contains(pauseMenuBGM))
+            {
+                AudioSource source = child.GetComponent<AudioSource>();
+                if (source != null)
+                {
+                    if (isPaused)
+                    {
+                        // Fade in pause menu BGM
+                        float startVolume = source.volume;
+                        float elapsed = 0f;
+
+                        while (elapsed < audioFadeDuration)
+                        {
+                            source.volume = Mathf.Lerp(startVolume, 1f, elapsed / audioFadeDuration);
+                            elapsed += Time.unscaledDeltaTime;
+                            yield return null;
+                        }
+
+                        source.volume = 1f; // Match inspector value
+                    }
+                    else
+                    {
+                        // Fade out pause menu BGM
+                        float startVolume = source.volume;
+                        float elapsed = 0f;
+
+                        while (elapsed < audioFadeDuration)
+                        {
+                            source.volume = Mathf.Lerp(startVolume, 0f, elapsed / audioFadeDuration);
+                            elapsed += Time.unscaledDeltaTime;
+                            yield return null;
+                        }
+
+                        source.volume = 0f;
+                    }
+                }
+            }
+        }
     }
 
     // Play sound when mouse hovering UI 
@@ -112,7 +222,7 @@ public class PauseManager : MonoBehaviour
     {
         if (isPaused)
         {
-            return;
+            ResumeGame();
         }
         else
         {
@@ -126,24 +236,23 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
 
+        // Transition audio to paused state (fade in pause menu music, fade out gameplay music)
+        SetAudioState(true);
+
         // Make sure pauseMenuPanel is active but UI elements start invisible
         if (pauseMenuPanel != null)
         {
             pauseMenuPanel.SetActive(true);
 
-            // Audio manager - play pause menu sound effects
-            audioManager.PlaySound(pauseMenuBGM);
-            audioManager.StopSound("BGM_PlayScene");
-
             if (HandUIAnimation != null)
             {
                 // Use the hand animation if available
                 HandUIAnimation.SetActive(true);
-                
+
                 // Ensure buttons are inactive
                 if (resumeButton != null) resumeButton.gameObject.SetActive(false);
                 if (mainMenuButton != null) mainMenuButton.gameObject.SetActive(false);
-                
+
                 // Play animation
                 Animator animator = HandUIAnimation.GetComponent<Animator>();
                 if (animator != null)
@@ -152,7 +261,7 @@ public class PauseManager : MonoBehaviour
                     animator.SetTrigger("PlayAnimation");
                 }
                 audioManager.PlaySound("HandPopup");
-                
+
                 if (uiPanel != null)
                 {
                     StartCoroutine(ShowUIAfterHandAnimation());
@@ -172,11 +281,11 @@ public class PauseManager : MonoBehaviour
     {
         // Wait for the animation to complete using unscaled time
         yield return new WaitForSecondsRealtime(animationDuration);
-        
+
         // Activate buttons
         if (resumeButton != null) resumeButton.gameObject.SetActive(true);
         if (mainMenuButton != null) mainMenuButton.gameObject.SetActive(true);
-        
+
         // Show the panel with tweening effects
         ShowUIPanel();
     }
@@ -274,7 +383,9 @@ public class PauseManager : MonoBehaviour
     {
         // Play Click sound
         audioManager.PlaySound(clickButtonSound);
-        audioManager.StopSound(pauseMenuBGM);
+
+        // Transition audio to gameplay state
+        SetAudioState(false);
 
         // If using the built-in UI animation, hide it with animation
         if (HandUIAnimation == null && uiPanel != null)
@@ -299,9 +410,6 @@ public class PauseManager : MonoBehaviour
             // Resume the game
             Time.timeScale = 1f;
             isPaused = false;
-
-            // Play game music
-            audioManager.PlaySound("BGM_PlayScene");
         }
 
         Debug.Log("Game resumed");
@@ -321,15 +429,14 @@ public class PauseManager : MonoBehaviour
         // Resume the game
         Time.timeScale = 1f;
         isPaused = false;
-
-        // Play game music
-        audioManager.PlaySound("BGM_PlayScene");
     }
 
     public void ReturnToMainMenu()
     {
         // Play Click sound
         audioManager.PlaySound(clickButtonSound);
+
+        audioManager.StopSound(pauseMenuBGM);
 
         // Make sure to reset time scale before changing scenes
         Time.timeScale = 1f;
@@ -344,6 +451,7 @@ public class PauseManager : MonoBehaviour
     {
         // Wait a small amount of time for the click sound to play
         yield return new WaitForSecondsRealtime(0.2f);
+        audioManager.PlaySound("BGM_MainMenu");
 
         // Load the scene
         SceneManager.LoadScene(sceneName);

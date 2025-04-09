@@ -20,7 +20,7 @@ public class HandUIPopup : MonoBehaviour
     [SerializeField] private bool useScale = true;
     [SerializeField] private float popupDuration = 0.3f; // How long the popup animation takes
     [SerializeField] private bool playAudioOnPopup = true;
-    [SerializeField] private string popupSoundName = "UIPopup";
+    [SerializeField] private string popupSoundName = "HandPopup";
 
     private AudioManager audioManager;
 
