@@ -39,6 +39,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string swordAttackSound = "SwordAttack";
     [SerializeField] string playerMoveSound = "WalkSound";
     [SerializeField] string playerDeadSound = "DeadSound";
+    
+    // We still need these & error window click close
+    [SerializeField] string brickHitByFist = "BricksHitFist";
+    [SerializeField] string brickHitBySaber = "BricksHitSaber";
+    [SerializeField] string metalHitByFist = "MetalHitFist";
+    [SerializeField] string metalHitBySaber = "MetalHitSaber";
 
     AudioManager audioManager;
 
@@ -401,6 +407,7 @@ public class PlayerController : MonoBehaviour
                 DestroyableObject destroyable = hit.collider.GetComponent<DestroyableObject>();
                 if (destroyable != null)
                 {
+                    //audioManager.PlaySound();
                     destroyable.TriggerDestruction();
                 }
                 else

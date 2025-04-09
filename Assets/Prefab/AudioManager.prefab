@@ -178,3 +178,10 @@ MonoBehaviour:
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
+  - name: CloseError
+    clip: {fileID: 8300000, guid: 2e0ced8de64fcae45879fe292671b450, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
