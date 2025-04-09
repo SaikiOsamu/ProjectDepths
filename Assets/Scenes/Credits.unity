@@ -824,7 +824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -157.61, y: -459}
+  m_AnchoredPosition: {x: -157.61, y: -478}
   m_SizeDelta: {x: 1472.79, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150382973
@@ -873,10 +873,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: IF YOU FAIL A CAPTCHA, GAME WILL GET HARDER!!
+  m_text: 'STAY AWAY FROM LASER AND 3RROR
+
+    IF YOU FAIL A CAPTCHA, GAME WILL GET
+    HARDER!!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 94889d38605547b4990fff18b2273757, type: 2}
-  m_sharedMaterial: {fileID: 8777073750174646758, guid: 94889d38605547b4990fff18b2273757, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1ede94454d9bc64c9f68542383f8a6d, type: 2}
+  m_sharedMaterial: {fileID: 4514597054764639743, guid: f1ede94454d9bc64c9f68542383f8a6d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -900,8 +903,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
