@@ -139,6 +139,12 @@ public class PlayerController : MonoBehaviour
 
             audioManager.PlaySound(playerDeadSound);
 
+            // Notify BossManager to stop spawning bosses
+            if (BossManager.Instance != null)
+            {
+                BossManager.Instance.OnPlayerDeath();
+            }
+
             // Disable player movement
             rb.linearVelocity = Vector2.zero;
             rb.isKinematic = true;

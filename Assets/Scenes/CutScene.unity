@@ -197,12 +197,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1353026123}
-  - {fileID: 1862088774}
-  - {fileID: 1303039366}
   - {fileID: 1412298081}
   - {fileID: 1145838193}
   - {fileID: 1451869673}
   - {fileID: 1248314661}
+  - {fileID: 1303039366}
+  - {fileID: 1862088774}
   m_Father: {fileID: 738091285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "We must be quick... Escape this place\u2026"
+  m_text: WE MUST BE QUICK...ESCAPE THIS PLACE...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94889d38605547b4990fff18b2273757, type: 2}
   m_sharedMaterial: {fileID: 8777073750174646758, guid: 94889d38605547b4990fff18b2273757, type: 2}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 1248314659}
   - component: {fileID: 1248314658}
   m_Layer: 0
-  m_Name: ForthSentence
+  m_Name: FourthSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -932,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The disastrous experiment\u2026 Engulfing, collapsing data streams\u2026"
+  m_text: THE DISASTROUS EXPERIMENT...ENGULFING, COLLAPSING DATA STREAMS...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94889d38605547b4990fff18b2273757, type: 2}
   m_sharedMaterial: {fileID: 8777073750174646758, guid: 94889d38605547b4990fff18b2273757, type: 2}
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201CThey\u201D will find us, \u201CThey\u201D will devour us."
+  m_text: "\u201CTHEY\u201D WILL FIND US, \u201CTHEY\u201D WILL DEVOUR US."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94889d38605547b4990fff18b2273757, type: 2}
   m_sharedMaterial: {fileID: 8777073750174646758, guid: 94889d38605547b4990fff18b2273757, type: 2}
@@ -1409,15 +1409,59 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[1].name
       value: BGM_PauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[19].clip
       value: 
+      objectReference: {fileID: 8300000, guid: 8b59f248f0ba62145a05580f64a6f1a5, type: 3}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[19].name
+      value: BossAppear
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[20].clip
+      value: 
       objectReference: {fileID: 8300000, guid: 2e0ced8de64fcae45879fe292671b450, type: 3}
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[20].name
+      value: CloseError
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dca375ed4979ca541a9150721043d042, type: 3}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[21].name
+      value: BossAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 011ab9e163bb4054e8e11b6a78190efc, type: 3}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[22].name
+      value: BulletHitPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[20].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[21].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[22].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
@@ -1443,6 +1487,18 @@ PrefabInstance:
     - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: sounds.Array.data[19].volume
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[20].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[21].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 202393257379034267, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
+      propertyPath: sounds.Array.data[22].volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6165833213474511625, guid: 5190f8de6b2612541897d2f41c51057d, type: 3}
       propertyPath: m_Name
@@ -1525,14 +1581,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.9528302, g: 0.5755489, b: 0.56181026, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 8d12057fdf1ac6c48aa3effb9dcc2e79, type: 3}
+  m_Texture: {fileID: 2800000, guid: b367383a7e7e35a40b331f13c408586c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

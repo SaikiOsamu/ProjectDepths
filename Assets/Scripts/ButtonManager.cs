@@ -14,6 +14,18 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField] private float codeTimeLimit = 5f; // Time limit in seconds to input the code
 
+    [Header("Prefab Spawning")]
+    [SerializeField] private GameObject rewardPrefab; // 正确时生成的prefab
+    [SerializeField] private GameObject punishPrefab; // 错误/过期时生成的prefab
+    [SerializeField] private Transform spawnerTransform; // spawner位置标记
+    [SerializeField] private Canvas targetCanvas; // UI prefab需要的Canvas父对象
+    [SerializeField] private bool isUIPrefab = true; // 是否为UI prefab
+
+    [Header("Debug/Test")]
+    [SerializeField] private bool enableTestKey = true; // 是否启用测试按键
+    [SerializeField] private KeyCode testRewardKey = KeyCode.R; // 测试奖励按键
+    [SerializeField] private KeyCode testPunishKey = KeyCode.T; // 测试惩罚按键
+
     private string targetCode = "";
     private string playerInput = "";
     private int currentDigitPosition = 0; // Track which digit we're currently inputting
@@ -45,6 +57,11 @@ public class ButtonManager : MonoBehaviour
             Debug.LogError("No audio manager found");
         }
 
+        // 如果是UI prefab但没有指定Canvas，自动查找合适的Canvas
+        if (isUIPrefab && targetCanvas == null)
+        {
+            FindSuitableCanvas();
+        }
 
         LoadText.text = "LOADING...";
         LoadText.color = defaultColor;
@@ -58,6 +75,25 @@ public class ButtonManager : MonoBehaviour
 
         // Start the random trigger coroutine
         randomTriggerCoroutine = StartCoroutine(RandomTrigger());
+    }
+
+    void Update()
+    {
+        // 测试按键功能
+        if (enableTestKey)
+        {
+            if (Input.GetKeyDown(testRewardKey))
+            {
+                Debug.Log("Test reward key pressed! Spawning reward prefab...");
+                SpawnPrefab(rewardPrefab);
+            }
+            
+            if (Input.GetKeyDown(testPunishKey))
+            {
+                Debug.Log("Test punish key pressed! Spawning punish prefab...");
+                SpawnPrefab(punishPrefab);
+            }
+        }
     }
 
     IEnumerator RandomTrigger()
@@ -210,6 +246,9 @@ public class ButtonManager : MonoBehaviour
     {
         GameManager.instance.GainScore(100);
 
+        // 生成奖励prefab
+        SpawnPrefab(rewardPrefab);
+
         for (int i = 0; i < 4; i++)
         {
             FirstDigit.color = SecondDigit.color = ThirdDigit.color = correctColor;
@@ -219,7 +258,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = correctColor;
-        LoadText.text = "+100 YES!";
+        LoadText.text = "CORRECT!";
 
         audioManager.PlaySound(passwordCorrectSound);
 
@@ -229,8 +268,11 @@ public class ButtonManager : MonoBehaviour
 
     IEnumerator WrongInput()
     {
-        //GameManager.instance.GainScore(-50);
-        GameManager.instance.Punish();
+        GameManager.instance.GainScore(-50);
+        //GameManager.instance.Punish();
+
+        // 生成惩罚prefab
+        SpawnPrefab(punishPrefab);
 
         for (int i = 0; i < 4; i++)
         {
@@ -241,7 +283,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = incorrectColor;
-        LoadText.text = "DANGER!!!";
+        LoadText.text = "FALSE!";
 
         audioManager.PlaySound(passwordWrongSound);
 
@@ -251,8 +293,11 @@ public class ButtonManager : MonoBehaviour
 
     IEnumerator ExpiredInput()
     {
-        //GameManager.instance.GainScore(-50); // Same penalty as wrong input
-        GameManager.instance.Punish();
+        GameManager.instance.GainScore(-50); // Same penalty as wrong input
+        //GameManager.instance.Punish();
+
+        // 生成惩罚prefab
+        SpawnPrefab(punishPrefab);
 
         for (int i = 0; i < 4; i++)
         {
@@ -267,6 +312,114 @@ public class ButtonManager : MonoBehaviour
         audioManager.PlaySound(passwordWrongSound);
         yield return new WaitForSeconds(2f);
         ResetCodeState();
+    }
+
+    void SpawnPrefab(GameObject prefabToSpawn)
+    {
+        if (prefabToSpawn == null)
+        {
+            Debug.LogWarning("No prefab assigned for spawning!");
+            return;
+        }
+
+        GameObject spawnedPrefab = null;
+
+        if (isUIPrefab)
+        {
+            // UI prefab处理
+            if (targetCanvas != null)
+            {
+                // 在Canvas下生成UI prefab
+                spawnedPrefab = Instantiate(prefabToSpawn, targetCanvas.transform);
+                
+                // 获取RectTransform来设置UI位置
+                RectTransform prefabRect = spawnedPrefab.GetComponent<RectTransform>();
+                if (prefabRect != null && spawnerTransform != null)
+                {
+                    // 将世界坐标转换为Canvas内的UI坐标
+                    Vector2 uiPosition = WorldToCanvasPosition(spawnerTransform.position);
+                    prefabRect.anchoredPosition = uiPosition;
+                    
+                    Debug.Log($"Spawned UI prefab '{prefabToSpawn.name}' at canvas position: {uiPosition}");
+                }
+                else if (prefabRect != null)
+                {
+                    // 如果没有spawner位置，放在Canvas中心
+                    prefabRect.anchoredPosition = Vector2.zero;
+                    Debug.Log($"Spawned UI prefab '{prefabToSpawn.name}' at canvas center (no spawner position)");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No target canvas found for UI prefab!");
+                return;
+            }
+        }
+        else
+        {
+            // 普通3D prefab处理
+            if (spawnerTransform != null)
+            {
+                spawnedPrefab = Instantiate(prefabToSpawn, spawnerTransform.position, spawnerTransform.rotation);
+                Debug.Log($"Spawned 3D prefab '{prefabToSpawn.name}' at: {spawnerTransform.position}");
+            }
+            else
+            {
+                Debug.LogWarning("No spawner transform found for 3D prefab!");
+                return;
+            }
+        }
+
+        if (spawnedPrefab != null)
+        {
+            Debug.Log($"Successfully spawned prefab: {spawnedPrefab.name}");
+        }
+    }
+    
+    Vector2 WorldToCanvasPosition(Vector3 worldPosition)
+    {
+        if (targetCanvas == null) return Vector2.zero;
+        
+        // 获取Canvas的RectTransform
+        RectTransform canvasRect = targetCanvas.GetComponent<RectTransform>();
+        
+        // 将世界坐标转换为屏幕坐标
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+        
+        // 将屏幕坐标转换为Canvas内的UI坐标
+        Vector2 canvasPosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect, screenPosition, targetCanvas.worldCamera, out canvasPosition);
+        
+        return canvasPosition;
+    }
+    
+    void FindSuitableCanvas()
+    {
+        // 尝试查找合适的Canvas
+        Canvas[] canvases = FindObjectsOfType<Canvas>();
+        
+        foreach (Canvas canvas in canvases)
+        {
+            // 优先选择Screen Space - Overlay模式的Canvas
+            if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+            {
+                targetCanvas = canvas;
+                Debug.Log("ButtonManager: Auto-selected Canvas: " + canvas.name);
+                return;
+            }
+        }
+        
+        // 如果没有找到Overlay Canvas，选择第一个Canvas
+        if (canvases.Length > 0)
+        {
+            targetCanvas = canvases[0];
+            Debug.Log("ButtonManager: Auto-selected first available Canvas: " + targetCanvas.name);
+        }
+        else
+        {
+            Debug.LogWarning("ButtonManager: No Canvas found in scene for UI prefab!");
+        }
     }
 
     // Helper method to reset all code-related state
@@ -289,12 +442,6 @@ public class ButtonManager : MonoBehaviour
         // Reset the code active flag, allowing new codes to be generated
         isCodeActive = false;
         isProcessingResult = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnDestroy()

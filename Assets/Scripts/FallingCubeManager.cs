@@ -23,14 +23,14 @@ public class FallingCubeManager : MonoBehaviour
     void Update()
     {
         generation_Y = Ceiling.transform.position.y;
-        spawnTimer += Time.deltaTime;
+        /*spawnTimer += Time.deltaTime;
         if (spawnTimer > 1 / spawnRate)
         {
             GameObject falling = GameObject.Instantiate(FallingObject, transform);
             int i = Random.Range(0, 8);
             falling.transform.position = new Vector3(initial_X + 0.5f + i, generation_Y + 1.5f, 0);
             spawnTimer = 0;
-        }
+        }*/
     }
 
     public void punish()
