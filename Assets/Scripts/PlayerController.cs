@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
         if (isAttacking) return;
 
         // For example, using E key for right attack and Q key for left attack
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Space))
         {
             isAttackingRight = true;
             isAttacking = true; // Set master attack flag
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("AttackRight", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.Space))
         {
             isAttackingLeft = true;
             isAttacking = true; // Set master attack flag
@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("AttackLeft", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
             isAttacking = true; // Set master attack flag
@@ -370,6 +370,47 @@ public class PlayerController : MonoBehaviour
 
     void DestroyObjectInDirection(Vector2 direction)
     {
+        Vector2Int gridDir = Vector2Int.RoundToInt(direction);
+        Vector2 targetPosition = (Vector2)transform.position + (Vector2)gridDir;
+
+        float detectionRadius = 0.1f;
+        Collider2D hit = Physics2D.OverlapCircle(targetPosition, detectionRadius);
+
+        if (hit != null)
+        {
+            Debug.Log("OverlapPoint hit: " + hit.name + " at " + targetPosition);
+
+            if (hit.CompareTag("DestroyableObject"))
+            {
+                DestroyableObject destroyable = hit.GetComponent<DestroyableObject>();
+                if (destroyable != null)
+                {
+                    destroyable.TriggerDestruction();
+                    if (isAttackingLeft || isAttackingRight)
+                        audioManager.PlaySound(brickHitBySaber);
+                }
+                else
+                {
+                    Destroy(hit.gameObject);
+                }
+            }
+            else if (hit.CompareTag("HardObject"))
+            {
+                if (isAttackingLeft || isAttackingRight)
+                    audioManager.PlaySound(metalHitBySaber);
+                else if (isSlaming)
+                    audioManager.PlaySound(metalHitByFist);
+            }
+        }
+        else
+        {
+            Debug.Log("No object found at grid position: " + targetPosition);
+        }
+    }
+
+    /*
+    void DestroyObjectInDirection(Vector2 direction)
+    {
         // Get the renderer to find the exact size of the player sprite
         SpriteRenderer playerRenderer = GetComponent<SpriteRenderer>();
 
@@ -399,23 +440,37 @@ public class PlayerController : MonoBehaviour
         int layerMask = ~((1 << playerLayer) | (1 << ruinsLayer));
 
         // Cast the ray with the updated layer mask
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, destroyRange, layerMask);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(rayOrigin, direction, destroyRange, layerMask);
 
         // Rest of your method remains the same...
         Debug.DrawRay(rayOrigin, direction * destroyRange, Color.green, 2f);
 
         // Check if the ray hit something
-        if (hit.collider != null)
+        if (hits.Length > 0)
         {
-            Debug.Log("Ray hit object: " + hit.collider.gameObject.name + " with tag: " + hit.collider.tag);
+            RaycastHit2D closestHit = hits[0];
+            float closestDistance = Vector2.Distance(rayOrigin, closestHit.point);
+
+            foreach (RaycastHit2D hit in hits)
+            {
+                float distance = Vector2.Distance(rayOrigin, hit.point);
+                if (distance < closestDistance)
+                {
+                    closestHit = hit;
+                    closestDistance = distance;
+                }
+            }
+
+            GameObject hitObject = closestHit.collider.gameObject;
+            Debug.Log("Closest object hit: " + hitObject.name + " at distance: " + closestDistance);
 
             // We don't need to check for Ruin tag anymore since the layer mask excludes them
 
             // Check if the hit object has the "DestroyableObject" tag
-            if (hit.collider.CompareTag("DestroyableObject"))
+            if (hitObject.CompareTag("DestroyableObject"))
             {
                 // Get the DestroyableObject component and trigger destruction
-                DestroyableObject destroyable = hit.collider.GetComponent<DestroyableObject>();
+                DestroyableObject destroyable = hitObject.GetComponent<DestroyableObject>();
                 if (destroyable != null)
                 {
                     //audioManager.PlaySound();
@@ -428,12 +483,12 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     // Fallback to direct destruction
-                    Destroy(hit.collider.gameObject);
+                    Destroy(hitObject.gameObject);
                 }
-                Debug.Log("Destroyed object: " + hit.collider.gameObject.name);
+                Debug.Log("Destroyed object: " + hitObject.gameObject.name);
                 return;
             }
-            else if (hit.collider.CompareTag("HardObject"))
+            else if (hitObject.CompareTag("HardObject"))
             {
                 if (isAttackingLeft || isAttackingRight)
                 {
@@ -452,7 +507,7 @@ public class PlayerController : MonoBehaviour
 
         // Update the layer mask in the alternative methods too
         TryAlternativeRaycast(rayOrigin, direction, layerMask);
-    }
+    } */
 
     // Updated to accept the layer mask parameter
     void TryAlternativeRaycast(Vector2 rayOrigin, Vector2 direction, int layerMask)

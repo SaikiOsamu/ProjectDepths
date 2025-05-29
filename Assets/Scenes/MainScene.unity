@@ -5201,7 +5201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949653737919763678, guid: 070e512259551634aa7ee8b6c7a8781d, type: 3}
       propertyPath: destroyRange
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3949653737919763678, guid: 070e512259551634aa7ee8b6c7a8781d, type: 3}
       propertyPath: gameOverManager
