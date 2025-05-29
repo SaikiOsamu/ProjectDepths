@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\spring2025\\ldgj\\projectdepths\\assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\spring2025\\ldgj\\projectdepths\\assets\\scripts\\tmpglitcheffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\spring2025\\ldgj\\projectdepths\\assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\assets\\scripts\\tmpglitcheffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tmpglitcheffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CubeManager.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\CubeManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CubeManager.cs",
@@ -123,18 +123,17 @@
               "RelativeToolTip": "Assets\\Scripts\\TMPGlitchEffect.cs",
               "ViewState": "AgIAAEEAAAAAAAAAAAAYwGQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T21:20:31.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T21:20:31.098Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\Spring2025\\LDGJ\\ProjectDepths\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAALsBAAAAAAAAAADwv5QBAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAANcAAAAAAAAAAAAvwPEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T10:21:58.399Z",
               "EditorCaption": ""

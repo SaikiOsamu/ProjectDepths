@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
         if (isAttacking) return;
 
         // For example, using E key for right attack and Q key for left attack
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Space))
         {
             isAttackingRight = true;
             isAttacking = true; // Set master attack flag
@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("AttackRight", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.Space))
         {
             isAttackingLeft = true;
             isAttacking = true; // Set master attack flag
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("AttackLeft", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
             isAttacking = true; // Set master attack flag
