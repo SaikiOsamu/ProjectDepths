@@ -143,7 +143,7 @@ MonoBehaviour:
   rightFirePoint: {fileID: 4942654468491201028}
   bulletsPerAttack: 1
   leftBulletSpeed: 3
-  rightBulletSpeed: 3
+  rightBulletSpeed: 2
   timeBetweenBullets: 1
   timeBetweenAttacks: 2
   alternatingFire: 1
@@ -153,8 +153,6 @@ MonoBehaviour:
   diagonalAngleOffset: 15
   entryAnimationDuration: 2.5
   attackAnimationDuration: 1.5
-  attackSound: BossAttack
-  exitSound: BossExit
 --- !u!95 &8905677828455183109
 Animator:
   serializedVersion: 7

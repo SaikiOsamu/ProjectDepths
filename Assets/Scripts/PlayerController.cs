@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameOverManager gameOverManager;
     [SerializeField] private float deathAnimationDuration = 2.2f; // 65 frames at 30fps ≈ 2.2 seconds
 
+    [Header("Spawn Settings")]
+    [SerializeField] private GameObject spawnPrefab; // 要生成的预制体
+    [SerializeField] private Transform spawnArea; // 生成区域的中心点
+    [SerializeField] private Vector2 spawnAreaSize = new Vector2(2f, 2f); // 生成区域的大小
+    [SerializeField] private bool enableSpawning = true; // 是否启用生成功能
+
     [Header("Animation")]
     private Animator animator;
 
@@ -386,6 +392,10 @@ public class PlayerController : MonoBehaviour
                 if (destroyable != null)
                 {
                     destroyable.TriggerDestruction();
+                    
+                    // 在特定区域生成预制体
+                    SpawnPrefabInArea();
+                    
                     if (isAttackingLeft || isAttackingRight)
                         audioManager.PlaySound(brickHitBySaber);
                 }
@@ -407,107 +417,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("No object found at grid position: " + targetPosition);
         }
     }
-
-    /*
-    void DestroyObjectInDirection(Vector2 direction)
-    {
-        // Get the renderer to find the exact size of the player sprite
-        SpriteRenderer playerRenderer = GetComponent<SpriteRenderer>();
-
-        // Calculate offset as before
-        float offsetDistance = 0.55f;
-        if (playerRenderer != null)
-        {
-            offsetDistance = Mathf.Max(playerRenderer.bounds.extents.x, playerRenderer.bounds.extents.y) + 0.1f;
-        }
-        else
-        {
-            Collider2D colliderComponent = GetComponent<Collider2D>();
-            if (colliderComponent != null)
-            {
-                offsetDistance = Mathf.Max(colliderComponent.bounds.extents.x, colliderComponent.bounds.extents.y) + 0.1f;
-            }
-        }
-
-        // Starting position for the raycast
-        Vector2 rayOrigin = (Vector2)transform.position + (direction * offsetDistance);
-
-        // Create a layer mask that ignores both the player's layer AND the Ruins layer
-        int ruinsLayer = LayerMask.NameToLayer("Ruins"); // Make sure this matches your layer name
-        int playerLayer = gameObject.layer;
-
-        // Create a mask that includes everything EXCEPT the player and ruins layers
-        int layerMask = ~((1 << playerLayer) | (1 << ruinsLayer));
-
-        // Cast the ray with the updated layer mask
-        RaycastHit2D[] hits = Physics2D.RaycastAll(rayOrigin, direction, destroyRange, layerMask);
-
-        // Rest of your method remains the same...
-        Debug.DrawRay(rayOrigin, direction * destroyRange, Color.green, 2f);
-
-        // Check if the ray hit something
-        if (hits.Length > 0)
-        {
-            RaycastHit2D closestHit = hits[0];
-            float closestDistance = Vector2.Distance(rayOrigin, closestHit.point);
-
-            foreach (RaycastHit2D hit in hits)
-            {
-                float distance = Vector2.Distance(rayOrigin, hit.point);
-                if (distance < closestDistance)
-                {
-                    closestHit = hit;
-                    closestDistance = distance;
-                }
-            }
-
-            GameObject hitObject = closestHit.collider.gameObject;
-            Debug.Log("Closest object hit: " + hitObject.name + " at distance: " + closestDistance);
-
-            // We don't need to check for Ruin tag anymore since the layer mask excludes them
-
-            // Check if the hit object has the "DestroyableObject" tag
-            if (hitObject.CompareTag("DestroyableObject"))
-            {
-                // Get the DestroyableObject component and trigger destruction
-                DestroyableObject destroyable = hitObject.GetComponent<DestroyableObject>();
-                if (destroyable != null)
-                {
-                    //audioManager.PlaySound();
-                    destroyable.TriggerDestruction();
-                    if (isAttackingLeft || isAttackingRight)
-                    {
-                        audioManager.PlaySound(brickHitBySaber);
-                    }
-                }
-                else
-                {
-                    // Fallback to direct destruction
-                    Destroy(hitObject.gameObject);
-                }
-                Debug.Log("Destroyed object: " + hitObject.gameObject.name);
-                return;
-            }
-            else if (hitObject.CompareTag("HardObject"))
-            {
-                if (isAttackingLeft || isAttackingRight)
-                {
-                    audioManager.PlaySound(metalHitBySaber);
-                }
-                else if (isSlaming)
-                {
-                    audioManager.PlaySound(metalHitByFist);
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("Ray didn't hit any object. Try increasing range or adjusting the ray origin.");
-        }
-
-        // Update the layer mask in the alternative methods too
-        TryAlternativeRaycast(rayOrigin, direction, layerMask);
-    } */
 
     // Updated to accept the layer mask parameter
     void TryAlternativeRaycast(Vector2 rayOrigin, Vector2 direction, int layerMask)
@@ -606,5 +515,39 @@ public class PlayerController : MonoBehaviour
                 Destroy(closestObject);
             }
         }
+    }
+
+    void SpawnPrefabInArea()
+    {
+        // 检查是否启用生成功能
+        if (!enableSpawning || spawnPrefab == null)
+        {
+            return;
+        }
+        
+        Vector3 spawnPosition;
+        
+        // 如果指定了生成区域，在该区域内随机生成
+        if (spawnArea != null)
+        {
+            // 在指定区域内随机选择位置
+            float randomX = Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+            float randomY = Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f);
+            
+            spawnPosition = spawnArea.position + new Vector3(randomX, randomY, 0);
+        }
+        else
+        {
+            // 如果没有指定区域，在当前物体位置附近生成
+            float randomX = Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+            float randomY = Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f);
+            
+            spawnPosition = transform.position + new Vector3(randomX, randomY, 0);
+        }
+        
+        // 生成预制体
+        GameObject spawnedObject = Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
+        
+        Debug.Log($"Spawned {spawnPrefab.name} at position {spawnPosition}");
     }
 }

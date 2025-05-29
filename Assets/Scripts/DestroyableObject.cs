@@ -21,6 +21,12 @@ public class DestroyableObject : MonoBehaviour
     [Header("Particle System")]
     [SerializeField] private GameObject particleSystemPrefab; // Reference to your DestroyCubeParticleSystem
 
+    [Header("Spawn Settings")]
+    [SerializeField] private GameObject spawnPrefab; // 要生成的预制体
+    [SerializeField] private Transform spawnArea; // 生成区域的中心点
+    [SerializeField] private Vector2 spawnAreaSize = new Vector2(2f, 2f); // 生成区域的大小
+    [SerializeField] private bool enableSpawning = true; // 是否启用生成功能
+
     private bool isDestroying = false;
 
     [SerializeField] string bricksHitBySaber = "BricksHitSaber";
@@ -58,6 +64,10 @@ public class DestroyableObject : MonoBehaviour
     public void TriggerDestruction()
     {
         GameManager.instance.GainScore();
+        
+        // 在特定区域生成预制体
+        //SpawnPrefabInArea();
+
         if (!isDestroying)
         {
             isDestroying = true;
@@ -173,5 +183,39 @@ public class DestroyableObject : MonoBehaviour
 
             // We don't spawn particle system here since we're not in the normal destroy sequence
         }
+    }
+
+    private void SpawnPrefabInArea()
+    {
+        // 检查是否启用生成功能
+        if (!enableSpawning || spawnPrefab == null)
+        {
+            return;
+        }
+        
+        Vector3 spawnPosition;
+        
+        // 如果指定了生成区域，在该区域内随机生成
+        if (spawnArea != null)
+        {
+            // 在指定区域内随机选择位置
+            float randomX = Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+            float randomY = Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f);
+            
+            spawnPosition = spawnArea.position + new Vector3(randomX, randomY, 0);
+        }
+        else
+        {
+            // 如果没有指定区域，在当前物体位置附近生成
+            float randomX = Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+            float randomY = Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f);
+            
+            spawnPosition = transform.position + new Vector3(randomX, randomY, 0);
+        }
+        
+        // 生成预制体
+        GameObject spawnedObject = Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
+        
+        Debug.Log($"Spawned {spawnPrefab.name} at position {spawnPosition}");
     }
 }
