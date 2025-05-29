@@ -4990,7 +4990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949653737919763678, guid: 070e512259551634aa7ee8b6c7a8781d, type: 3}
       propertyPath: destroyRange
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3949653737919763678, guid: 070e512259551634aa7ee8b6c7a8781d, type: 3}
       propertyPath: gameOverManager
@@ -5672,6 +5672,7 @@ MonoBehaviour:
   glitchIntensity: 0.31
   glitchInterval: 0.19
   colorGlitchChance: 0.57
+  glitchActivationChance: 0.1
 --- !u!1 &1291321128
 GameObject:
   m_ObjectHideFlags: 0
@@ -8948,6 +8949,7 @@ MonoBehaviour:
   glitchIntensity: 0.01
   glitchInterval: 0.1
   colorGlitchChance: 0.3
+  glitchActivationChance: 0.1
 --- !u!1 &2079157097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8987,6 +8989,9 @@ MonoBehaviour:
   hoverOverSound: ButtonHover
   clickButtonSound: ButtonClick
   gameOverSound: GameOver
+  playSceneBGM: BGM_PlayScene
+  pauseMenuBGM: BGM_PauseMenu
+  audioFadeDuration: 0.15
 --- !u!4 &2079157099
 Transform:
   m_ObjectHideFlags: 0
