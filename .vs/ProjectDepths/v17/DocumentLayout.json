@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\Unity Projects\\ProjectDepths\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|d:\\unity projects\\projectdepths\\assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|D:\\Unity Projects\\ProjectDepths\\assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340DF7AC-B3A9-A9BB-7091-C756B8BCDBCC}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destroyableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -138,8 +138,7 @@
               "RelativeToolTip": "Assets\\Scripts\\RuinPrefab.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAMwCkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T17:03:25.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T17:03:25.612Z"
             },
             {
               "$type": "Document",
@@ -163,8 +162,7 @@
               "RelativeToolTip": "Assets\\Scripts\\ProgressBarController.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAqwDYAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T13:20:08.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T13:20:08.75Z"
             },
             {
               "$type": "Document",
@@ -176,8 +174,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
               "ViewState": "AQIAAHcBAAAAAAAAAAAqwIkBAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T10:21:58.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T10:21:58.399Z"
             },
             {
               "$type": "Document",
@@ -223,7 +220,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\ButtonManager.cs",
               "ToolTip": "D:\\Unity Projects\\ProjectDepths\\Assets\\Scripts\\ButtonManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ButtonManager.cs",
-              "ViewState": "AQIAAHUBAAAAAAAAAAAnwDUBAAAoAAAA",
+              "ViewState": "AQIAABIBAAAAAAAAAAApwDYBAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T12:32:19.336Z",
               "EditorCaption": ""
@@ -238,8 +235,7 @@
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
               "ViewState": "AQIAADgAAAAAAAAAAAAMwEsAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T01:22:48.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T01:22:48.969Z"
             },
             {
               "$type": "Document",
@@ -251,8 +247,7 @@
               "RelativeToolTip": "Assets\\Scripts\\DestroyableObject.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAqwD8AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T10:24:02.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T10:24:02.26Z"
             },
             {
               "$type": "Document",

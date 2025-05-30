@@ -308,7 +308,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         LoadText.color = incorrectColor;
-        LoadText.text = "Expired!"; // Different message for timeout
+        LoadText.text = "EXPIRED!"; // Different message for timeout
         audioManager.PlaySound(passwordWrongSound);
         yield return new WaitForSeconds(2f);
         ResetCodeState();
