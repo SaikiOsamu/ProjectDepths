@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8531390150962325745}
   - component: {fileID: 5692034712279254787}
   - component: {fileID: 6240823711226660744}
-  - component: {fileID: 2409510783121635159}
+  - component: {fileID: 7172090482538873145}
   m_Layer: 6
   m_Name: CubePrefab
   m_TagString: DestroyableObject
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1, y: 2.1, z: 2.1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,11 +106,16 @@ MonoBehaviour:
   destructionEffectPrefab: {fileID: 0}
   effectDuration: 1
   ruinPrefab: {fileID: 6122465855542521798, guid: 6f7f18494714d79409a7a49313bc5815, type: 3}
-  ruinDuration: 3
+  ruinDuration: 1.5
   animator: {fileID: 6240823711226660744}
   destroyTriggerName: Destroy
   animationTime: 0.1
   particleSystemPrefab: {fileID: 1479447876078210969, guid: a955793563ce7dd4489a1a5e7b48a7cb, type: 3}
+  bricksHitBySaber: BricksHitSaber
+  bricksHitByFist: BricksHitFist
+  bricksBroken: BricksBroken
+  metalHitByFist: MetalHitFist
+  metalHitBySaber: MetalHitSaber
 --- !u!95 &6240823711226660744
 Animator:
   serializedVersion: 7
@@ -133,7 +138,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &2409510783121635159
+--- !u!61 &7172090482538873145
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,5 +182,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2053500506062646357}
   m_Layer: 7
   m_Name: RuinPrefab
-  m_TagString: Untagged
+  m_TagString: Ruin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0009178221, y: -0.022027574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -151,7 +151,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.46, y: 0.1}
+  m_Size: {x: 0.43613678, y: 0.055944845}
   m_EdgeRadius: 0
 --- !u!50 &2655185515368343346
 Rigidbody2D:

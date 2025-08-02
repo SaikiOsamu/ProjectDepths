@@ -5,17 +5,17 @@ using System.Collections;
 public class SimplePopupSpawner : MonoBehaviour
 {
     [Header("Popup Settings")]
-    [SerializeField] private GameObject[] popupPrefabs; // Array of popup prefabs
+    [SerializeField] private GameObject[] popupPrefabs; // Array of different popup prefabs
     [SerializeField] private RectTransform rightInteractionZone;
 
     [Header("Difficulty Curve")]
-    [SerializeField] private float initialSpawnInterval = 15f; // Seconds between spawns at start (longer = easier)
-    [SerializeField] private float minimumSpawnInterval = 3f; // Shortest possible spawn interval (seconds)
-    [SerializeField] private float difficultyRampTime = 180f; // Time (in seconds) until maximum difficulty
-    [SerializeField] private AnimationCurve difficultyCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f); // Difficulty progression curve
+    [SerializeField] private float initialSpawnInterval = 20f; // Reduced from 30s
+    [SerializeField] private float minimumSpawnInterval = 1.5f; // Reduced from 3s
+    [SerializeField] private float difficultyRampTime = 120f; // Reduced from 180s
+    [SerializeField] private AnimationCurve difficultyCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
     [Header("Spawn Limits")]
-    [SerializeField] private int maxSimultaneousPopups = 6; // Maximum number of popups active at once
+    [SerializeField] private int maxSimultaneousPopups = 6; // Increased from 3
 
     [Header("Debug")]
     [SerializeField] private bool spawnOnKey = true;
@@ -27,14 +27,25 @@ public class SimplePopupSpawner : MonoBehaviour
     private float nextSpawnTime = 0f;
     private int activePopupCount = 0;
 
+    // Sound variables
+    [SerializeField] string[] popupSounds = { "ErrorPopup", "AlertPopup", "NotificationPopup" };
+
+    AudioManager audioManager;
+
     void Start()
     {
-        // Validate popup prefabs
+        // Get audio manager reference
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
+        // Verify we have popup prefabs
         if (popupPrefabs == null || popupPrefabs.Length == 0)
         {
-            Debug.LogError("No popup prefabs assigned! Please assign at least one popup prefab in the inspector.");
-            enabled = false;
-            return;
+            Debug.LogError("No popup prefabs assigned!");
+            popupPrefabs = new GameObject[1] { null };
         }
 
         // Set the first spawn time
@@ -61,12 +72,6 @@ public class SimplePopupSpawner : MonoBehaviour
             float difficulty = CalculateDifficulty();
             float currentInterval = Mathf.Lerp(initialSpawnInterval, minimumSpawnInterval, difficulty);
             float timeUntilNextSpawn = nextSpawnTime - gameTimer;
-            // Difficulty curve debug info
-            /*Debug.Log($"Game Time: {gameTimer:F1}s | " +
-                     $"Difficulty: {difficulty:P0} | " +
-                     $"Spawn Interval: {currentInterval:F1}s | " +
-                     $"Next Spawn: {timeUntilNextSpawn:F1}s | " +
-                     $"Active Popups: {activePopupCount}/{maxSimultaneousPopups}");*/
         }
     }
 
@@ -112,24 +117,35 @@ public class SimplePopupSpawner : MonoBehaviour
         // Calculate normalized progress (0 to 1) along the difficulty curve
         float normalizedTime = Mathf.Clamp01(gameTimer / difficultyRampTime);
 
-        // Evaluate the difficulty curve at the current time
-        return difficultyCurve.Evaluate(normalizedTime);
+        // Make the curve steeper for a more challenging experience
+        return Mathf.Pow(difficultyCurve.Evaluate(normalizedTime), 0.7f);
     }
 
     public void SpawnRandomPopup()
     {
-        if (popupPrefabs == null || popupPrefabs.Length == 0 || rightInteractionZone == null)
+        if (popupPrefabs.Length == 0 || rightInteractionZone == null)
         {
             Debug.LogError("Popup prefabs or RightInteractionZone not assigned!");
             return;
         }
 
-        // Select a random popup prefab from the array
-        int randomIndex = Random.Range(0, popupPrefabs.Length);
-        GameObject selectedPrefab = popupPrefabs[randomIndex];
+        // Select a random popup prefab
+        int prefabIndex = Random.Range(0, popupPrefabs.Length);
+        GameObject selectedPrefab = popupPrefabs[prefabIndex];
 
-        // Instantiate the selected popup as a child of the RightInteractionZone
+        if (selectedPrefab == null)
+        {
+            Debug.LogError("Selected popup prefab is null!");
+            return;
+        }
+
+        // Instantiate the popup as a child of the RightInteractionZone
         GameObject popup = Instantiate(selectedPrefab, rightInteractionZone);
+
+        // Play a random popup sound or the appropriate one for this type
+        int soundIndex = Mathf.Min(prefabIndex, popupSounds.Length - 1);
+        string soundToPlay = popupSounds[soundIndex];
+        //audioManager.PlaySound(soundToPlay); // I give sound to each prefab to play on awake.
 
         // Get the RectTransform of the popup
         RectTransform popupRect = popup.GetComponent<RectTransform>();
@@ -148,7 +164,7 @@ public class SimplePopupSpawner : MonoBehaviour
             float randomY = Random.Range(-maxOffsetY, maxOffsetY);
             popupRect.anchoredPosition = new Vector2(randomX, randomY);
 
-            Debug.Log($"Popup spawned at position: {popupRect.anchoredPosition}, Type: {selectedPrefab.name}");
+            Debug.Log($"Popup type {prefabIndex} spawned at position: {popupRect.anchoredPosition}");
         }
 
         // Increment active popup counter

@@ -45,36 +45,141 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: ButtonHover
-    clip: {fileID: 8300000, guid: 3fa4ba4379a3f884abc61b69d4e92f98, type: 3}
+  - name: BGM_MainMenu
+    clip: {fileID: 8300000, guid: 5f7d16c954e6b1c4ca6f3b3ec8805bf1, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
+  - name: BGM_PauseMenu
+    clip: {fileID: 8300000, guid: 6fb49db9a85ffae4d8040f15b1b70166, type: 3}
     volume: 1
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
+  - name: BGM_PlayScene
+    clip: {fileID: 8300000, guid: a0c0b563848b3ee4ca24a630e5378df4, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 1
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: 954adacc118cf3a42b26dddf49ff8c52, type: 3}
+    volume: 0.3
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: ButtonClick
-    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
+    clip: {fileID: 8300000, guid: ad08117833851d347993f10e5a72d49f, type: 3}
     volume: 1
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: SwordAttack
-    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 7ea4677bdadac9040b71e083ab69d876, type: 3}
+    volume: 0.5
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
   - name: FistAttack
-    clip: {fileID: 8300000, guid: acae93cf544875d49b92ab85475bee7d, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 5f9d6e3fc3c8a80408193031e5bc5299, type: 3}
+    volume: 0.5
     pitch: 1
     volumeRandomness: 0
     pitchRandomness: 0
     loop: 0
-  - name: BGM_MainMenu
-    clip: {fileID: 8300000, guid: 5f7d16c954e6b1c4ca6f3b3ec8805bf1, type: 3}
+  - name: WalkSound
+    clip: {fileID: 8300000, guid: bcdea1eeaacde4c498ede9b124778410, type: 3}
+    volume: 0.5
+    pitch: 1.5
+    volumeRandomness: 0.15
+    pitchRandomness: 0.15
+    loop: 0
+  - name: DeadSound
+    clip: {fileID: 8300000, guid: c47f8c11328b01e48b55b17f5df30244, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: ErrorPopup
+    clip: {fileID: 8300000, guid: 431a8aa80556c7a46b4a00e2c1cdaffb, type: 3}
+    volume: 0.12
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: PasswordEnter
+    clip: {fileID: 8300000, guid: aeb91a696c3dd6845a9522d2325e0a00, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: PasswordCorrect
+    clip: {fileID: 8300000, guid: ec1dc5a12426fec4b8327406d4aba0be, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: PasswordWrong
+    clip: {fileID: 8300000, guid: e7bcd57d5e3b7e047be7f83aa6983574, type: 3}
+    volume: 0.8
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: BricksBroken
+    clip: {fileID: 8300000, guid: ddae7723c6c6250448ee94bc62d02aea, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: BricksHitSaber
+    clip: {fileID: 8300000, guid: 43b3c0ff5ff078b4b978f59380a040d4, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: BricksHitFist
+    clip: {fileID: 8300000, guid: a31b9443980119447a828a4f3e6b1a82, type: 3}
+    volume: 0.8
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: MetalHitSaber
+    clip: {fileID: 8300000, guid: 3daa40828ee56204eba3be9f0cf1302c, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: MetalHitFist
+    clip: {fileID: 8300000, guid: f54ae8f1e19ef4b4387ece12b7ab64b7, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: HandPopup
+    clip: {fileID: 8300000, guid: 8cb63f6c951e9a949bf193533e0d014b, type: 3}
+    volume: 0.5
+    pitch: 1
+    volumeRandomness: 0
+    pitchRandomness: 0
+    loop: 0
+  - name: CloseError
+    clip: {fileID: 8300000, guid: 2e0ced8de64fcae45879fe292671b450, type: 3}
     volume: 0.5
     pitch: 1
     volumeRandomness: 0

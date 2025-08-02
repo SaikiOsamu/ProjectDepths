@@ -10,12 +10,13 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private string creditsSceneName = "Credits"; // Name of your credits scene (if you have one)
 
     [Header("Animation Settings (Optional)")]
-    [SerializeField] private float fadeTime = 1.0f;
+    [SerializeField] private float fadeTime = 0.2f;
     [SerializeField] private bool useTransitionEffect = false;
 
     // Sound
     [SerializeField] string hoverOverSound = "ButtonHover";
     [SerializeField] string clickButtonSound = "ButtonClick";
+    [SerializeField] string mainMenuBGM = "BGM_MainMenu";
 
     AudioManager audioManager;
 
@@ -26,6 +27,7 @@ public class MainMenuController : MonoBehaviour
         {
             Debug.LogError("No audio manager found");
         }
+        //audioManager.PlaySound(mainMenuBGM);
     }
 
     // Play sound when mouse hovering UI 
@@ -66,7 +68,7 @@ public class MainMenuController : MonoBehaviour
         // Check if you have a separate credits scene
         if (!string.IsNullOrEmpty(creditsSceneName))
         {
-            SceneManager.LoadScene(creditsSceneName);
+            StartCoroutine(LoadSceneWithDelay(creditsSceneName, 0.2f));
         }
         else
         {

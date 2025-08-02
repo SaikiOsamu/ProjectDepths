@@ -20,6 +20,7 @@ public class SimplePopup : MonoBehaviour
     private CanvasGroup canvasGroup;
     private bool isDragging = false;
     private Vector2 dragOffset;
+    AudioManager audioManager;
 
     void Awake()
     {
@@ -34,6 +35,12 @@ public class SimplePopup : MonoBehaviour
         // Add click event to the close button
         if (closeButton != null)
             closeButton.onClick.AddListener(ClosePopup);
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
 
         // Start the appearance animation
         StartCoroutine(AppearAnimation());
@@ -80,6 +87,7 @@ public class SimplePopup : MonoBehaviour
     // Close the popup with an animation
     public void ClosePopup()
     {
+        audioManager.PlaySound("CloseError");
         StartCoroutine(CloseAnimation());
     }
 

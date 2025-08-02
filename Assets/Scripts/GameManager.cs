@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float maximumCeilingSpeed;
     [SerializeField] public float extraSpeed;
 
+    // Sound
+    [SerializeField] string playSceneBGM = "BGM_PlayScene";
+
+    AudioManager audioManager;
+
     private void Awake()
     {
         current_score = 0;
@@ -27,6 +32,14 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // AudioManager instace
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
+
         scoreText.text = "00000";
     }
 
@@ -49,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void Punish()
     {
-        float position_diff = Ceiling.transform.position.y - CubeManager.Instance.GetPlayerPosition();
+        /*float position_diff = Ceiling.transform.position.y - CubeManager.Instance.GetPlayerPosition();
         if (position_diff < 4)
         {
             FallingCubeManager.Instance.punish();
@@ -57,7 +70,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Ceiling.transform.Translate(Vector3.down * (position_diff - 4));
-        }
+        }*/
     }
 
     public void GainScore()

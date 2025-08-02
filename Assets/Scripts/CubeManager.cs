@@ -64,8 +64,7 @@ public class CubeManager : MonoBehaviour
             }
 
             rowY = initialRowY - j * rowHeight;
-            SpawnRow(rowY);
-            //SpawnNextRow(rowY, currentGapColumn, direction);
+            SpawnNextRow(rowY, currentGapColumn, direction);
         }
         return rowY;
     }
@@ -79,7 +78,7 @@ public class CubeManager : MonoBehaviour
         for (int i = 0; i < columns; i++)
         {
             GameObject cube = null;
-            if (Random.value < 0.175f)
+            if (Random.value < 0.15f)
             {
                 cube = Instantiate(UnbreakableObject, transform);
             }
@@ -97,6 +96,11 @@ public class CubeManager : MonoBehaviour
 
     void SpawnNextRow(float height, int currentGapColumn, int direction)
     {
+        // Left edge - Air Wall
+        GameObject wallLeft = Instantiate(AirWallPrefab, transform);
+        wallLeft.transform.localPosition = new Vector3(startX - 1 * cellWidth, height, 0);
+
+        // Middle columns - game objects
         for (int i = 0; i < columns; i++)
         {
             GameObject cube = null;
@@ -106,7 +110,7 @@ public class CubeManager : MonoBehaviour
             }
             else
             {
-                if (Random.value < 0.5f)
+                if (Random.value < 0.2f)
                 {
                     cube = Instantiate(UnbreakableObject, transform);
                 }
@@ -117,6 +121,10 @@ public class CubeManager : MonoBehaviour
             }
             cube.transform.localPosition = new Vector3(startX + i * cellWidth, height, 0);
         }
+
+        // Right edge - Air Wall
+        GameObject wallRight = Instantiate(AirWallPrefab, transform);
+        wallRight.transform.localPosition = new Vector3(startX + columns * cellWidth, height, 0);
     }
 
     int GetNextGap(int currentGap)

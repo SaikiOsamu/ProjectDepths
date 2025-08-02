@@ -8,11 +8,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     [Header("Destroy Range")]
-    [SerializeField] private float destroyRange = 1f;
+    [SerializeField] private float destroyRange;
 
     [Header("Game Over References")]
     [SerializeField] private GameOverManager gameOverManager;
     [SerializeField] private float deathAnimationDuration = 2.2f; // 65 frames at 30fps ≈ 2.2 seconds
+
+    [Header("Spawn Settings")]
+    [SerializeField] private GameObject spawnPrefab; // 要生成的预制体
+    [SerializeField] private Transform spawnArea; // 生成区域的中心点
+    [SerializeField] private Vector2 spawnAreaSize = new Vector2(2f, 2f); // 生成区域的大小
+    [SerializeField] private bool enableSpawning = true; // 是否启用生成功能
 
     [Header("Animation")]
     private Animator animator;
@@ -32,9 +38,31 @@ public class PlayerController : MonoBehaviour
     private bool isAttackingLeft = false;
     private bool isDead = false;
     private bool isSlaming = false;
+    private bool isAttacking = false; // New flag to track any attack state
+
+    // Audio Manager
+    [SerializeField] string fistAttackSound = "FistAttack";
+    [SerializeField] string swordAttackSound = "SwordAttack";
+    [SerializeField] string playerMoveSound = "WalkSound";
+    [SerializeField] string playerDeadSound = "DeadSound";
+
+    // We still need these & error window click close
+    [SerializeField] string brickHitByFist = "BricksHitFist";
+    [SerializeField] string brickHitBySaber = "BricksHitSaber";
+    [SerializeField] string metalHitByFist = "MetalHitFist";
+    [SerializeField] string metalHitBySaber = "MetalHitSaber";
+
+    AudioManager audioManager;
 
     void Start()
     {
+        // Audio Manager
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No audio manager found");
+        }
+
         // Get the Rigidbody2D component attached to this GameObject
         rb = GetComponent<Rigidbody2D>();
 
@@ -59,14 +87,45 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;
 
-        // Handle movement input
-        HandleMovement();
+        // Only process movement if not attacking
+        if (!isAttacking)
+        {
+            // Handle movement input
+            HandleMovement();
+        }
+        else
+        {
+            // Stop movement when attacking
+            StopMovement();
+        }
 
-        // Handle attack input
-        HandleAttackInput();
+        // Only handle attack input if not currently in an attack state
+        // This prevents starting a new attack while one is already in progress
+        if (!isAttacking)
+        {
+            // Handle attack input
+            HandleAttackInput();
+        }
 
-        // Handle destroy input
-        HandleDestroyInput();
+        // We'll handle destruction in the attack methods directly
+        // No need to call HandleDestroyInput() anymore since the attack
+        // methods themselves will call DestroyObjectInDirection()
+    }
+
+    // New method to stop movement
+    void StopMovement()
+    {
+        // Stop horizontal movement
+        Vector2 newVelocity = rb.linearVelocity;
+        newVelocity.x = 0;
+        rb.linearVelocity = newVelocity;
+
+        // Update animation parameters to stop walking animation
+        if (animator != null)
+        {
+            animator.SetFloat(HORIZONTAL_MOVEMENT, 0);
+            animator.SetBool(IS_MOVING, false);
+        }
     }
 
     // Modify your OnTriggerEnter2D method
@@ -83,6 +142,14 @@ public class PlayerController : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
+
+            audioManager.PlaySound(playerDeadSound);
+
+            // Notify BossManager to stop spawning bosses
+            if (BossManager.Instance != null)
+            {
+                BossManager.Instance.OnPlayerDeath();
+            }
 
             // Disable player movement
             rb.linearVelocity = Vector2.zero;
@@ -148,22 +215,49 @@ public class PlayerController : MonoBehaviour
 
     void HandleAttackInput()
     {
+        // Don't allow starting new attacks if already attacking
+        if (isAttacking) return;
+
         // For example, using E key for right attack and Q key for left attack
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Space))
         {
             isAttackingRight = true;
+            isAttacking = true; // Set master attack flag
+
+            // Call destroy method first to ensure it happens
+            DestroyObjectInDirection(Vector2.right);
+
+            // Play sound
+            audioManager.PlaySound(swordAttackSound);
+
             animator.SetBool("AttackRight", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.Space))
         {
             isAttackingLeft = true;
+            isAttacking = true; // Set master attack flag
+
+            // Call destroy method first to ensure it happens
+            DestroyObjectInDirection(Vector2.left);
+
+            // Play sound
+            audioManager.PlaySound(swordAttackSound);
+
             animator.SetBool("AttackLeft", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Space))
         {
             isSlaming = true;
+            isAttacking = true; // Set master attack flag
+
+            // Call destroy method first to ensure it happens
+            DestroyObjectInDirection(Vector2.down);
+
+            // Play sound
+            audioManager.PlaySound(fistAttackSound);
+
             animator.SetBool("Slam", true);
             StartCoroutine(ResetAttackParameters()); // Start coroutine here for slam too
         }
@@ -172,7 +266,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator ResetAttackParameters()
     {
         // Wait briefly to allow the animation trigger to be detected
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.33f);
 
         if (isAttackingRight)
         {
@@ -185,11 +279,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("AttackLeft", false);
             isAttackingLeft = false;
         }
+
         if (isSlaming)
         {
             animator.SetBool("Slam", false);
             isSlaming = false;
         }
+
+        // Reset master attack flag after all specific attack flags are reset
+        isAttacking = false;
     }
 
     void HandleMovement()
@@ -199,11 +297,17 @@ public class PlayerController : MonoBehaviour
         // Check key states and update press times
         if (Input.GetKeyDown(KeyCode.A))
         {
+            // Play sound
+            audioManager.PlaySound(playerMoveSound);
+
             lastAKeyPressTime = Time.time;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            // Play sound
+            audioManager.PlaySound(playerMoveSound);
+
             lastDKeyPressTime = Time.time;
         }
 
@@ -247,13 +351,16 @@ public class PlayerController : MonoBehaviour
 
     void HandleDestroyInput()
     {
+        // Process destroy inputs when attack keys are initially pressed
+        // This is integrated with the attack system, so we want these to work together
+
         // Check for Q key to destroy object on the left
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Try the primary method first
             DestroyObjectInDirection(Vector2.left);
         }
-        // Check for D key to move right, E key to destroy right
+        // Check for E key to destroy right
         else if (Input.GetKeyDown(KeyCode.E))
         {
             // Try the primary method first
@@ -269,109 +376,85 @@ public class PlayerController : MonoBehaviour
 
     void DestroyObjectInDirection(Vector2 direction)
     {
-        // Get the renderer to find the exact size of the player sprite
-        SpriteRenderer playerRenderer = GetComponent<SpriteRenderer>();
+        Vector2Int gridDir = Vector2Int.RoundToInt(direction);
+        Vector2 targetPosition = (Vector2)transform.position + (Vector2)gridDir;
 
-        // Calculate a safe offset to ensure the ray starts outside the player's collider
-        float offsetDistance = 0.55f; // Default value
+        float detectionRadius = 0.1f;
+        Collider2D hit = Physics2D.OverlapCircle(targetPosition, detectionRadius);
 
-        if (playerRenderer != null)
+        if (hit != null)
         {
-            // Use the sprite bounds to get a precise measurement
-            offsetDistance = Mathf.Max(playerRenderer.bounds.extents.x, playerRenderer.bounds.extents.y) + 0.1f;
+            Debug.Log("OverlapPoint hit: " + hit.name + " at " + targetPosition);
+
+            if (hit.CompareTag("DestroyableObject"))
+            {
+                DestroyableObject destroyable = hit.GetComponent<DestroyableObject>();
+                if (destroyable != null)
+                {
+                    destroyable.TriggerDestruction();
+                    
+                    // 在特定区域生成预制体
+                    SpawnPrefabInArea();
+                    
+                    if (isAttackingLeft || isAttackingRight)
+                        audioManager.PlaySound(brickHitBySaber);
+                }
+                else
+                {
+                    Destroy(hit.gameObject);
+                }
+            }
+            else if (hit.CompareTag("HardObject"))
+            {
+                if (isAttackingLeft || isAttackingRight)
+                    audioManager.PlaySound(metalHitBySaber);
+                else if (isSlaming)
+                    audioManager.PlaySound(metalHitByFist);
+            }
         }
         else
         {
-            // Fallback to using the collider if available
-            Collider2D playerCollider = GetComponent<Collider2D>();
-            if (playerCollider != null)
-            {
-                // Use the bounds to get a more accurate size
-                offsetDistance = Mathf.Max(playerCollider.bounds.extents.x, playerCollider.bounds.extents.y) + 0.1f;
-            }
+            Debug.Log("No object found at grid position: " + targetPosition);
         }
+    }
 
-        // Starting position for the raycast (OUTSIDE the player's collider)
-        Vector2 rayOrigin = (Vector2)transform.position + (direction * offsetDistance);
+    // Updated to accept the layer mask parameter
+    void TryAlternativeRaycast(Vector2 rayOrigin, Vector2 direction, int layerMask)
+    {
+        // Use the passed in layer mask that already excludes ruins and player
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(
+            rayOrigin,     // Origin
+            0.1f,          // Radius 
+            direction,     // Direction
+            destroyRange,  // Distance
+            layerMask      // Layer mask that excludes Ruins
+        );
 
-        // Cast a ray in the specified direction
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, destroyRange);
-
-        // Debug ray for visualization in Scene view
-        Debug.DrawRay(rayOrigin, direction * destroyRange, Color.green, 2f);
-
-        // Log the raycast attempt for debugging
-        Debug.Log("Casting ray in direction: " + direction + " with range: " + destroyRange + " from position: " + rayOrigin);
-
-        // Check if the ray hit something
-        if (hit.collider != null)
+        // Process all hits
+        foreach (RaycastHit2D hit in hits)
         {
-            Debug.Log("Ray hit object: " + hit.collider.gameObject.name + " with tag: " + hit.collider.tag);
-
-            // Make sure we didn't hit ourselves
-            if (hit.collider.gameObject == gameObject)
-            {
-                Debug.LogError("Still hitting our own collider! Increase offset distance.");
-                return;
-            }
-
-            // Check if the hit object has the "DestroyableObject" tag
+            // We don't need to check for Ruin tag anymore
             if (hit.collider.CompareTag("DestroyableObject"))
             {
-                // Get the DestroyableObject component and trigger destruction
                 DestroyableObject destroyable = hit.collider.GetComponent<DestroyableObject>();
                 if (destroyable != null)
                 {
                     destroyable.TriggerDestruction();
+                    Debug.Log("Destroyed object using CircleCast: " + hit.collider.gameObject.name);
+                    return;
                 }
                 else
                 {
-                    // Fallback to direct destruction if the object doesn't have our component
                     Destroy(hit.collider.gameObject);
-                }
-                Debug.Log("Destroyed object: " + hit.collider.gameObject.name);
-                return; // Added return here to ensure no further destroy methods are called
-            }
-        }
-        else
-        {
-            Debug.Log("Ray didn't hit any object. Try increasing range or adjusting the ray origin.");
-
-            // Let's try one more approach - a sphere cast
-            RaycastHit2D sphereHit = Physics2D.CircleCast(
-                rayOrigin, // Origin
-                0.1f,      // Radius 
-                direction, // Direction
-                destroyRange // Distance
-            );
-
-            if (sphereHit.collider != null && sphereHit.collider.gameObject != gameObject)
-            {
-                Debug.Log("CircleCast hit: " + sphereHit.collider.gameObject.name);
-
-                if (sphereHit.collider.CompareTag("DestroyableObject"))
-                {
-                    // Get the DestroyableObject component and trigger destruction
-                    DestroyableObject destroyable = sphereHit.collider.GetComponent<DestroyableObject>();
-                    if (destroyable != null)
-                    {
-                        destroyable.TriggerDestruction();
-                    }
-                    else
-                    {
-                        // Fallback to direct destruction if the object doesn't have our component
-                        Destroy(sphereHit.collider.gameObject);
-                    }
-                    Debug.Log("Destroyed object using CircleCast: " + sphereHit.collider.gameObject.name);
-                    return; // Added return here to ensure no further destroy methods are called
+                    Debug.Log("Destroyed object using CircleCast: " + hit.collider.gameObject.name);
+                    return;
                 }
             }
         }
 
-        // If we got here, try the backup method
+        // If we still haven't found anything, use the final backup method
         FindAndDestroyNearestInDirection(direction);
     }
-
     // This is a completely different approach that doesn't use raycasts
     void FindAndDestroyNearestInDirection(Vector2 direction)
     {
@@ -392,6 +475,10 @@ public class PlayerController : MonoBehaviour
             if (!collider.CompareTag("DestroyableObject"))
                 continue;
 
+            // Skip Ruin objects
+            if (collider.CompareTag("Ruin"))
+                continue;
+
             // Calculate direction to the object
             Vector2 toObject = collider.transform.position - transform.position;
 
@@ -399,7 +486,7 @@ public class PlayerController : MonoBehaviour
             float dot = Vector2.Dot(direction.normalized, toObject.normalized);
 
             // If dot > 0.7, object is within about 45 degrees of our direction
-            if (dot > 0.7f)
+            if (dot > 1f)
             {
                 // Check if this is closer than any object we've found so far
                 float distance = toObject.magnitude;
@@ -428,5 +515,39 @@ public class PlayerController : MonoBehaviour
                 Destroy(closestObject);
             }
         }
+    }
+
+    void SpawnPrefabInArea()
+    {
+        // 检查是否启用生成功能
+        if (!enableSpawning || spawnPrefab == null)
+        {
+            return;
+        }
+        
+        Vector3 spawnPosition;
+        
+        // 如果指定了生成区域，在该区域内随机生成
+        if (spawnArea != null)
+        {
+            // 在指定区域内随机选择位置
+            float randomX = Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+            float randomY = Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f);
+            
+            spawnPosition = spawnArea.position + new Vector3(randomX, randomY, 0);
+        }
+        else
+        {
+            // 如果没有指定区域，在当前物体位置附近生成
+            float randomX = Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+            float randomY = Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f);
+            
+            spawnPosition = transform.position + new Vector3(randomX, randomY, 0);
+        }
+        
+        // 生成预制体
+        GameObject spawnedObject = Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
+        
+        Debug.Log($"Spawned {spawnPrefab.name} at position {spawnPosition}");
     }
 }
